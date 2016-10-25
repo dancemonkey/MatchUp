@@ -13,6 +13,8 @@
 		10F20C8E1DBFF13400E05345 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */; };
 		10F20C911DBFF13400E05345 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C8F1DBFF13400E05345 /* MainInterface.storyboard */; };
 		10F20C931DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C921DBFF13400E05345 /* Assets.xcassets */; };
+		10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F20C9E1DBFF2C000E05345 /* CompactVC.swift */; };
+		10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		10F20C901DBFF13400E05345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		10F20C921DBFF13400E05345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10F20C941DBFF13400E05345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10F20C9E1DBFF2C000E05345 /* CompactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
+		10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
+				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
+				10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */,
 				10F20C8F1DBFF13400E05345 /* MainInterface.storyboard */,
 				10F20C921DBFF13400E05345 /* Assets.xcassets */,
 				10F20C941DBFF13400E05345 /* Info.plist */,
@@ -213,7 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */,
 				10F20C8E1DBFF13400E05345 /* MessagesViewController.swift in Sources */,
+				10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
