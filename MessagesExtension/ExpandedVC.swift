@@ -9,6 +9,10 @@
 import UIKit
 import Messages
 
+enum RPSChoice: String {
+  case Rock, Paper, Scissors
+}
+
 class ExpandedVC: MSMessagesAppViewController {
   
   @IBOutlet weak var rollButton: UIButton!
@@ -17,13 +21,22 @@ class ExpandedVC: MSMessagesAppViewController {
   @IBOutlet weak var flipBtn: UIButton!
   @IBOutlet weak var flipResultLbl: UILabel!
   
+  @IBOutlet weak var rpsSgmt: UISegmentedControl!
+  @IBOutlet weak var tossBtn: UIButton!
+  
   var d6Die: Die? = nil
   var coin: Coin? = nil
+  var rpsChoice: RPSChoice? = nil {
+    didSet {
+      tossBtn.setTitle(rpsChoice?.rawValue, for: .normal)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     d6Die = Die(sides: 20)
     coin = Coin()
+    rpsSgmt.addTarget(self, action: #selector(ExpandedVC.rpsSelectionMade(sender:)), for: .valueChanged)
   }
   
   override func didReceiveMemoryWarning() {
@@ -37,6 +50,21 @@ class ExpandedVC: MSMessagesAppViewController {
   
   @IBAction func flipPressed(sender: UIButton) {
     flipResultLbl.text = "Result: \(coin!.flip())"
+  }
+  
+  func rpsSelectionMade(sender: UISegmentedControl) {
+    rpsChoice = RPSChoice(rawValue: sender.titleForSegment(at: sender.selectedSegmentIndex)!)
+    print(rpsChoice)
+  }
+  
+  @IBAction func tossPressed(sender: UIButton) {
+    guard let choice = rpsChoice else {
+      return
+      // Popup alert controller telling dummy to make a selection before trying to send
+    }
+    
+    // handle sending RPS choice to next player here
+    print("You chose and sent \(choice.rawValue) in your game of Rock Paper Scissors")
   }
   
   

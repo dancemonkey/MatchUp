@@ -95,6 +95,9 @@
                                 <state key="normal" title="TOSS">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tossPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="kDs-S9-Rim"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="sBS-7T-mUA">
                                 <segments>
@@ -125,6 +128,8 @@
                         <outlet property="flipResultLbl" destination="wsD-o7-HpH" id="gY6-oX-dPT"/>
                         <outlet property="resultLbl" destination="Cy8-7D-x7O" id="hn6-G1-RtY"/>
                         <outlet property="rollButton" destination="piB-Lr-zgr" id="jAo-6e-aKE"/>
+                        <outlet property="rpsSgmt" destination="sBS-7T-mUA" id="gdX-lG-xUu"/>
+                        <outlet property="tossBtn" destination="Zd1-9J-4Hw" id="Pus-JX-jft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIe-i5-E27" userLabel="First Responder" sceneMemberID="firstResponder"/>
