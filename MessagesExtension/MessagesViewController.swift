@@ -11,19 +11,6 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
   
-  @IBOutlet weak var button: UIButton!
-  var vc: MSMessagesAppViewController!
-  
-  @IBAction func buttonPressed() {
-    if self.presentationStyle == .compact {
-      requestPresentationStyle(.expanded)
-      //self.addChildViewController(vc)
-    } else {
-      //vc.dismiss()
-      requestPresentationStyle(.compact)
-    }
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
