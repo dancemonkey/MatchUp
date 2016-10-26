@@ -15,16 +15,11 @@ class MessagesViewController: MSMessagesAppViewController {
   var vc: MSMessagesAppViewController!
   
   @IBAction func buttonPressed() {
-    loadView()
-  }
-  
-  override func loadView() {
     if self.presentationStyle == .compact {
-      vc = ExpandedVC()
-      self.addChildViewController(vc)
       requestPresentationStyle(.expanded)
+      //self.addChildViewController(vc)
     } else {
-      vc.dismiss()
+      //vc.dismiss()
       requestPresentationStyle(.compact)
     }
   }
@@ -39,13 +34,53 @@ class MessagesViewController: MSMessagesAppViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+    let controller: UIViewController
+    
+    if presentationStyle == .compact {
+      controller = instantiateCompactVC()
+    } else {
+      controller = instantiateExpandedVC()
+    }
+    
+    for child in childViewControllers {
+      child.willMove(toParentViewController: nil)
+      child.view.removeFromSuperview()
+      child.removeFromParentViewController()
+    }
+    
+    addChildViewController(controller)
+    
+    controller.view.frame = view.bounds
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(controller.view)
+    
+    controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
+    controller.didMove(toParentViewController: self)
+  }
+  
+  private func instantiateCompactVC() -> UIViewController {
+    guard let compactVC = storyboard?.instantiateViewController(withIdentifier: "Compact VC") as? CompactVC else {
+      fatalError("Can't make a CompactVC")
+    }
+    return compactVC
+  }
+  
+  private func instantiateExpandedVC() -> UIViewController {
+    guard let expandedVC = storyboard?.instantiateViewController(withIdentifier: "Expanded VC") as? ExpandedVC else {
+      fatalError("Can't make an ExpandedVC")
+    }
+    return expandedVC
+  }
+  
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
-    // Called when the extension is about to move from the inactive to active state.
-    // This will happen when the extension is about to present UI.
-    
-    // Use this method to configure the extension and restore previously stored state.
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didResignActive(with conversation: MSConversation) {
@@ -76,9 +111,11 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-    // Called before the extension transitions to a new presentation style.
+    guard let conversation = activeConversation else {
+      fatalError("No active conversation or something")
+    }
     
-    // Use this method to prepare for the change in presentation style.
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
