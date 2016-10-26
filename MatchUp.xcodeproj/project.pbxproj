@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1011E7841DC0E57800AB50FB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7831DC0E57800AB50FB /* Die.swift */; };
+		1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7851DC0EBDC00AB50FB /* Coin.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
 		10F20C861DBFF13400E05345 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 10F20C851DBFF13400E05345 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10F20C8B1DBFF13400E05345 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F20C8A1DBFF13400E05345 /* Messages.framework */; };
@@ -42,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1011E7831DC0E57800AB50FB /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		1011E7851DC0EBDC00AB50FB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F20C7E1DBFF13400E05345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10F20C801DBFF13400E05345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +71,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1011E7801DC0E54E00AB50FB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
+				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
+				10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1011E7811DC0E55D00AB50FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1011E7821DC0E56100AB50FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1011E7831DC0E57800AB50FB /* Die.swift */,
+				1011E7851DC0EBDC00AB50FB /* Coin.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		10F20C741DBFF13300E05345 = {
 			isa = PBXGroup;
 			children = (
@@ -106,9 +136,9 @@
 		10F20C8C1DBFF13400E05345 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
-				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
-				10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */,
+				1011E7821DC0E56100AB50FB /* Model */,
+				1011E7811DC0E55D00AB50FB /* View */,
+				1011E7801DC0E54E00AB50FB /* Controller */,
 				10F20C8F1DBFF13400E05345 /* MainInterface.storyboard */,
 				10F20C921DBFF13400E05345 /* Assets.xcassets */,
 				10F20C941DBFF13400E05345 /* Info.plist */,
@@ -221,6 +251,8 @@
 			files = (
 				10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */,
 				10F20C8E1DBFF13400E05345 /* MessagesViewController.swift in Sources */,
+				1011E7841DC0E57800AB50FB /* Die.swift in Sources */,
+				1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */,
 				10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +445,7 @@
 				10F20C991DBFF13400E05345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10F20C9B1DBFF13400E05345 /* Build configuration list for PBXNativeTarget "MatchUp" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +454,7 @@
 				10F20C9D1DBFF13400E05345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -53,18 +53,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPANDED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-7D-x7O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Roll Result: (no rolls)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-7D-x7O">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piB-Lr-zgr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="G2d-Hn-GAX"/>
+                                    <constraint firstAttribute="width" constant="75" id="Q8b-Yt-C6q"/>
+                                </constraints>
+                                <state key="normal" title="ROLL">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rollPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="6kD-Fh-BLW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Flip Result: (no flips)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsD-o7-HpH">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPD-bf-sta">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="eMj-ng-ha4"/>
+                                    <constraint firstAttribute="height" constant="50" id="zmR-ex-hGO"/>
+                                </constraints>
+                                <state key="normal" title="FLIP">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flipPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="Jaa-cf-8hC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-9J-4Hw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RyE-ta-NUx"/>
+                                    <constraint firstAttribute="width" constant="75" id="hL1-qt-raX"/>
+                                </constraints>
+                                <state key="normal" title="TOSS">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="sBS-7T-mUA">
+                                <segments>
+                                    <segment title="Rock"/>
+                                    <segment title="Paper"/>
+                                    <segment title="Scissors"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cy8-7D-x7O" firstAttribute="centerY" secondItem="c1d-be-2sT" secondAttribute="centerY" id="2oY-Z1-Lo5"/>
+                            <constraint firstItem="FPD-bf-sta" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="Dat-qd-1lo"/>
+                            <constraint firstItem="Zd1-9J-4Hw" firstAttribute="top" secondItem="sBS-7T-mUA" secondAttribute="bottom" constant="8" id="Dd0-3l-UYd"/>
+                            <constraint firstItem="wsD-o7-HpH" firstAttribute="top" secondItem="ybq-cI-dtA" secondAttribute="bottom" constant="8" id="Dro-5T-i1m"/>
+                            <constraint firstItem="piB-Lr-zgr" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="RNz-zB-acR"/>
+                            <constraint firstItem="qsu-GQ-LWg" firstAttribute="top" secondItem="Zd1-9J-4Hw" secondAttribute="bottom" constant="20" id="ThW-kW-dJ8"/>
+                            <constraint firstItem="sBS-7T-mUA" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="a9l-tX-stR"/>
+                            <constraint firstItem="wsD-o7-HpH" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="cKk-at-bbT"/>
+                            <constraint firstItem="piB-Lr-zgr" firstAttribute="top" secondItem="Cy8-7D-x7O" secondAttribute="bottom" constant="8" id="hHo-xm-b2e"/>
+                            <constraint firstItem="FPD-bf-sta" firstAttribute="top" secondItem="wsD-o7-HpH" secondAttribute="bottom" constant="8" id="iFP-2O-3or"/>
                             <constraint firstItem="Cy8-7D-x7O" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="pdJ-rM-1rT"/>
+                            <constraint firstItem="Zd1-9J-4Hw" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="t80-1d-ogV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="flipBtn" destination="FPD-bf-sta" id="SbT-sG-UEy"/>
+                        <outlet property="flipResultLbl" destination="wsD-o7-HpH" id="gY6-oX-dPT"/>
+                        <outlet property="resultLbl" destination="Cy8-7D-x7O" id="hn6-G1-RtY"/>
+                        <outlet property="rollButton" destination="piB-Lr-zgr" id="jAo-6e-aKE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIe-i5-E27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,18 +143,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AY-SK-9Oq">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHm-OE-9Uw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8vs-fo-1Lh"/>
+                                    <constraint firstAttribute="width" constant="75" id="Gy0-yp-0VB"/>
+                                </constraints>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPressedWithSender:" destination="3Eb-Oi-V92" eventType="touchUpInside" id="OQy-ya-t2b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6AY-SK-9Oq" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="0vl-TB-wEW"/>
-                            <constraint firstItem="6AY-SK-9Oq" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="UX7-kK-3tM"/>
+                            <constraint firstItem="SHm-OE-9Uw" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="eae-HM-Qod"/>
+                            <constraint firstItem="SHm-OE-9Uw" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="ti5-KC-y9a"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playBtn" destination="SHm-OE-9Uw" id="dFF-ji-Rrg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tru-aE-Rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

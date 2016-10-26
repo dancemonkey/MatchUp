@@ -10,6 +10,8 @@ import UIKit
 import Messages
 
 class CompactVC: MSMessagesAppViewController {
+  
+  @IBOutlet weak var playBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,10 @@ class CompactVC: MSMessagesAppViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  @IBAction func playPressed(sender: UIButton) {
+    requestPresentationStyle(.expanded)
+  }
     
 
     /*
