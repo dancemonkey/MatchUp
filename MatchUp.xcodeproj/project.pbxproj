@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1011E7841DC0E57800AB50FB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7831DC0E57800AB50FB /* Die.swift */; };
 		1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7851DC0EBDC00AB50FB /* Coin.swift */; };
+		10E9FA851DC24329001583B7 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9FA841DC24329001583B7 /* utils.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
 		10F20C861DBFF13400E05345 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 10F20C851DBFF13400E05345 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10F20C8B1DBFF13400E05345 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F20C8A1DBFF13400E05345 /* Messages.framework */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		1011E7831DC0E57800AB50FB /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1011E7851DC0EBDC00AB50FB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		10E9FA841DC24329001583B7 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F20C7E1DBFF13400E05345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10F20C801DBFF13400E05345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		10E9FA831DC242F9001583B7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				10E9FA841DC24329001583B7 /* utils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		10F20C741DBFF13300E05345 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 				10FD8FCD1DC12CA5007EFE0C /* dice.png */,
 				10FD8FD21DC12FC3007EFE0C /* coin_heads.png */,
 				10FD8FD31DC12FC3007EFE0C /* coin_tails.png */,
+				10E9FA831DC242F9001583B7 /* Utils */,
 				1011E7821DC0E56100AB50FB /* Model */,
 				1011E7811DC0E55D00AB50FB /* View */,
 				1011E7801DC0E54E00AB50FB /* Controller */,
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */,
+				10E9FA851DC24329001583B7 /* utils.swift in Sources */,
 				10F20C8E1DBFF13400E05345 /* MessagesViewController.swift in Sources */,
 				10FD8FD11DC12DDA007EFE0C /* CoinFlipVC.swift in Sources */,
 				1011E7841DC0E57800AB50FB /* Die.swift in Sources */,

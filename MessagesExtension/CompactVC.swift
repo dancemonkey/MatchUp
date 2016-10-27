@@ -11,7 +11,7 @@ import Messages
 
 class CompactVC: MSMessagesAppViewController {
   
-  @IBOutlet weak var playBtn: UIButton!
+  @IBOutlet weak var coinBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,10 @@ class CompactVC: MSMessagesAppViewController {
         // Dispose of any resources that can be recreated.
     }
   
-  @IBAction func playPressed(sender: UIButton) {
-    requestPresentationStyle(.expanded)
+  @IBAction func coinPressed(sender: UIButton) {
+    Utils.animateButton(sender, withTiming: 0.05) {
+      self.performSegue(withIdentifier: "showCoinGame", sender: self)
+    }
   }
     
 

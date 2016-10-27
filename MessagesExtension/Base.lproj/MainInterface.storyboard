@@ -142,17 +142,17 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Xb-2jj" userLabel="Paper">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Xb-2jj" userLabel="Coin">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="G7H-bE-hFd"/>
                                     <constraint firstAttribute="width" constant="75" id="ZOc-t9-HeJ"/>
                                 </constraints>
                                 <state key="normal" image="coin.png"/>
                                 <connections>
-                                    <segue destination="As0-Bv-t71" kind="show" id="D4x-m1-BBF"/>
+                                    <action selector="coinPressedWithSender:" destination="3Eb-Oi-V92" eventType="touchUpInside" id="MVK-XA-TKY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-ew-AhR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-ew-AhR" userLabel="Dice">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="3It-PG-t8f"/>
                                     <constraint firstAttribute="height" constant="75" id="LeL-s1-kC1"/>
@@ -176,6 +176,10 @@
                             <constraint firstItem="0ab-Xb-2jj" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="ydW-rN-Zmp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coinBtn" destination="0ab-Xb-2jj" id="Oda-Cv-Kj4"/>
+                        <segue destination="As0-Bv-t71" kind="show" identifier="showCoinGame" id="WFa-ev-fxu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tru-aE-Rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,13 +197,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
                                     <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flick to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
