@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="82"/>
+            <point key="canvasLocation" x="640" y="73"/>
         </scene>
         <!--ExpandedVC-->
         <scene sceneID="cER-av-Fgh">
@@ -119,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIe-i5-E27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="79"/>
+            <point key="canvasLocation" x="1378" y="797"/>
         </scene>
         <!--CompactVC-->
         <scene sceneID="4NZ-OC-3A5">
@@ -135,8 +135,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHm-OE-9Uw" userLabel="Rock">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="8vZ-Qq-N3Y"/>
-                                    <constraint firstAttribute="height" constant="60" id="sSg-70-eCa"/>
+                                    <constraint firstAttribute="width" constant="75" id="8vZ-Qq-N3Y"/>
+                                    <constraint firstAttribute="height" constant="75" id="sSg-70-eCa"/>
                                 </constraints>
                                 <state key="normal" image="rock.png">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,8 +144,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Xb-2jj" userLabel="Paper">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="G7H-bE-hFd"/>
-                                    <constraint firstAttribute="width" constant="60" id="ZOc-t9-HeJ"/>
+                                    <constraint firstAttribute="height" constant="75" id="G7H-bE-hFd"/>
+                                    <constraint firstAttribute="width" constant="75" id="ZOc-t9-HeJ"/>
                                 </constraints>
                                 <state key="normal" image="coin.png"/>
                                 <connections>
@@ -154,18 +154,17 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-ew-AhR">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="3It-PG-t8f"/>
-                                    <constraint firstAttribute="height" constant="60" id="LeL-s1-kC1"/>
+                                    <constraint firstAttribute="width" constant="75" id="3It-PG-t8f"/>
+                                    <constraint firstAttribute="height" constant="75" id="LeL-s1-kC1"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="dice.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PICK YOUR BATTLE..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-uo-odw">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MATCH UP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-uo-odw">
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bBS-uo-odw" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="5ze-Xf-45g"/>
                             <constraint firstItem="0ab-Xb-2jj" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="8Pp-Pj-UJn"/>
@@ -196,13 +195,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="119" id="Sde-Ka-pLU"/>
-                                    <constraint firstAttribute="height" constant="91" id="fkI-wq-EVd"/>
+                                    <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
+                                    <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip the coin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flick to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-ZA-9Yb">
@@ -215,7 +213,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="centerY" secondItem="NfF-PM-exF" secondAttribute="centerY" id="3yu-bP-Bjz"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="6mn-da-Wyv"/>
@@ -232,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwr-dS-t01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029.5999999999999" y="73.313343328335833"/>
+            <point key="canvasLocation" x="2135" y="73"/>
         </scene>
     </scenes>
     <resources>
