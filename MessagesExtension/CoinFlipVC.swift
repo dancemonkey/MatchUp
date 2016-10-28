@@ -17,6 +17,10 @@ enum CoinGameStateIndex: Int {
   case flip=0, pick, result, over
 }
 
+enum CoinFlipPick: String {
+  case heads, tails
+}
+
 class CoinFlipVC: MSMessagesAppViewController {
   
   @IBOutlet weak var coinImg: UIImageView!
@@ -27,9 +31,11 @@ class CoinFlipVC: MSMessagesAppViewController {
   
   var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
+  var pick: CoinFlipPick? = nil
   
-  let subCaptionsForState: [String] = ["Call It!"]
+  let subCaptionsForState = ["Call It!", "Opponent called it."]
   let resultsLblTextForState: [String] = ["Tap to flip the coin","Heads or Tails?"]
+  let summaryTextForState: [String] = ["Coin flipped.", "Opponent called it."]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,7 +60,7 @@ class CoinFlipVC: MSMessagesAppViewController {
   }
   
   func setupFlip() {
-    let tap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.composeMessage))
+    let tap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.startGameTapped))
     coinImg.addGestureRecognizer(tap)
     coinImg.isHidden = false
     resultsLbl.isHidden = false
@@ -63,6 +69,10 @@ class CoinFlipVC: MSMessagesAppViewController {
   
   func setupPick() {
     // SETUP UP TGR ON EACH IMAGE FOR SENDING A NEW MESSAGE BACK WITH CHOICE
+    let headTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.headsTapped))
+    let tailTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.tailsTapped))
+    headsImg.addGestureRecognizer(headTap)
+    tailsImg.addGestureRecognizer(tailTap)
     headsImg.isHidden = false
     tailsImg.isHidden = false
     resultsLbl.text = resultsLblTextForState[CoinGameStateIndex.pick.rawValue]
@@ -91,15 +101,14 @@ class CoinFlipVC: MSMessagesAppViewController {
     
   }
   
-  func composeMessage() {
+  func composeMessage(forState state: CoinGameState, index: Int) {
     
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
-    
     let layout = MSMessageTemplateLayout()
     layout.image = coinImg.image
     layout.caption = "COIN FLIP CHALLENGE!"
-    layout.subcaption = subCaptionsForState[CoinGameStateIndex.flip.rawValue]
+    layout.subcaption = subCaptionsForState[index]
     
     let message = MSMessage(session: session)
     message.layout = layout
@@ -107,14 +116,36 @@ class CoinFlipVC: MSMessagesAppViewController {
     var components = URLComponents()
     let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: gameState).rawValue)
     components.queryItems = [queryItem]
+    if gameState == .pick {
+      let queryItem = URLQueryItem(name: "coinFlipChoice", value: self.pick!.rawValue)
+      components.queryItems?.append(queryItem)
+    }
     
     message.url = components.url
-    message.summaryText = "Coin flipped."
+    message.summaryText = summaryTextForState[index]
     
     convo.insert(message, completionHandler: { (error: Error?) in
       self.gameState = self.nextGameState(from: self.gameState)
+      self.requestPresentationStyle(.compact)
       print(error)
     })
+    
+  }
+  
+  func startGameTapped() {
+    composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue)
+  }
+  
+  func headsTapped() {
+    print("heads tapped")
+    self.pick = .heads
+    composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
+  }
+  
+  func tailsTapped() {
+    print("tails tapped")
+    self.pick = .tails
+    composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
   }
   
   func nextGameState(from state: CoinGameState?) -> CoinGameState {

@@ -216,13 +216,13 @@
                                     <action selector="cancelPressedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="RgJ-86-CSw"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
+                            <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="HlP-OY-Z2T"/>
                                     <constraint firstAttribute="width" constant="120" id="LqT-bC-uZp"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
+                            <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="0Vd-d3-vgP"/>
                                     <constraint firstAttribute="height" constant="120" id="ftz-Xk-GPW"/>
