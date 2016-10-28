@@ -22,12 +22,23 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
-    let controller: UIViewController
+    var controller: UIViewController
+    var state: CoinGameState?
     
-    if presentationStyle == .compact {
-      controller = instantiateCompactVC()
-    } else {
-      controller = instantiateExpandedVC()
+    controller = instantiateCompactVC()
+    
+    if let message = conversation.selectedMessage, let url = message.url {
+      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+        if let queryItems = components.queryItems {
+          let item = queryItems[0]
+          if let coinState = CoinGameState(rawValue: item.value!) {
+            state = coinState
+            controller = instantiateCoinGame(forState: state!, withMessage: message)
+          } else {
+            // WILL LATER NEED TO HANDLE STATES FROM OTHER GAMES
+          }
+        }
+      }
     }
     
     for child in childViewControllers {
@@ -50,24 +61,26 @@ class MessagesViewController: MSMessagesAppViewController {
     controller.didMove(toParentViewController: self)
   }
   
+  private func instantiateCoinGame(forState state: CoinGameState, withMessage message: MSMessage) -> UIViewController {
+    guard let vc = storyboard?.instantiateViewController(withIdentifier: "Coin Game") as? CoinFlipVC else {
+      fatalError("Can't load Coin Game")
+    }
+    vc.gameState = state
+    vc.message = message
+    return vc
+  }
+  
   private func instantiateCompactVC() -> UIViewController {
     guard let compactVC = storyboard?.instantiateViewController(withIdentifier: "Compact VC") as? CompactVC else {
       fatalError("Can't make a CompactVC")
     }
     return compactVC
-  }
-  
-  private func instantiateExpandedVC() -> UIViewController {
-    guard let expandedVC = storyboard?.instantiateViewController(withIdentifier: "Expanded VC") as? ExpandedVC else {
-      fatalError("Can't make an ExpandedVC")
-    }
-    return expandedVC
-  }
+  } 
   
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
-    presentVC(for: conversation, with: presentationStyle)
+    presentVC(for: conversation, with: .compact)
   }
   
   override func didResignActive(with conversation: MSConversation) {
@@ -102,7 +115,7 @@ class MessagesViewController: MSMessagesAppViewController {
       fatalError("No active conversation or something")
     }
     
-    presentVC(for: conversation, with: presentationStyle)
+    presentVC(for: conversation, with: .compact)
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {

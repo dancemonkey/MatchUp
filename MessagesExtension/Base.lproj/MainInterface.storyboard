@@ -188,7 +188,7 @@
         <!--Coin FlipVC-->
         <scene sceneID="0X9-qY-dMR">
             <objects>
-                <viewController id="As0-Bv-t71" customClass="CoinFlipVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Coin Game" id="As0-Bv-t71" customClass="CoinFlipVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cft-GP-oly"/>
                         <viewControllerLayoutGuide type="bottom" id="rIl-l2-fqH"/>
@@ -197,17 +197,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
+                            <imageView hidden="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
                                     <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-ZA-9Yb">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-ZA-9Yb">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -216,20 +216,40 @@
                                     <action selector="cancelPressedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="RgJ-86-CSw"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="HlP-OY-Z2T"/>
+                                    <constraint firstAttribute="width" constant="120" id="LqT-bC-uZp"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="0Vd-d3-vgP"/>
+                                    <constraint firstAttribute="height" constant="120" id="ftz-Xk-GPW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="centerY" secondItem="NfF-PM-exF" secondAttribute="centerY" id="3yu-bP-Bjz"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="6mn-da-Wyv"/>
+                            <constraint firstItem="H9E-IO-UuE" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="LPI-Ry-6Fw"/>
+                            <constraint firstItem="2ai-0U-VFo" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="Lml-xd-fqr"/>
                             <constraint firstItem="NfF-PM-exF" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="Pp1-aS-6Zy"/>
+                            <constraint firstAttribute="trailing" secondItem="H9E-IO-UuE" secondAttribute="trailing" constant="16" id="UMO-r7-GJY"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="top" secondItem="NfF-PM-exF" secondAttribute="bottom" constant="16" id="UPp-DZ-oVP"/>
+                            <constraint firstItem="2ai-0U-VFo" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ZzM-sW-GwR"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="wCp-wR-Av4"/>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ycN-GZ-WEY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="YsD-ZA-9Yb" id="9dv-gm-0xF"/>
                         <outlet property="coinImg" destination="QA3-FB-uPp" id="3q4-Wq-5Qb"/>
+                        <outlet property="headsImg" destination="2ai-0U-VFo" id="cW6-iN-yxe"/>
                         <outlet property="resultsLbl" destination="NfF-PM-exF" id="a1k-r9-xSb"/>
+                        <outlet property="tailsImg" destination="H9E-IO-UuE" id="RU9-LV-HRR"/>
+                        <segue destination="3Eb-Oi-V92" kind="show" identifier="showMenuVC" id="JEy-Rc-nIa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwr-dS-t01" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +260,7 @@
     <resources>
         <image name="coin.png" width="700" height="700"/>
         <image name="coin_heads.png" width="1200" height="1200"/>
+        <image name="coin_tails.png" width="1200" height="1200"/>
         <image name="dice.png" width="700" height="700"/>
         <image name="rock.png" width="700" height="700"/>
     </resources>

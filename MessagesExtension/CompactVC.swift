@@ -29,6 +29,14 @@ class CompactVC: MSMessagesAppViewController {
       self.performSegue(withIdentifier: "showCoinGame", sender: self)
     }
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showCoinGame" {
+      if let destVC = segue.destination as? CoinFlipVC {
+        destVC.gameState = .flip
+      }
+    }
+  }
     
 
     /*
