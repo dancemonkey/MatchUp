@@ -31,6 +31,7 @@ class CoinFlipVC: MSMessagesAppViewController {
   
   var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
+  var convo: MSConversation? = nil
   var pick: CoinFlipPick? = nil
   
   let subCaptionsForState = ["Call It!", "Opponent called it."]
@@ -125,7 +126,6 @@ class CoinFlipVC: MSMessagesAppViewController {
     message.summaryText = summaryTextForState[index]
     
     convo.insert(message, completionHandler: { (error: Error?) in
-      self.gameState = self.nextGameState(from: self.gameState)
       self.requestPresentationStyle(.compact)
       print(error)
     })
@@ -162,6 +162,11 @@ class CoinFlipVC: MSMessagesAppViewController {
     default:
       return .flip
     }
+  }
+  
+  override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+    super.didStartSending(message, conversation: conversation)
+    self.gameState = self.nextGameState(from: self.gameState)
   }
   
 }

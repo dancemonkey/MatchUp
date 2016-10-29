@@ -13,7 +13,7 @@ class MessagesViewController: MSMessagesAppViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -67,6 +67,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     vc.gameState = state
     vc.message = message
+    vc.convo = self.activeConversation
     return vc
   }
   
@@ -80,7 +81,7 @@ class MessagesViewController: MSMessagesAppViewController {
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
-    presentVC(for: conversation, with: .compact)
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didResignActive(with conversation: MSConversation) {
@@ -114,7 +115,6 @@ class MessagesViewController: MSMessagesAppViewController {
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
-    
     presentVC(for: conversation, with: .compact)
   }
   
