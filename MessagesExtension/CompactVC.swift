@@ -9,7 +9,7 @@
 import UIKit
 import Messages
 
-class CompactVC: MSMessagesAppViewController {
+class CompactVC: UIViewController {
   
   @IBOutlet weak var coinBtn: UIButton!
   
@@ -33,8 +33,7 @@ class CompactVC: MSMessagesAppViewController {
     if segue.identifier == "showCoinGame" {
       if let destVC = segue.destination as? CoinFlipVC {
         destVC.gameState = .flip
-        destVC.convo = self.activeConversation
-        destVC.message = self.activeConversation?.selectedMessage
+        destVC.delegate = self.parent! as? CoinFlipDelegate
       }
     }
   }

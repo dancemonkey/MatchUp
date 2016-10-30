@@ -11,9 +11,11 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
   
+  let subCaptionsForState = ["Call It!", "Opponent called it."]
+  let summaryTextForState: [String] = ["Coin flipped.", "Opponent called it."]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
   }
   
   override func didReceiveMemoryWarning() {
@@ -67,7 +69,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     vc.gameState = state
     vc.message = message
-    vc.convo = self.activeConversation
+    vc.delegate = self
     return vc
   }
   
@@ -122,6 +124,58 @@ class MessagesViewController: MSMessagesAppViewController {
     // Called after the extension transitions to a new presentation style.
     
     // Use this method to finalize any behaviors associated with the change in presentation style.
+  }
+
+}
+
+extension MessagesViewController: CoinFlipDelegate {
+  // MARK: DELEGATE FUNCTIONS
+  
+  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?){
+    
+    let convo = activeConversation ?? MSConversation()
+    let session = convo.selectedMessage?.session ?? MSSession()
+    let layout = MSMessageTemplateLayout()
+    layout.image = UIImage(named: "coin_heads.png")
+    layout.caption = "COIN FLIP CHALLENGE!"
+    layout.subcaption = subCaptionsForState[index]
+    
+    let message = MSMessage(session: session)
+    message.layout = layout
+    
+    var components = URLComponents()
+    let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: state).rawValue)
+    components.queryItems = [queryItem]
+    if state == .pick, pick != nil {
+      let queryItem = URLQueryItem(name: "coinFlipChoice", value: pick!.rawValue)
+      components.queryItems?.append(queryItem)
+    }
+    
+    message.url = components.url
+    message.summaryText = summaryTextForState[index]
+    
+    convo.insert(message, completionHandler: { (error: Error?) in
+      guard error == nil else {
+        fatalError("error in inserting message into conversation")
+      }
+    })
+    self.requestPresentationStyle(.compact)
+  }
+  
+  internal func nextGameState(from state: CoinGameState?) -> CoinGameState {
+    guard state != nil else {
+      return .flip
+    }
+    switch state! {
+    case .flip:
+      return .pick
+    case .pick:
+      return .result
+    case .result:
+      return .over
+    default:
+      return .flip
+    }
   }
   
 }

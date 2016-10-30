@@ -21,7 +21,7 @@ enum CoinFlipPick: String {
   case heads, tails
 }
 
-class CoinFlipVC: MSMessagesAppViewController {
+class CoinFlipVC: UIViewController {
   
   @IBOutlet weak var coinImg: UIImageView!
   @IBOutlet weak var resultsLbl: UILabel!
@@ -31,18 +31,17 @@ class CoinFlipVC: MSMessagesAppViewController {
   
   var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
-  var convo: MSConversation? = nil
   var pick: CoinFlipPick? = nil
   
-  let subCaptionsForState = ["Call It!", "Opponent called it."]
+  var delegate: CoinFlipDelegate! = nil
+  
   let resultsLblTextForState: [String] = ["Tap to flip the coin","Heads or Tails?"]
-  let summaryTextForState: [String] = ["Coin flipped.", "Opponent called it."]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // HANDLE GAME STATE INFO AND INTERFACE/GAMEPLAY
-
+    
     switch gameState! {
     case .flip:
       setupFlip()
@@ -54,7 +53,7 @@ class CoinFlipVC: MSMessagesAppViewController {
       setupOver()
     }
     
-}
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -90,11 +89,11 @@ class CoinFlipVC: MSMessagesAppViewController {
   
   @IBAction func cancelPressed(sender: UIButton) {
     
-    guard presentationStyle == .compact else {
-      requestPresentationStyle(.compact)
-      performSegue(withIdentifier: "showMenuVC", sender: self)
-      return
-    }
+//    guard presentationStyle == .compact else {
+//      requestPresentationStyle(.compact)
+//      performSegue(withIdentifier: "showMenuVC", sender: self)
+//      return
+//    }
     
     Utils.animateButton(sender, withTiming: 0.05) {
       self.dismiss(animated: true, completion: nil)
@@ -102,71 +101,67 @@ class CoinFlipVC: MSMessagesAppViewController {
     
   }
   
-  func composeMessage(forState state: CoinGameState, index: Int) {
-    
-    let convo = activeConversation ?? MSConversation()
-    let session = convo.selectedMessage?.session ?? MSSession()
-    let layout = MSMessageTemplateLayout()
-    layout.image = coinImg.image
-    layout.caption = "COIN FLIP CHALLENGE!"
-    layout.subcaption = subCaptionsForState[index]
-    
-    let message = MSMessage(session: session)
-    message.layout = layout
-    
-    var components = URLComponents()
-    let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: gameState).rawValue)
-    components.queryItems = [queryItem]
-    if gameState == .pick {
-      let queryItem = URLQueryItem(name: "coinFlipChoice", value: self.pick!.rawValue)
-      components.queryItems?.append(queryItem)
-    }
-    
-    message.url = components.url
-    message.summaryText = summaryTextForState[index]
-    
-    convo.insert(message, completionHandler: { (error: Error?) in
-      self.requestPresentationStyle(.compact)
-      print(error)
-    })
-    
-  }
+//  func composeMessage(forState state: CoinGameState, index: Int) {
+//    
+//    let convo = activeConversation ?? MSConversation()
+//    let session = convo.selectedMessage?.session ?? MSSession()
+//    let layout = MSMessageTemplateLayout()
+//    layout.image = coinImg.image
+//    layout.caption = "COIN FLIP CHALLENGE!"
+//    layout.subcaption = subCaptionsForState[index]
+//    
+//    let message = MSMessage(session: session)
+//    message.layout = layout
+//    
+//    var components = URLComponents()
+//    let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: gameState).rawValue)
+//    components.queryItems = [queryItem]
+//    if gameState == .pick {
+//      let queryItem = URLQueryItem(name: "coinFlipChoice", value: self.pick!.rawValue)
+//      components.queryItems?.append(queryItem)
+//    }
+//    
+//    message.url = components.url
+//    message.summaryText = summaryTextForState[index]
+//    
+//    convo.insert(message, completionHandler: { (error: Error?) in
+//      self.requestPresentationStyle(.compact)
+//      print(error)
+//    })
+//    
+//  }
   
   func startGameTapped() {
-    composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue)
+    delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue, pick: nil)
+    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue)
   }
   
   func headsTapped() {
-    print("heads tapped")
     self.pick = .heads
-    composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
+    delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick)
+    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
   }
   
   func tailsTapped() {
-    print("tails tapped")
     self.pick = .tails
-    composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
+    delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick)
+    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
   }
   
-  func nextGameState(from state: CoinGameState?) -> CoinGameState {
-    guard state != nil else {
-      return .flip
-    }
-    switch state! {
-    case .flip:
-      return .pick
-    case .pick:
-      return .result
-    case .result:
-      return .over
-    default:
-      return .flip
-    }
-  }
-  
-  override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
-    super.didStartSending(message, conversation: conversation)
-    self.gameState = self.nextGameState(from: self.gameState)
-  }
+//  func nextGameState(from state: CoinGameState?) -> CoinGameState {
+//    guard state != nil else {
+//      return .flip
+//    }
+//    switch state! {
+//    case .flip:
+//      return .pick
+//    case .pick:
+//      return .result
+//    case .result:
+//      return .over
+//    default:
+//      return .flip
+//    }
+//  }
   
 }
