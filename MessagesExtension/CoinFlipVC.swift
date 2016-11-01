@@ -10,11 +10,11 @@ import UIKit
 import Messages
 
 enum CoinGameState: String {
-  case flip, pick, result, over
+  case flip, pick, result
 }
 
 enum CoinGameStateIndex: Int {
-  case flip=0, pick, result, over
+  case flip=0, pick, result
 }
 
 enum CoinFlipPick: String {
@@ -28,6 +28,7 @@ class CoinFlipVC: UIViewController {
   @IBOutlet weak var cancelBtn: UIButton!
   @IBOutlet weak var headsImg: UIImageView!
   @IBOutlet weak var tailsImg: UIImageView!
+  @IBOutlet weak var resultsBtn: UIButton!
   
   var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
@@ -49,8 +50,6 @@ class CoinFlipVC: UIViewController {
       setupPick()
     case .result:
       setupResult()
-    case .over:
-      setupOver()
     }
     
   }
@@ -68,7 +67,6 @@ class CoinFlipVC: UIViewController {
   }
   
   func setupPick() {
-    // SETUP UP TGR ON EACH IMAGE FOR SENDING A NEW MESSAGE BACK WITH CHOICE
     let headTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.headsTapped))
     let tailTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.tailsTapped))
     headsImg.addGestureRecognizer(headTap)
@@ -77,10 +75,18 @@ class CoinFlipVC: UIViewController {
     tailsImg.isHidden = false
     resultsLbl.text = resultsLblTextForState[CoinGameStateIndex.pick.rawValue]
     resultsLbl.isHidden = false
+    
+    // animate coin flipping while waiting for tap
+
   }
   
   func setupResult() {
-    print("show flipper result of flip and winner")
+    resultsBtn.isHidden = false
+    coinImg.isHidden = false
+    let resultTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.showResult))
+    resultsBtn.addGestureRecognizer(resultTap)
+    resultsLbl.isHidden = false
+    resultsLbl.text = "Opponent called \((pick?.rawValue)!)"
   }
   
   func setupOver() {
@@ -89,79 +95,29 @@ class CoinFlipVC: UIViewController {
   
   @IBAction func cancelPressed(sender: UIButton) {
     
-//    guard presentationStyle == .compact else {
-//      requestPresentationStyle(.compact)
-//      performSegue(withIdentifier: "showMenuVC", sender: self)
-//      return
-//    }
-    
     Utils.animateButton(sender, withTiming: 0.05) {
       self.dismiss(animated: true, completion: nil)
     }
     
   }
   
-//  func composeMessage(forState state: CoinGameState, index: Int) {
-//    
-//    let convo = activeConversation ?? MSConversation()
-//    let session = convo.selectedMessage?.session ?? MSSession()
-//    let layout = MSMessageTemplateLayout()
-//    layout.image = coinImg.image
-//    layout.caption = "COIN FLIP CHALLENGE!"
-//    layout.subcaption = subCaptionsForState[index]
-//    
-//    let message = MSMessage(session: session)
-//    message.layout = layout
-//    
-//    var components = URLComponents()
-//    let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: gameState).rawValue)
-//    components.queryItems = [queryItem]
-//    if gameState == .pick {
-//      let queryItem = URLQueryItem(name: "coinFlipChoice", value: self.pick!.rawValue)
-//      components.queryItems?.append(queryItem)
-//    }
-//    
-//    message.url = components.url
-//    message.summaryText = summaryTextForState[index]
-//    
-//    convo.insert(message, completionHandler: { (error: Error?) in
-//      self.requestPresentationStyle(.compact)
-//      print(error)
-//    })
-//    
-//  }
-  
   func startGameTapped() {
+    // animate coin flip before calling delegate
     delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue, pick: nil)
-    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue)
   }
   
   func headsTapped() {
     self.pick = .heads
     delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick)
-    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
   }
   
   func tailsTapped() {
     self.pick = .tails
     delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick)
-    //composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue)
   }
   
-//  func nextGameState(from state: CoinGameState?) -> CoinGameState {
-//    guard state != nil else {
-//      return .flip
-//    }
-//    switch state! {
-//    case .flip:
-//      return .pick
-//    case .pick:
-//      return .result
-//    case .result:
-//      return .over
-//    default:
-//      return .flip
-//    }
-//  }
+  func showResult() {
+    delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.result.rawValue, pick: self.pick)
+  }
   
 }

@@ -11,8 +11,8 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
   
-  let subCaptionsForState = ["Call It!", "Opponent called it."]
-  let summaryTextForState: [String] = ["Coin flipped.", "Opponent called it."]
+  let subCaptionsForState = ["Call It!", "Opponent called it.", "See results."]
+  let summaryTextForState: [String] = ["","Coin flipped.", "Opponent called it.", "See results"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,6 +38,11 @@ class MessagesViewController: MSMessagesAppViewController {
             controller = instantiateCoinGame(forState: state!, withMessage: message)
           } else {
             // WILL LATER NEED TO HANDLE STATES FROM OTHER GAMES
+          }
+          if queryItems.count > 1 {
+            let item = queryItems[1]
+            let pick = CoinFlipPick(rawValue: item.value!)
+            (controller as? CoinFlipVC)?.pick = pick
           }
         }
       }
@@ -132,7 +137,6 @@ extension MessagesViewController: CoinFlipDelegate {
   // MARK: DELEGATE FUNCTIONS
   
   func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?){
-    
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
     let layout = MSMessageTemplateLayout()
@@ -150,9 +154,13 @@ extension MessagesViewController: CoinFlipDelegate {
       let queryItem = URLQueryItem(name: "coinFlipChoice", value: pick!.rawValue)
       components.queryItems?.append(queryItem)
     }
+    if state == .result, pick != nil {
+      let queryItem = URLQueryItem(name: "coinFlipResult", value: pick!.rawValue)
+      components.queryItems?.append(queryItem)
+    }
     
     message.url = components.url
-    message.summaryText = summaryTextForState[index]
+    message.summaryText = summaryTextForState[index] // IS THIS USED FOR *PRIOR* MESSAGE IN TRXSCRPT?
     
     convo.insert(message, completionHandler: { (error: Error?) in
       guard error == nil else {
@@ -171,8 +179,6 @@ extension MessagesViewController: CoinFlipDelegate {
       return .pick
     case .pick:
       return .result
-    case .result:
-      return .over
     default:
       return .flip
     }

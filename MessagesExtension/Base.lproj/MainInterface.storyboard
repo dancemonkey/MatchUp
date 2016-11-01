@@ -228,6 +228,16 @@
                                     <constraint firstAttribute="height" constant="120" id="ftz-Xk-GPW"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-no-Lgw">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="W9J-Ic-Bwg"/>
+                                    <constraint firstAttribute="width" constant="125" id="nrd-YD-HJI"/>
+                                </constraints>
+                                <state key="normal" title="See results">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -236,10 +246,12 @@
                             <constraint firstItem="H9E-IO-UuE" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="LPI-Ry-6Fw"/>
                             <constraint firstItem="2ai-0U-VFo" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="Lml-xd-fqr"/>
                             <constraint firstItem="NfF-PM-exF" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="Pp1-aS-6Zy"/>
+                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="R6R-ao-51A"/>
                             <constraint firstAttribute="trailing" secondItem="H9E-IO-UuE" secondAttribute="trailing" constant="16" id="UMO-r7-GJY"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="top" secondItem="NfF-PM-exF" secondAttribute="bottom" constant="16" id="UPp-DZ-oVP"/>
                             <constraint firstItem="2ai-0U-VFo" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ZzM-sW-GwR"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="wCp-wR-Av4"/>
+                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="wVv-il-Y7H"/>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ycN-GZ-WEY"/>
                         </constraints>
                     </view>
@@ -247,6 +259,7 @@
                         <outlet property="cancelBtn" destination="YsD-ZA-9Yb" id="9dv-gm-0xF"/>
                         <outlet property="coinImg" destination="QA3-FB-uPp" id="3q4-Wq-5Qb"/>
                         <outlet property="headsImg" destination="2ai-0U-VFo" id="cW6-iN-yxe"/>
+                        <outlet property="resultsBtn" destination="b0S-no-Lgw" id="JS3-yS-4V0"/>
                         <outlet property="resultsLbl" destination="NfF-PM-exF" id="a1k-r9-xSb"/>
                         <outlet property="tailsImg" destination="H9E-IO-UuE" id="RU9-LV-HRR"/>
                         <segue destination="3Eb-Oi-V92" kind="show" identifier="showMenuVC" id="JEy-Rc-nIa"/>
