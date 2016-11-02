@@ -33,7 +33,7 @@ class CoinFlipVC: UIViewController {
   private var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
   private var pick: CoinFlipPick? = nil
-  private var result: Bool? = nil
+  private var result: String? = nil
   
   var delegate: CoinFlipDelegate! = nil
   
@@ -78,7 +78,7 @@ class CoinFlipVC: UIViewController {
               self.pick = pick
             }
             if item.name == CoinQueryItemName.coinFlipResult.rawValue {
-              result = NSString(string: item.value!).boolValue
+              result = item.value!
             }
           }
         }
@@ -105,7 +105,7 @@ class CoinFlipVC: UIViewController {
     resultsLbl.isHidden = false
     
     // animate coin flipping while waiting for tap
-
+    
   }
   
   func setupResult() {
@@ -129,6 +129,7 @@ class CoinFlipVC: UIViewController {
   }
   
   func setViewForResult(result: String, pick: String) {
+    print(result)
     coinImg.isHidden = false
     headsImg.isHidden = true
     tailsImg.isHidden = true
@@ -143,36 +144,42 @@ class CoinFlipVC: UIViewController {
   
   func headsTapped() {
     self.pick = .heads
-    let result = coinToss(wonWithPick: self.pick!)
-    setViewForResult(result: result.result.rawValue, pick: (self.pick?.rawValue)!)
+    let result = coinToss()
+    setViewForResult(result: result.rawValue, pick: (self.pick?.rawValue)!)
     
     // instead of delay, show "send results" button
-    Utils.delay(3.0) { 
-      self.delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick, result: result.match)
+    Utils.delay(3.0) {
+      self.delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick, result: result.rawValue)
     }
   }
   
   func tailsTapped() {
     self.pick = .tails
-    let result = coinToss(wonWithPick: self.pick!)
-    setViewForResult(result: result.result.rawValue, pick: (self.pick?.rawValue)!)
+    let result = coinToss()
+    setViewForResult(result: result.rawValue, pick: (self.pick?.rawValue)!)
     
     // instead of delay, show "send results" button
     Utils.delay(3.0) {
-      self.delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick, result: result.match)
+      self.delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick, result: result.rawValue)
     }
   }
   
   @IBAction func showResultTapped(sender: UIButton) {
-    Utils.animateButton(sender, withTiming: 0.05) { 
-      // show result of coin flip and call to flipper
+    Utils.animateButton(sender, withTiming: 0.05) {
+      self.resultsLbl.text = "Your opponent called \(self.pick!.rawValue)"
+      self.resultsLbl.isHidden = false
+      
+      self.coinImg.image = UIImage(named: self.result!)
+        
+      self.coinImg.isHidden = false
+      self.resultsBtn.isHidden = true
+      // ADD "NEW GAME" BUTTON HERE, OR GO BACK TO HOME BUTTON
     }
   }
   
-  func coinToss(wonWithPick pick: CoinFlipPick) -> (match: Bool, result: FlipResult) {
+  func coinToss() -> CoinFlipPick {
     let coin = Coin()
-    let result = coin.flip()
-    return (match: result.rawValue == pick.rawValue, result: result)
+    return CoinFlipPick(rawValue: coin.flip().rawValue)!
   }
   
 }

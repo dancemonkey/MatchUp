@@ -10,6 +10,6 @@ import Messages
 import Foundation
 
 protocol CoinFlipDelegate {
-  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: Bool?)
+  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: String?)
   func nextGameState(from state: CoinGameState?) -> CoinGameState
 }

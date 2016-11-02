@@ -132,8 +132,11 @@ class MessagesViewController: MSMessagesAppViewController {
 extension MessagesViewController: CoinFlipDelegate {
   
   // MARK: DELEGATE FUNCTIONS
+  // MAY NEED TO RENAME THIS FUNCTION TO AVOID NAME CLASHES WITH OTHER DELEGATES FROM OTHER GAMES
   
-  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: Bool?){
+  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: String?){
+    self.requestPresentationStyle(.compact)
+    
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
     let layout = MSMessageTemplateLayout()
@@ -153,13 +156,13 @@ extension MessagesViewController: CoinFlipDelegate {
     components.queryItems = [queryItem]
     if state == .pick, pick != nil {
       let queryItem = URLQueryItem(name: CoinQueryItemName.coinFlipChoice.rawValue, value: pick!.rawValue)
-      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!.description)
+      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!)
       components.queryItems?.append(queryItem)
       components.queryItems?.append(resultItem)
     }
     if state == .result, pick != nil {
       let queryItem = URLQueryItem(name: CoinQueryItemName.coinFlipChoice.rawValue, value: pick!.rawValue)
-      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!.description)
+      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!)
       components.queryItems?.append(queryItem)
       components.queryItems?.append(resultItem)
     }
@@ -172,7 +175,6 @@ extension MessagesViewController: CoinFlipDelegate {
         fatalError("error in inserting message into conversation")
       }
     })
-    self.requestPresentationStyle(.compact)
   }
   
   internal func nextGameState(from state: CoinGameState?) -> CoinGameState {
