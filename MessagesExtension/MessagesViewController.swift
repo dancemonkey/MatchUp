@@ -9,6 +9,10 @@
 import UIKit
 import Messages
 
+enum CoinQueryItemName: String {
+  case coinGameState, coinFlipChoice, coinFlipResult
+}
+
 class MessagesViewController: MSMessagesAppViewController {
   
   let subCaptionsForState = ["Call It!", "Opponent called it.", "See results."]
@@ -25,27 +29,16 @@ class MessagesViewController: MSMessagesAppViewController {
   
   private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
     var controller: UIViewController
-    var state: CoinGameState?
-    
     controller = instantiateCompactVC()
     
     if let message = conversation.selectedMessage, let url = message.url {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
-          let item = queryItems[0]
-          if let coinState = CoinGameState(rawValue: item.value!) {
-            state = coinState
-            controller = instantiateCoinGame(forState: state!, withMessage: message)
-            // pass message and let it decode itself in CoinFlipVC
+          let item = queryItems[0] // take the first item just to figure out which game this is going to
+          if item.name.contains("coin") {
+            controller = instantiateCoinGame(withMessage: message)
           } else {
             // WILL LATER NEED TO HANDLE STATES FROM OTHER GAMES
-          }
-          if queryItems.count > 1 {
-            let call = queryItems[1]
-            let pick = CoinFlipPick(rawValue: call.value!)
-            (controller as? CoinFlipVC)?.pick = pick
-            let result = queryItems[2].value
-            (controller as? CoinFlipVC)?.result = NSString(string: result!).boolValue
           }
         }
       }
@@ -71,12 +64,12 @@ class MessagesViewController: MSMessagesAppViewController {
     controller.didMove(toParentViewController: self)
   }
   
-  private func instantiateCoinGame(forState state: CoinGameState, withMessage message: MSMessage) -> UIViewController {
+  private func instantiateCoinGame(withMessage message: MSMessage) -> UIViewController {
     guard let vc = storyboard?.instantiateViewController(withIdentifier: "Coin Game") as? CoinFlipVC else {
       fatalError("Can't load Coin Game")
     }
-    vc.gameState = state
     vc.message = message
+    print(message)
     vc.delegate = self
     return vc
   }
@@ -137,6 +130,7 @@ class MessagesViewController: MSMessagesAppViewController {
 }
 
 extension MessagesViewController: CoinFlipDelegate {
+  
   // MARK: DELEGATE FUNCTIONS
   
   func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: Bool?){
@@ -155,17 +149,17 @@ extension MessagesViewController: CoinFlipDelegate {
     message.layout = layout
     
     var components = URLComponents()
-    let queryItem = URLQueryItem(name: "coinGameState", value: nextGameState(from: state).rawValue)
+    let queryItem = URLQueryItem(name: CoinQueryItemName.coinGameState.rawValue, value: nextGameState(from: state).rawValue)
     components.queryItems = [queryItem]
     if state == .pick, pick != nil {
-      let queryItem = URLQueryItem(name: "coinFlipChoice", value: pick!.rawValue)
-      let resultItem = URLQueryItem(name: "flipResult", value: result!.description)
+      let queryItem = URLQueryItem(name: CoinQueryItemName.coinFlipChoice.rawValue, value: pick!.rawValue)
+      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!.description)
       components.queryItems?.append(queryItem)
       components.queryItems?.append(resultItem)
     }
     if state == .result, pick != nil {
-      let queryItem = URLQueryItem(name: "coinFlipResult", value: pick!.rawValue)
-      let resultItem = URLQueryItem(name: "flipResult", value: result!.description)
+      let queryItem = URLQueryItem(name: CoinQueryItemName.coinFlipChoice.rawValue, value: pick!.rawValue)
+      let resultItem = URLQueryItem(name: CoinQueryItemName.coinFlipResult.rawValue, value: result!.description)
       components.queryItems?.append(queryItem)
       components.queryItems?.append(resultItem)
     }

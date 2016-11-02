@@ -30,10 +30,10 @@ class CoinFlipVC: UIViewController {
   @IBOutlet weak var tailsImg: UIImageView!
   @IBOutlet weak var resultsBtn: UIButton!
   
-  var gameState: CoinGameState! = nil
+  private var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
-  var pick: CoinFlipPick? = nil
-  var result: Bool? = nil
+  private var pick: CoinFlipPick? = nil
+  private var result: Bool? = nil
   
   var delegate: CoinFlipDelegate! = nil
   
@@ -43,6 +43,10 @@ class CoinFlipVC: UIViewController {
     super.viewDidLoad()
     
     // HANDLE GAME STATE INFO AND INTERFACE/GAMEPLAY
+    
+    self.gameState = .flip
+    
+    self.parseMessage()
     
     switch gameState! {
     case .flip:
@@ -59,6 +63,27 @@ class CoinFlipVC: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+  }
+  
+  func parseMessage() {
+    print(self.message)
+    if let msg = self.message, let url = msg.url {
+      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+        if let queryItems = components.queryItems {
+          for item in queryItems {
+            if let coinState = CoinGameState(rawValue: item.value!), item.name == CoinQueryItemName.coinGameState.rawValue {
+              self.gameState = coinState
+            }
+            if let pick = CoinFlipPick(rawValue: item.value!), item.name == CoinQueryItemName.coinFlipChoice.rawValue {
+              self.pick = pick
+            }
+            if item.name == CoinQueryItemName.coinFlipResult.rawValue {
+              result = NSString(string: item.value!).boolValue
+            }
+          }
+        }
+      }
+    }
   }
   
   func setupFlip() {
@@ -91,7 +116,6 @@ class CoinFlipVC: UIViewController {
   }
   
   func setupOver() {
-    
     // MAY NEED THIS AFTER ALL
     print("show picker result and offer chance to start new game")
   }

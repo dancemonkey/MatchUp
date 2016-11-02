@@ -32,7 +32,6 @@ class CompactVC: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showCoinGame" {
       if let destVC = segue.destination as? CoinFlipVC {
-        destVC.gameState = .flip
         destVC.delegate = self.parent! as? CoinFlipDelegate
       }
     }
