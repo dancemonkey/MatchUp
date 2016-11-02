@@ -197,7 +197,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
+                                <subviews>
+                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo"/>
+                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Z1N-8n-cmH"/>
+                                </constraints>
+                            </stackView>
+                            <imageView hidden="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
                                     <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
@@ -216,18 +225,6 @@
                                     <action selector="cancelPressedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="RgJ-86-CSw"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="HlP-OY-Z2T"/>
-                                    <constraint firstAttribute="width" constant="120" id="LqT-bC-uZp"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="0Vd-d3-vgP"/>
-                                    <constraint firstAttribute="height" constant="120" id="ftz-Xk-GPW"/>
-                                </constraints>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-no-Lgw">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -237,19 +234,22 @@
                                 <state key="normal" title="See results">
                                     <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="showResultTappedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="ige-ed-Iki"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="centerY" secondItem="NfF-PM-exF" secondAttribute="centerY" id="3yu-bP-Bjz"/>
+                            <constraint firstItem="m4P-5f-qtg" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="20" id="4ZG-03-88j"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="6mn-da-Wyv"/>
-                            <constraint firstItem="H9E-IO-UuE" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="LPI-Ry-6Fw"/>
-                            <constraint firstItem="2ai-0U-VFo" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="Lml-xd-fqr"/>
+                            <constraint firstAttribute="trailing" secondItem="m4P-5f-qtg" secondAttribute="trailing" constant="20" id="75b-Gv-rpb"/>
                             <constraint firstItem="NfF-PM-exF" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="Pp1-aS-6Zy"/>
                             <constraint firstItem="b0S-no-Lgw" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="R6R-ao-51A"/>
-                            <constraint firstAttribute="trailing" secondItem="H9E-IO-UuE" secondAttribute="trailing" constant="16" id="UMO-r7-GJY"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="top" secondItem="NfF-PM-exF" secondAttribute="bottom" constant="16" id="UPp-DZ-oVP"/>
-                            <constraint firstItem="2ai-0U-VFo" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ZzM-sW-GwR"/>
+                            <constraint firstItem="m4P-5f-qtg" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="ciS-6P-ntC"/>
+                            <constraint firstItem="m4P-5f-qtg" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="qvP-vi-oDh"/>
                             <constraint firstItem="QA3-FB-uPp" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="wCp-wR-Av4"/>
                             <constraint firstItem="b0S-no-Lgw" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="wVv-il-Y7H"/>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ycN-GZ-WEY"/>
@@ -272,9 +272,9 @@
     </scenes>
     <resources>
         <image name="coin.png" width="700" height="700"/>
-        <image name="coin_heads.png" width="1200" height="1200"/>
-        <image name="coin_tails.png" width="1200" height="1200"/>
         <image name="dice.png" width="700" height="700"/>
+        <image name="heads.png" width="1200" height="1200"/>
         <image name="rock.png" width="700" height="700"/>
+        <image name="tails.png" width="1200" height="1200"/>
     </resources>
 </document>

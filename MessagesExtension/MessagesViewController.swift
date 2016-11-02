@@ -36,13 +36,16 @@ class MessagesViewController: MSMessagesAppViewController {
           if let coinState = CoinGameState(rawValue: item.value!) {
             state = coinState
             controller = instantiateCoinGame(forState: state!, withMessage: message)
+            // pass message and let it decode itself in CoinFlipVC
           } else {
             // WILL LATER NEED TO HANDLE STATES FROM OTHER GAMES
           }
           if queryItems.count > 1 {
-            let item = queryItems[1]
-            let pick = CoinFlipPick(rawValue: item.value!)
+            let call = queryItems[1]
+            let pick = CoinFlipPick(rawValue: call.value!)
             (controller as? CoinFlipVC)?.pick = pick
+            let result = queryItems[2].value
+            (controller as? CoinFlipVC)?.result = NSString(string: result!).boolValue
           }
         }
       }
@@ -136,11 +139,15 @@ class MessagesViewController: MSMessagesAppViewController {
 extension MessagesViewController: CoinFlipDelegate {
   // MARK: DELEGATE FUNCTIONS
   
-  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?){
+  func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: Bool?){
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
     let layout = MSMessageTemplateLayout()
-    layout.image = UIImage(named: "coin_heads.png")
+    if let choice = pick {
+      layout.image = UIImage(named: "\(choice.rawValue)")
+    } else {
+      layout.image = UIImage(named: "heads")
+    }
     layout.caption = "COIN FLIP CHALLENGE!"
     layout.subcaption = subCaptionsForState[index]
     
@@ -152,11 +159,15 @@ extension MessagesViewController: CoinFlipDelegate {
     components.queryItems = [queryItem]
     if state == .pick, pick != nil {
       let queryItem = URLQueryItem(name: "coinFlipChoice", value: pick!.rawValue)
+      let resultItem = URLQueryItem(name: "flipResult", value: result!.description)
       components.queryItems?.append(queryItem)
+      components.queryItems?.append(resultItem)
     }
     if state == .result, pick != nil {
       let queryItem = URLQueryItem(name: "coinFlipResult", value: pick!.rawValue)
+      let resultItem = URLQueryItem(name: "flipResult", value: result!.description)
       components.queryItems?.append(queryItem)
+      components.queryItems?.append(resultItem)
     }
     
     message.url = components.url
@@ -179,6 +190,8 @@ extension MessagesViewController: CoinFlipDelegate {
       return .pick
     case .pick:
       return .result
+    case .over:
+      return .flip
     default:
       return .flip
     }
