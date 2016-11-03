@@ -104,7 +104,7 @@ class CoinFlipVC: UIViewController {
     resultsLbl.text = resultsLblTextForState[CoinGameStateIndex.pick.rawValue]
     resultsLbl.isHidden = false
     
-    // animate coin flipping while waiting for tap
+    // animate coins arriving into view
     
   }
   
@@ -113,6 +113,8 @@ class CoinFlipVC: UIViewController {
     coinImg.isHidden = false
     resultsLbl.isHidden = false
     resultsLbl.text = "Opponent called \((pick?.rawValue)!)"
+    
+    // animate coin flip then landing on result
   }
   
   func setupOver() {
@@ -138,12 +140,13 @@ class CoinFlipVC: UIViewController {
   }
   
   func animateFlip(fromHeads heads: UIImageView, toTails tails: UIImageView) {
-    let options: UIViewAnimationOptions = [.transitionFlipFromTop, .allowUserInteraction, .beginFromCurrentState, .showHideTransitionViews]
-    UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat, .beginFromCurrentState], animations: {
+    let options: UIViewAnimationOptions = [.transitionFlipFromTop, .allowUserInteraction, .showHideTransitionViews]
+    UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat], animations: {
       UIView.transition(from: heads, to: tails, duration: 0.5, options: options, completion: { (completion) in
         UIView.transition(from: tails, to: heads, duration: 0.5, options: options, completion: nil)
       })
     }, completion: nil)
+
   }
   
   func startGameTapped() {
