@@ -10,29 +10,13 @@ import GameplayKit
 import Foundation
 
 enum FlipResult: String {
-  case heads, tails, oops
+  case heads, tails
 }
 
-class Coin {
-  
-  private var _numSides: Int
-  var numSides: Int {
-    return _numSides
-  }
-  
-  private var _faceColor: UIColor
-  var faceColor: UIColor {
-    return _faceColor
-  }
-  
-  private var _frozen = false
-  var frozen: Bool {
-    return _frozen
-  }
+class Coin: Die {
   
   init(faceColor: UIColor = .lightGray) {
-    self._numSides = 2
-    self._faceColor = faceColor
+    super.init(sides: 2, faceColor: faceColor, pipColor: .black)
   }
   
   func flip() -> FlipResult {
@@ -44,12 +28,8 @@ class Coin {
       print("tails")
       return .tails
     default:
-      return .oops
+      fatalError("this shouldn't happen")
     }
-  }
-  
-  func freeze() {
-    self._frozen = !_frozen
   }
   
 }

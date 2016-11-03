@@ -66,7 +66,6 @@ class CoinFlipVC: UIViewController {
   }
   
   func parseMessage() {
-    print(self.message)
     if let msg = self.message, let url = msg.url {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -173,7 +172,7 @@ class CoinFlipVC: UIViewController {
         
       self.coinImg.isHidden = false
       self.resultsBtn.isHidden = true
-      // ADD "NEW GAME" BUTTON HERE, OR GO BACK TO HOME BUTTON
+      // ADD "NEW GAME" BUTTON HERE, OR "HOME" BUTTON
     }
   }
   

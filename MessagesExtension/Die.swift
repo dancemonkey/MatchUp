@@ -11,12 +11,12 @@ import Foundation
 
 class Die {
   
-  private var _numSides: Int
+  internal var _numSides: Int
   var numSides: Int {
     return _numSides
   }
   
-  private var _faceColor: UIColor
+  internal var _faceColor: UIColor
   var faceColor: UIColor {
     return _faceColor
   }
