@@ -29,6 +29,7 @@ class CoinFlipVC: UIViewController {
   @IBOutlet weak var headsImg: UIImageView!
   @IBOutlet weak var tailsImg: UIImageView!
   @IBOutlet weak var resultsBtn: UIButton!
+  @IBOutlet weak var tailsImgForAnim: UIImageView!
   
   private var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
@@ -136,8 +137,18 @@ class CoinFlipVC: UIViewController {
     coinImg.image = UIImage(named: result)
   }
   
+  func animateFlip(fromHeads heads: UIImageView, toTails tails: UIImageView) {
+    let options: UIViewAnimationOptions = [.transitionFlipFromTop, .allowUserInteraction, .beginFromCurrentState, .showHideTransitionViews]
+    UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat, .beginFromCurrentState], animations: {
+      UIView.transition(from: heads, to: tails, duration: 0.5, options: options, completion: { (completion) in
+        UIView.transition(from: tails, to: heads, duration: 0.5, options: options, completion: nil)
+      })
+    }, completion: nil)
+  }
+  
   func startGameTapped() {
     // animate coin flip before calling delegate
+    animateFlip(fromHeads: coinImg!, toTails: tailsImgForAnim!)
     delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue, pick: nil, result: nil)
   }
   
@@ -169,7 +180,7 @@ class CoinFlipVC: UIViewController {
       self.resultsLbl.isHidden = false
       
       self.coinImg.image = UIImage(named: self.result!)
-        
+      
       self.coinImg.isHidden = false
       self.resultsBtn.isHidden = true
       // ADD "NEW GAME" BUTTON HERE, OR "HOME" BUTTON
