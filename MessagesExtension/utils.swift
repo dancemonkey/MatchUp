@@ -35,3 +35,16 @@ class Utils {
   }
 }
 
+@IBDesignable class DesignableButton: UIButton {}
+extension UIButton {
+  @IBInspectable var cornerRadius: CGFloat {
+    get {
+      return layer.cornerRadius
+    }
+    set {
+      layer.cornerRadius = newValue
+      layer.masksToBounds = newValue > 0
+    }
+  }
+}
+

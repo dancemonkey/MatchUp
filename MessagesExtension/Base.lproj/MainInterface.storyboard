@@ -197,19 +197,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
-                                <subviews>
-                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo"/>
-                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE"/>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Z1N-8n-cmH"/>
-                                </constraints>
-                            </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-ZA-9Yb">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Cancel">
@@ -219,28 +206,15 @@
                                     <action selector="cancelPressedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="RgJ-86-CSw"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-no-Lgw">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="W9J-Ic-Bwg"/>
-                                    <constraint firstAttribute="width" constant="125" id="nrd-YD-HJI"/>
-                                </constraints>
-                                <state key="normal" title="See results">
-                                    <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="showResultTappedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="ige-ed-Iki"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQR-pP-HeK" userLabel="CoinAnimContainer">
                                 <subviews>
-                                    <imageView hidden="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="py2-E1-Hn4">
+                                    <imageView hidden="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="py2-E1-Hn4">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="eVk-iA-b08"/>
                                             <constraint firstAttribute="width" constant="120" id="zid-Wd-qpi"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView hidden="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
+                                    <imageView hidden="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
                                             <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
@@ -257,6 +231,41 @@
                                     <constraint firstAttribute="width" constant="120" id="fRK-og-KOI"/>
                                 </constraints>
                             </view>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
+                                <subviews>
+                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" ambiguous="YES" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
+                                        <frame key="frameInset" minX="-20" minY="-273" height="1200"/>
+                                    </imageView>
+                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
+                                        <frame key="frameInset" minX="-20" minY="-273" height="1200"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Z1N-8n-cmH"/>
+                                </constraints>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-no-Lgw" customClass="DesignableButton" customModule="MessagesExtension" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="W9J-Ic-Bwg"/>
+                                    <constraint firstAttribute="width" constant="125" id="nrd-YD-HJI"/>
+                                </constraints>
+                                <state key="normal" title="See results">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showResultTappedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="ige-ed-Iki"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -269,14 +278,16 @@
                             <constraint firstItem="SQR-pP-HeK" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="qRc-nq-y1y"/>
                             <constraint firstItem="m4P-5f-qtg" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="qvP-vi-oDh"/>
                             <constraint firstItem="SQR-pP-HeK" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="qz6-RV-PM5"/>
-                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="wVv-il-Y7H"/>
+                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" constant="50" id="wVv-il-Y7H"/>
                             <constraint firstItem="YsD-ZA-9Yb" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ycN-GZ-WEY"/>
                             <constraint firstItem="SQR-pP-HeK" firstAttribute="top" secondItem="NfF-PM-exF" secondAttribute="bottom" constant="16" id="zmG-CN-TFP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationContainer" destination="SQR-pP-HeK" id="oAB-RU-9uv"/>
                         <outlet property="cancelBtn" destination="YsD-ZA-9Yb" id="9dv-gm-0xF"/>
                         <outlet property="coinImg" destination="QA3-FB-uPp" id="3q4-Wq-5Qb"/>
+                        <outlet property="coinStack" destination="m4P-5f-qtg" id="Oz3-Tf-nVt"/>
                         <outlet property="headsImg" destination="2ai-0U-VFo" id="cW6-iN-yxe"/>
                         <outlet property="resultsBtn" destination="b0S-no-Lgw" id="JS3-yS-4V0"/>
                         <outlet property="resultsLbl" destination="NfF-PM-exF" id="a1k-r9-xSb"/>

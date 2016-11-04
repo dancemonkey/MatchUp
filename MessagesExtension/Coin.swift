@@ -22,10 +22,8 @@ class Coin: Die {
   func flip() -> FlipResult {
     switch GKRandomDistribution.init(forDieWithSideCount: self._numSides).nextInt() {
     case 1:
-      print("heads")
       return .heads
     case 2:
-      print("tails")
       return .tails
     default:
       fatalError("this shouldn't happen")

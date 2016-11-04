@@ -30,6 +30,8 @@ class CoinFlipVC: UIViewController {
   @IBOutlet weak var tailsImg: UIImageView!
   @IBOutlet weak var resultsBtn: UIButton!
   @IBOutlet weak var tailsImgForAnim: UIImageView!
+  @IBOutlet weak var animationContainer: UIView!
+  @IBOutlet weak var coinStack: UIStackView!
   
   private var gameState: CoinGameState! = nil
   var message: MSMessage? = nil
@@ -95,6 +97,7 @@ class CoinFlipVC: UIViewController {
   }
   
   func setupPick() {
+    coinStack.isHidden = false
     let headTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.headsTapped))
     let tailTap = UITapGestureRecognizer(target: self, action: #selector(CoinFlipVC.tailsTapped))
     headsImg.addGestureRecognizer(headTap)
@@ -110,11 +113,26 @@ class CoinFlipVC: UIViewController {
   
   func setupResult() {
     resultsBtn.isHidden = false
-    coinImg.isHidden = false
+    coinImg.isHidden = true
+    tailsImgForAnim.isHidden = true
+    headsImg.isHidden = true
+    tailsImg.isHidden = true
     resultsLbl.isHidden = false
     resultsLbl.text = "Opponent called \((pick?.rawValue)!)"
     
     // animate coin flip then landing on result
+    
+    // NOT ANIMATING, ONLY SHOWING TAILS IMAGE???
+    animateFlip(fromHeads: coinImg!, toTails: tailsImgForAnim)
+    
+    for subview in animationContainer.subviews {
+      print("\(subview.tag) is hidden: \(subview.isHidden).\n")
+    }
+    
+    for subview in coinStack.subviews {
+      print("\(subview.tag) is hidden: \(subview.isHidden).\n")
+    }
+    
   }
   
   func setupOver() {
@@ -131,26 +149,27 @@ class CoinFlipVC: UIViewController {
   }
   
   func setViewForResult(result: String, pick: String) {
-    print(result)
     coinImg.isHidden = false
     headsImg.isHidden = true
     tailsImg.isHidden = true
-    resultsLbl.text = "Your call was \(pick)."
     coinImg.image = UIImage(named: result)
+    self.resultsLbl.text = "You chose \(self.pick!.rawValue)"
   }
   
   func animateFlip(fromHeads heads: UIImageView, toTails tails: UIImageView) {
-    let options: UIViewAnimationOptions = [.transitionFlipFromTop, .allowUserInteraction, .showHideTransitionViews]
-    UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat], animations: {
-      UIView.transition(from: heads, to: tails, duration: 0.5, options: options, completion: { (completion) in
-        UIView.transition(from: tails, to: heads, duration: 0.5, options: options, completion: nil)
-      })
-    }, completion: nil)
-
+    
+    let options: UIViewAnimationOptions = [.transitionFlipFromTop, .allowUserInteraction, .showHideTransitionViews, .repeat, .autoreverse]
+    UIView.transition(with: animationContainer, duration: 0.25, options: options, animations: {
+      heads.isHidden = true
+      tails.isHidden = false
+      }, completion: { (completed) in
+        heads.isHidden = false
+        tails.isHidden = true
+    })
+    
   }
   
   func startGameTapped() {
-    // animate coin flip before calling delegate
     animateFlip(fromHeads: coinImg!, toTails: tailsImgForAnim!)
     delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.flip.rawValue, pick: nil, result: nil)
   }
@@ -159,6 +178,8 @@ class CoinFlipVC: UIViewController {
     self.pick = .heads
     let result = coinToss()
     setViewForResult(result: result.rawValue, pick: (self.pick?.rawValue)!)
+    
+    // animate flipping for a few seconds then show results
     
     // instead of delay, show "send results" button
     Utils.delay(3.0) {
@@ -171,6 +192,8 @@ class CoinFlipVC: UIViewController {
     let result = coinToss()
     setViewForResult(result: result.rawValue, pick: (self.pick?.rawValue)!)
     
+    // animate flipping for a few seconds then show results
+
     // instead of delay, show "send results" button
     Utils.delay(3.0) {
       self.delegate.composeMessage(forState: self.gameState, index: CoinGameStateIndex.pick.rawValue, pick: self.pick, result: result.rawValue)
@@ -179,13 +202,14 @@ class CoinFlipVC: UIViewController {
   
   @IBAction func showResultTapped(sender: UIButton) {
     Utils.animateButton(sender, withTiming: 0.05) {
-      self.resultsLbl.text = "Your opponent called \(self.pick!.rawValue)"
+      self.animationContainer.layer.removeAllAnimations()
       self.resultsLbl.isHidden = false
-      
-      self.coinImg.image = UIImage(named: self.result!)
-      
-      self.coinImg.isHidden = false
       self.resultsBtn.isHidden = true
+
+      self.coinImg.image = UIImage(named: self.result!)
+      self.coinImg.isHidden = false
+      
+      // ADD "YOU WON/LOST" MESSAGE
       // ADD "NEW GAME" BUTTON HERE, OR "HOME" BUTTON
     }
   }
