@@ -21,6 +21,11 @@ class Die {
     return _faceColor
   }
   
+  internal var _value: Int
+  var value: Int {
+    return _value
+  }
+  
   private var _pipColor: UIColor
   var pipColor: UIColor {
     return _pipColor
@@ -35,14 +40,23 @@ class Die {
     self._numSides = sides
     self._faceColor = faceColor
     self._pipColor = pipColor
+    self._value = 1
   }
   
   func roll(withModifier modifier: Int = 0) -> Int {
-    return GKRandomDistribution.init(forDieWithSideCount: self._numSides).nextInt() + modifier
+    self._value = GKRandomDistribution.init(forDieWithSideCount: self._numSides).nextInt() + modifier
+    return self._value
   }
   
   func freeze() {
     self._frozen = !_frozen
   }
   
+}
+
+class D6: Die {
+  init() {
+    super.init(sides: 6)
+    self._value = 3
+  }
 }
