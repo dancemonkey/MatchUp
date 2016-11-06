@@ -35,8 +35,8 @@ class Utils {
   }
 }
 
-@IBDesignable class DesignableButton: UIButton {}
-extension UIButton {
+@IBDesignable class DesignableView: UIView {}
+extension UIView {
   @IBInspectable var cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
@@ -47,4 +47,6 @@ extension UIButton {
     }
   }
 }
+
+@IBDesignable class DesignableButton: UIButton {}
 

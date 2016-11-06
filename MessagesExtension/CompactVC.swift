@@ -40,6 +40,10 @@ class CompactVC: UIViewController {
       if let destVC = segue.destination as? CoinFlipVC {
         destVC.delegate = self.parent! as? CoinFlipDelegate
       }
+    } else if segue.identifier == "showDiceGame" {
+      if let destVC = segue.destination as? DiceGameVC {
+        destVC.delegate = self.parent! as? ExpandViewDelegate
+      }
     }
   }
 

@@ -118,7 +118,7 @@ class MessagesViewController: MSMessagesAppViewController {
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
-    presentVC(for: conversation, with: .compact)
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
@@ -129,9 +129,19 @@ class MessagesViewController: MSMessagesAppViewController {
 
 }
 
+// MARK: DELEGATE FUNCTIONS
+
+extension MessagesViewController: ExpandViewDelegate {
+  func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle) {
+    requestPresentationStyle(presentationStyle)
+  }
+  func getPresentationStyle() -> MSMessagesAppPresentationStyle {
+    return self.presentationStyle
+  }
+}
+
 extension MessagesViewController: CoinFlipDelegate {
   
-  // MARK: DELEGATE FUNCTIONS
   // MAY NEED TO RENAME THIS FUNCTION TO AVOID NAME CLASHES WITH OTHER DELEGATES FROM OTHER GAMES
   
   func composeMessage(forState state: CoinGameState, index: Int, pick: CoinFlipPick?, result: String?){
