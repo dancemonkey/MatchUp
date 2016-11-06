@@ -35,7 +35,7 @@ class SCCGame {
   
   func roll() -> [Int]? {
     guard roundIsOver() == false else {
-      roundOver()
+      endRound()
       return nil
     }
     
@@ -71,7 +71,7 @@ class SCCGame {
     return totalRolls >= maxRolls
   }
   
-  func roundOver() {
+  func endRound() {
     guard shipIndex != nil, captainIndex != nil, crewIndex != nil else {
       self.score = 0
       return

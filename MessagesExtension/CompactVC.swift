@@ -29,6 +29,12 @@ class CompactVC: UIViewController {
     }
   }
   
+  @IBAction func dicePressed(sender: UIButton) {
+    Utils.animateButton(sender, withTiming: 0.05) { 
+      self.performSegue(withIdentifier: "showDiceGame", sender: self)
+    }
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showCoinGame" {
       if let destVC = segue.destination as? CoinFlipVC {

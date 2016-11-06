@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,101 +26,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="73"/>
-        </scene>
-        <!--ExpandedVC-->
-        <scene sceneID="cER-av-Fgh">
-            <objects>
-                <viewController storyboardIdentifier="Expanded VC" id="ZyR-wE-pq4" customClass="ExpandedVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ybq-cI-dtA"/>
-                        <viewControllerLayoutGuide type="bottom" id="qsu-GQ-LWg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c1d-be-2sT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Roll Result: (no rolls)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-7D-x7O">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piB-Lr-zgr">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="G2d-Hn-GAX"/>
-                                    <constraint firstAttribute="width" constant="75" id="Q8b-Yt-C6q"/>
-                                </constraints>
-                                <state key="normal" title="ROLL">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rollPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="6kD-Fh-BLW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Flip Result: (no flips)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsD-o7-HpH">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPD-bf-sta">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="eMj-ng-ha4"/>
-                                    <constraint firstAttribute="height" constant="50" id="zmR-ex-hGO"/>
-                                </constraints>
-                                <state key="normal" title="FLIP">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="flipPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="Jaa-cf-8hC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-9J-4Hw">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="RyE-ta-NUx"/>
-                                    <constraint firstAttribute="width" constant="75" id="hL1-qt-raX"/>
-                                </constraints>
-                                <state key="normal" title="TOSS">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tossPressedWithSender:" destination="ZyR-wE-pq4" eventType="touchUpInside" id="kDs-S9-Rim"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="sBS-7T-mUA">
-                                <segments>
-                                    <segment title="Rock"/>
-                                    <segment title="Paper"/>
-                                    <segment title="Scissors"/>
-                                </segments>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Cy8-7D-x7O" firstAttribute="centerY" secondItem="c1d-be-2sT" secondAttribute="centerY" id="2oY-Z1-Lo5"/>
-                            <constraint firstItem="FPD-bf-sta" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="Dat-qd-1lo"/>
-                            <constraint firstItem="Zd1-9J-4Hw" firstAttribute="top" secondItem="sBS-7T-mUA" secondAttribute="bottom" constant="8" id="Dd0-3l-UYd"/>
-                            <constraint firstItem="wsD-o7-HpH" firstAttribute="top" secondItem="ybq-cI-dtA" secondAttribute="bottom" constant="8" id="Dro-5T-i1m"/>
-                            <constraint firstItem="piB-Lr-zgr" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="RNz-zB-acR"/>
-                            <constraint firstItem="qsu-GQ-LWg" firstAttribute="top" secondItem="Zd1-9J-4Hw" secondAttribute="bottom" constant="20" id="ThW-kW-dJ8"/>
-                            <constraint firstItem="sBS-7T-mUA" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="a9l-tX-stR"/>
-                            <constraint firstItem="wsD-o7-HpH" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="cKk-at-bbT"/>
-                            <constraint firstItem="piB-Lr-zgr" firstAttribute="top" secondItem="Cy8-7D-x7O" secondAttribute="bottom" constant="8" id="hHo-xm-b2e"/>
-                            <constraint firstItem="FPD-bf-sta" firstAttribute="top" secondItem="wsD-o7-HpH" secondAttribute="bottom" constant="8" id="iFP-2O-3or"/>
-                            <constraint firstItem="Cy8-7D-x7O" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="pdJ-rM-1rT"/>
-                            <constraint firstItem="Zd1-9J-4Hw" firstAttribute="centerX" secondItem="c1d-be-2sT" secondAttribute="centerX" id="t80-1d-ogV"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="flipBtn" destination="FPD-bf-sta" id="SbT-sG-UEy"/>
-                        <outlet property="flipResultLbl" destination="wsD-o7-HpH" id="gY6-oX-dPT"/>
-                        <outlet property="resultLbl" destination="Cy8-7D-x7O" id="hn6-G1-RtY"/>
-                        <outlet property="rollButton" destination="piB-Lr-zgr" id="jAo-6e-aKE"/>
-                        <outlet property="rpsSgmt" destination="sBS-7T-mUA" id="gdX-lG-xUu"/>
-                        <outlet property="tossBtn" destination="Zd1-9J-4Hw" id="Pus-JX-jft"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UIe-i5-E27" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1378" y="797"/>
         </scene>
         <!--CompactVC-->
         <scene sceneID="4NZ-OC-3A5">
@@ -158,6 +64,9 @@
                                     <constraint firstAttribute="height" constant="75" id="LeL-s1-kC1"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="dice.png"/>
+                                <connections>
+                                    <action selector="dicePressedWithSender:" destination="3Eb-Oi-V92" eventType="touchUpInside" id="6wP-L2-wn4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MATCH UP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-uo-odw">
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
@@ -179,11 +88,154 @@
                     <connections>
                         <outlet property="coinBtn" destination="0ab-Xb-2jj" id="Oda-Cv-Kj4"/>
                         <segue destination="As0-Bv-t71" kind="show" identifier="showCoinGame" id="WFa-ev-fxu"/>
+                        <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="5zV-he-coO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tru-aE-Rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1378.4000000000001" y="74.212893553223395"/>
+        </scene>
+        <!--Dice GameVC-->
+        <scene sceneID="ouL-QM-beA">
+            <objects>
+                <viewController id="tjQ-lc-a3m" customClass="DiceGameVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6qN-7c-Xgp"/>
+                        <viewControllerLayoutGuide type="bottom" id="4oD-qG-Ycg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ntL-dN-dbV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="o7X-Wf-Xma" userLabel="Score Stack">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2Q-Xg-Aws">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="kth-Vt-YsR" userLabel="Scores">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lpk-sZ-dxm" userLabel="Turn Score">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyY-fG-gSo">
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-B9-oGf">
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.1334958087502176" blue="0.18484609167087784" alpha="1" colorSpace="calibratedRGB"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fI-uj-TTI" userLabel="Total Score">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmx-3c-oXf">
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9c-Jo-cHT">
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnc-kx-ykZ" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="NJY-Bs-d5h"/>
+                                    <constraint firstAttribute="height" constant="40" id="lvf-Lh-nC1"/>
+                                </constraints>
+                                <state key="normal" title="Roll"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-qI-czM" userLabel="Goal Display">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-CA-yYD" userLabel="Ship">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship.png" translatesAutoresizingMaskIntoConstraints="NO" id="Atp-ae-cjS">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="fOF-et-iNu"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ysd-vP-OBz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deQ-N3-tzJ">
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-L8-5sV" userLabel="Captain">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain.png" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="1Qf-ST-Gh3"/>
+                                                    <constraint firstAttribute="height" constant="50" id="SGO-AM-dQq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maK-gH-bwA">
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VCb-pv-pDX" userLabel="Crew">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew.png" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="kJL-VY-OkP"/>
+                                                    <constraint firstAttribute="height" constant="50" id="kin-8h-tOQ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUM-ND-yqX">
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PbG-S1-YCe" userLabel="Roll Indicators">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-9A-ujk"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU"/>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Htw-qI-czM" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="topMargin" constant="8" id="1F6-tx-FxW"/>
+                            <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="PbG-S1-YCe" secondAttribute="bottom" constant="8" id="8fC-go-Iul"/>
+                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="54" id="FaP-qI-UFk"/>
+                            <constraint firstItem="o7X-Wf-Xma" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="topMargin" constant="8" id="ILx-6c-7zQ"/>
+                            <constraint firstAttribute="trailing" secondItem="o7X-Wf-Xma" secondAttribute="trailing" constant="16" id="LKY-kj-ba4"/>
+                            <constraint firstItem="PbG-S1-YCe" firstAttribute="centerX" secondItem="Bnc-kx-ykZ" secondAttribute="centerX" id="gwH-nn-dhm"/>
+                            <constraint firstItem="Htw-qI-czM" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="uGV-f5-uLt"/>
+                            <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="8" id="yFi-5S-oBc"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="216"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uqy-cw-fj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376.8" y="846.47676161919048"/>
         </scene>
         <!--Coin FlipVC-->
         <scene sceneID="0X9-qY-dMR">
@@ -234,10 +286,10 @@
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
                                 <subviews>
                                     <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" ambiguous="YES" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
-                                        <frame key="frameInset" minX="-20" minY="-273" height="1200"/>
+                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
                                     </imageView>
                                     <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
-                                        <frame key="frameInset" minX="-20" minY="-273" height="1200"/>
+                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -302,10 +354,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EmptyRollInd" width="13" height="13"/>
+        <image name="captain.png" width="700" height="700"/>
         <image name="coin.png" width="700" height="700"/>
+        <image name="crew.png" width="700" height="700"/>
         <image name="dice.png" width="700" height="700"/>
         <image name="heads.png" width="1200" height="1200"/>
         <image name="rock.png" width="700" height="700"/>
+        <image name="ship.png" width="700" height="700"/>
         <image name="tails.png" width="1200" height="1200"/>
     </resources>
 </document>

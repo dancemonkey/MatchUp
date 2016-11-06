@@ -37,8 +37,8 @@ class MessagesViewController: MSMessagesAppViewController {
           let item = queryItems[0] // take the first item just to figure out which game this is going to
           if item.name.contains("coin") {
             controller = instantiateCoinGame(withMessage: message)
-          } else {
-            // WILL LATER NEED TO HANDLE STATES FROM OTHER GAMES
+          } else if item.name.contains("scc") {
+            // load ship, captain, and crew vc
           }
         }
       }

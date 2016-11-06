@@ -11,6 +11,18 @@
 		1011E7841DC0E57800AB50FB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7831DC0E57800AB50FB /* Die.swift */; };
 		1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7851DC0EBDC00AB50FB /* Coin.swift */; };
 		104A7E791DC6454B00F97772 /* CoinFlipDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A7E781DC6454B00F97772 /* CoinFlipDelegate.swift */; };
+		106AD90A1DCEAF5F0016FE27 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9041DCEAF5F0016FE27 /* 1.png */; };
+		106AD90B1DCEAF5F0016FE27 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9051DCEAF5F0016FE27 /* 2.png */; };
+		106AD90C1DCEAF5F0016FE27 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9061DCEAF5F0016FE27 /* 3.png */; };
+		106AD90D1DCEAF5F0016FE27 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9071DCEAF5F0016FE27 /* 4.png */; };
+		106AD90E1DCEAF5F0016FE27 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9081DCEAF5F0016FE27 /* 5.png */; };
+		106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9091DCEAF5F0016FE27 /* 6.png */; };
+		106AD9141DCEAF8F0016FE27 /* captain.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9101DCEAF8F0016FE27 /* captain.png */; };
+		106AD9151DCEAF8F0016FE27 /* crew.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9111DCEAF8F0016FE27 /* crew.png */; };
+		106AD9161DCEAF8F0016FE27 /* jolly_roger.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9121DCEAF8F0016FE27 /* jolly_roger.png */; };
+		106AD9171DCEAF8F0016FE27 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9131DCEAF8F0016FE27 /* ship.png */; };
+		106AD9191DCEB36B0016FE27 /* DiceGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */; };
+		106AD91B1DCEB68C0016FE27 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD91A1DCEB68C0016FE27 /* GameButton.swift */; };
 		10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ABE7B11DCD2A53009BA511 /* SCCGame.swift */; };
 		10E9FA851DC24329001583B7 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9FA841DC24329001583B7 /* utils.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
@@ -59,6 +71,18 @@
 		1011E7831DC0E57800AB50FB /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1011E7851DC0EBDC00AB50FB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		104A7E781DC6454B00F97772 /* CoinFlipDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinFlipDelegate.swift; sourceTree = "<group>"; };
+		106AD9041DCEAF5F0016FE27 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		106AD9051DCEAF5F0016FE27 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		106AD9061DCEAF5F0016FE27 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		106AD9071DCEAF5F0016FE27 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		106AD9081DCEAF5F0016FE27 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		106AD9091DCEAF5F0016FE27 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		106AD9101DCEAF8F0016FE27 /* captain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = captain.png; sourceTree = "<group>"; };
+		106AD9111DCEAF8F0016FE27 /* crew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crew.png; sourceTree = "<group>"; };
+		106AD9121DCEAF8F0016FE27 /* jolly_roger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jolly_roger.png; sourceTree = "<group>"; };
+		106AD9131DCEAF8F0016FE27 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceGameVC.swift; sourceTree = "<group>"; };
+		106AD91A1DCEB68C0016FE27 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		10ABE7B11DCD2A53009BA511 /* SCCGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCGame.swift; sourceTree = "<group>"; };
 		10E9FA841DC24329001583B7 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +124,7 @@
 				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
 				10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */,
 				100B40791DC4E0CE00525A52 /* CoinFlipVC.swift */,
+				106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -107,6 +132,7 @@
 		1011E7811DC0E55D00AB50FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				106AD91A1DCEB68C0016FE27 /* GameButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -169,6 +195,16 @@
 		10F20C8C1DBFF13400E05345 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				106AD9101DCEAF8F0016FE27 /* captain.png */,
+				106AD9111DCEAF8F0016FE27 /* crew.png */,
+				106AD9121DCEAF8F0016FE27 /* jolly_roger.png */,
+				106AD9131DCEAF8F0016FE27 /* ship.png */,
+				106AD9041DCEAF5F0016FE27 /* 1.png */,
+				106AD9051DCEAF5F0016FE27 /* 2.png */,
+				106AD9061DCEAF5F0016FE27 /* 3.png */,
+				106AD9071DCEAF5F0016FE27 /* 4.png */,
+				106AD9081DCEAF5F0016FE27 /* 5.png */,
+				106AD9091DCEAF5F0016FE27 /* 6.png */,
 				10FD8FC61DC12C01007EFE0C /* paper.png */,
 				10FD8FC71DC12C01007EFE0C /* rock.png */,
 				10FD8FC81DC12C01007EFE0C /* scissors.png */,
@@ -278,15 +314,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106AD90B1DCEAF5F0016FE27 /* 2.png in Resources */,
 				10F20C931DBFF13400E05345 /* Assets.xcassets in Resources */,
 				10F20C911DBFF13400E05345 /* MainInterface.storyboard in Resources */,
+				106AD90D1DCEAF5F0016FE27 /* 4.png in Resources */,
+				106AD90C1DCEAF5F0016FE27 /* 3.png in Resources */,
 				10FD8FCF1DC12CA5007EFE0C /* dice.png in Resources */,
 				10FD8FCE1DC12CA5007EFE0C /* coin.png in Resources */,
 				10FD8FCA1DC12C01007EFE0C /* rock.png in Resources */,
+				106AD9151DCEAF8F0016FE27 /* crew.png in Resources */,
 				10FD8FCB1DC12C01007EFE0C /* scissors.png in Resources */,
+				106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */,
 				10FD8FD51DC12FC3007EFE0C /* tails.png in Resources */,
+				106AD9171DCEAF8F0016FE27 /* ship.png in Resources */,
 				10FD8FD41DC12FC3007EFE0C /* heads.png in Resources */,
+				106AD90E1DCEAF5F0016FE27 /* 5.png in Resources */,
+				106AD9161DCEAF8F0016FE27 /* jolly_roger.png in Resources */,
 				10FD8FC91DC12C01007EFE0C /* paper.png in Resources */,
+				106AD9141DCEAF8F0016FE27 /* captain.png in Resources */,
+				106AD90A1DCEAF5F0016FE27 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +352,8 @@
 				1011E7841DC0E57800AB50FB /* Die.swift in Sources */,
 				1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */,
 				10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */,
+				106AD91B1DCEB68C0016FE27 /* GameButton.swift in Sources */,
+				106AD9191DCEB36B0016FE27 /* DiceGameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
