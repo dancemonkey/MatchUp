@@ -217,6 +217,82 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU"/>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-R5-FqS">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="90e-Qh-19F" userLabel="Dice">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-rH-q2i">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQl-El-chT">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="OHy-0t-HYT"/>
+                                                            <constraint firstAttribute="width" constant="50" id="USe-wr-Gxi"/>
+                                                        </constraints>
+                                                        <state key="normal" image="1.png"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="Ey7-om-mSY"/>
+                                                            <constraint firstAttribute="height" constant="50" id="pjI-ia-11f"/>
+                                                        </constraints>
+                                                        <state key="normal" image="1.png"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="5CZ-oJ-ooe"/>
+                                                            <constraint firstAttribute="height" constant="50" id="hUt-7T-kw0"/>
+                                                        </constraints>
+                                                        <state key="normal" image="1.png"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ViC-aC-s4S">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="drc-cq-iVt"/>
+                                                    <constraint firstAttribute="height" constant="50" id="mcF-qK-C7f"/>
+                                                </constraints>
+                                                <state key="normal" image="1.png"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="VY3-UV-lUQ"/>
+                                                    <constraint firstAttribute="height" constant="50" id="zgh-Tr-HQ4"/>
+                                                </constraints>
+                                                <state key="normal" image="1.png"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -225,6 +301,8 @@
                             <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="54" id="FaP-qI-UFk"/>
                             <constraint firstItem="o7X-Wf-Xma" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="topMargin" constant="8" id="ILx-6c-7zQ"/>
                             <constraint firstAttribute="trailing" secondItem="o7X-Wf-Xma" secondAttribute="trailing" constant="16" id="LKY-kj-ba4"/>
+                            <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="P2h-uK-nRi"/>
+                            <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="Htw-qI-czM" secondAttribute="bottom" constant="7.5" id="blb-1d-guP"/>
                             <constraint firstItem="PbG-S1-YCe" firstAttribute="centerX" secondItem="Bnc-kx-ykZ" secondAttribute="centerX" id="gwH-nn-dhm"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="uGV-f5-uLt"/>
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="8" id="yFi-5S-oBc"/>
@@ -235,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqy-cw-fj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="846.47676161919048"/>
+            <point key="canvasLocation" x="1335" y="785"/>
         </scene>
         <!--Coin FlipVC-->
         <scene sceneID="0X9-qY-dMR">
@@ -285,12 +363,8 @@
                             </view>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
                                 <subviews>
-                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" ambiguous="YES" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
-                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
-                                    </imageView>
-                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
-                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
-                                    </imageView>
+                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo"/>
+                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Z1N-8n-cmH"/>
@@ -354,6 +428,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.png" width="700" height="700"/>
         <image name="EmptyRollInd" width="13" height="13"/>
         <image name="captain.png" width="700" height="700"/>
         <image name="coin.png" width="700" height="700"/>

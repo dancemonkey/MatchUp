@@ -49,7 +49,7 @@ class MessagesViewController: MSMessagesAppViewController {
       child.view.removeFromSuperview()
       child.removeFromParentViewController()
     }
-    
+
     addChildViewController(controller)
     
     controller.view.frame = view.bounds
