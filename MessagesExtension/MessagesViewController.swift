@@ -115,8 +115,16 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+    print("called willTransitionTo")
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
+    }
+    if presentedViewController is DiceGameVC {
+      if presentationStyle == .compact {
+        (presentedViewController as? DiceGameVC)?.hideAllViews()
+      } else {
+        (presentedViewController as? DiceGameVC)?.showAllViews()
+      }
     }
     presentVC(for: conversation, with: presentationStyle)
   }

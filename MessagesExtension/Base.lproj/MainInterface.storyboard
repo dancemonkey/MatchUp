@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -88,7 +88,7 @@
                     <connections>
                         <outlet property="coinBtn" destination="0ab-Xb-2jj" id="Oda-Cv-Kj4"/>
                         <segue destination="As0-Bv-t71" kind="show" identifier="showCoinGame" id="WFa-ev-fxu"/>
-                        <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="5zV-he-coO"/>
+                        <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="TWQ-rV-785"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tru-aE-Rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,6 +118,22 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-GK-4h0" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RDq-HG-l9w"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="WCT-gx-Vu4"/>
+                                </constraints>
+                                <state key="normal" title="PLAY!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="playBtnTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="amY-wq-epO"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-qI-czM" userLabel="Goal Display">
                                 <subviews>
@@ -334,6 +350,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRa-L7-gmn">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -341,25 +362,38 @@
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="4Ix-m2-Pd5"/>
                             <constraint firstItem="STz-aq-OEZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="5WT-7i-ZLl"/>
                             <constraint firstAttribute="trailing" secondItem="STz-aq-OEZ" secondAttribute="trailing" constant="16" id="BrT-u4-7mj"/>
+                            <constraint firstAttribute="trailing" secondItem="RRa-L7-gmn" secondAttribute="trailing" constant="16" id="CDU-mF-9df"/>
                             <constraint firstAttribute="trailing" secondItem="Sa0-R5-FqS" secondAttribute="trailing" constant="16" id="CZz-h1-9hw"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="Htw-qI-czM" secondAttribute="bottom" constant="24" id="DYQ-Gg-CAE"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="top" secondItem="STz-aq-OEZ" secondAttribute="bottom" constant="32" id="Dnt-JD-sMx"/>
+                            <constraint firstItem="fax-GK-4h0" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="EQn-SU-78y"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="PbG-S1-YCe" secondAttribute="bottom" constant="16" id="Ea7-ku-Fxt"/>
+                            <constraint firstAttribute="trailing" secondItem="fax-GK-4h0" secondAttribute="trailing" constant="16" id="GV9-hq-X0e"/>
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="16" id="Ix2-Lr-eRD"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="LvI-Y4-1ak"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="20" id="Obm-GP-bvy"/>
+                            <constraint firstItem="fax-GK-4h0" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="PLh-Ra-qHv"/>
                             <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="58" id="Qev-9D-LrW"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="RRk-cq-UxY"/>
+                            <constraint firstItem="fax-GK-4h0" firstAttribute="centerY" secondItem="ntL-dN-dbV" secondAttribute="centerY" id="f2c-r7-axG"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="h1e-kv-dAS"/>
                             <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="78" id="hBu-EN-3a3"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="centerY" constant="16" id="juU-Gk-Cu6"/>
+                            <constraint firstItem="fax-GK-4h0" firstAttribute="top" secondItem="RRa-L7-gmn" secondAttribute="bottom" constant="32" id="k3H-Gx-i29"/>
+                            <constraint firstItem="RRa-L7-gmn" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="oob-pr-KJz"/>
                             <constraint firstAttribute="trailing" secondItem="Htw-qI-czM" secondAttribute="trailing" constant="20" id="w67-YE-PgC"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="playBtn" destination="fax-GK-4h0" id="Cha-zn-p2m"/>
+                        <outlet property="titleLbl" destination="RRa-L7-gmn" id="B9q-uB-VoR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqy-cw-fj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="785"/>
+            <point key="canvasLocation" x="1242" y="858"/>
         </scene>
         <!--Coin FlipVC-->
         <scene sceneID="0X9-qY-dMR">

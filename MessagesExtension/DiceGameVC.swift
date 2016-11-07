@@ -11,19 +11,44 @@ import Messages
 
 class DiceGameVC: UIViewController {
   
-  var delegate: ExpandViewDelegate!
+  var delegate: ExpandViewDelegate? = nil
+  
+  @IBOutlet weak var titleLbl: UILabel!
+  @IBOutlet weak var playBtn: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    delegate.expand(toPresentationStyle: .expanded)
+    if delegate != nil, delegate?.getPresentationStyle() != .expanded {
+      delegate!.expand(toPresentationStyle: .expanded)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    if delegate.getPresentationStyle() == .compact {
-      print("load compact VC")
+    if delegate?.getPresentationStyle() == .compact {
+      hideAllViews()
     } else {
-      print("load expanded VC")
+      showAllViews()
     }
+  }
+  
+  func hideAllViews() {
+    for subview in view.subviews {
+      subview.isHidden = true
+    }
+    playBtn.isHidden = false
+    titleLbl.isHidden = false
+  }
+  
+  func showAllViews() {
+    for subview in view.subviews {
+      subview.isHidden = false
+    }
+    playBtn.isHidden = true
+    titleLbl.isHidden = true
+  }
+  
+  @IBAction func playBtnTapped(sender: UIButton) {
+    delegate?.expand(toPresentationStyle: .expanded)
   }
   
   override func didReceiveMemoryWarning() {
