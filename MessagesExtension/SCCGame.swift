@@ -52,7 +52,7 @@ class SCCGame {
     
   }
   
-  func scoreCargo() -> Int {
+  private func scoreCargo() -> Int {
     
     var cargo = [Die]()
     for (index, die) in currentDice.enumerated() {
@@ -84,13 +84,15 @@ class SCCGame {
     return shipIndex != nil && captainIndex != nil && crewIndex != nil
   }
   
-  func hold(die: D6, atIndex index: Int) {
+  func hold(die: D6, atIndex index: Int) -> Bool {
     if canHoldResult(forDie: die, atIndex: index) {
       die.freeze()
+      return true
     }
+    return false
   }
   
-  func canHoldResult(forDie die: D6, atIndex index: Int) -> Bool {
+  private func canHoldResult(forDie die: D6, atIndex index: Int) -> Bool {
     
     if shipCapCrewHeld() == true && roundIsOver() == false {
       return true
@@ -98,7 +100,7 @@ class SCCGame {
     
     switch die.value {
     case 6:
-      if shipCapCrewHeld() == false {
+      if shipCapCrewHeld() == false, shipIndex == nil {
         shipIndex = index
         return true
       }

@@ -32,7 +32,6 @@
 		10F20C911DBFF13400E05345 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C8F1DBFF13400E05345 /* MainInterface.storyboard */; };
 		10F20C931DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C921DBFF13400E05345 /* Assets.xcassets */; };
 		10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F20C9E1DBFF2C000E05345 /* CompactVC.swift */; };
-		10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */; };
 		10FD8FC91DC12C01007EFE0C /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FD8FC61DC12C01007EFE0C /* paper.png */; };
 		10FD8FCA1DC12C01007EFE0C /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FD8FC71DC12C01007EFE0C /* rock.png */; };
 		10FD8FCB1DC12C01007EFE0C /* scissors.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FD8FC81DC12C01007EFE0C /* scissors.png */; };
@@ -95,7 +94,6 @@
 		10F20C921DBFF13400E05345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10F20C941DBFF13400E05345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10F20C9E1DBFF2C000E05345 /* CompactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
-		10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedVC.swift; sourceTree = "<group>"; };
 		10FD8FC61DC12C01007EFE0C /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
 		10FD8FC71DC12C01007EFE0C /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		10FD8FC81DC12C01007EFE0C /* scissors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scissors.png; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			children = (
 				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
 				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
-				10F20CA01DBFF2DA00E05345 /* ExpandedVC.swift */,
 				100B40791DC4E0CE00525A52 /* CoinFlipVC.swift */,
 				106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */,
 			);
@@ -351,7 +348,6 @@
 				10F20C8E1DBFF13400E05345 /* MessagesViewController.swift in Sources */,
 				1011E7841DC0E57800AB50FB /* Die.swift in Sources */,
 				1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */,
-				10F20CA11DBFF2DA00E05345 /* ExpandedVC.swift in Sources */,
 				106AD91B1DCEB68C0016FE27 /* GameButton.swift in Sources */,
 				106AD9191DCEB36B0016FE27 /* DiceGameVC.swift in Sources */,
 			);

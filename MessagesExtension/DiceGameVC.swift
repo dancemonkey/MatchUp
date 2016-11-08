@@ -12,15 +12,28 @@ import Messages
 class DiceGameVC: UIViewController {
   
   var delegate: ExpandViewDelegate? = nil
+  var game: SCCGame? = nil
   
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var playBtn: UIButton!
+  @IBOutlet var rollIndicator: [UIImageView]!       // Switch based on which roll you're currently doing
+  @IBOutlet var targetRollIndicator: [UIImageView]! // Ship, Cap, and Crew icons, indicate achievement
+  @IBOutlet var dieIndicator: [UIButton]!           // Indicate held or "frozen" dice, and switch based on roll result
+  @IBOutlet weak var turnScoreLbl: UILabel!
+  @IBOutlet weak var totalScoreLbl: UILabel!
   
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     if delegate != nil, delegate?.getPresentationStyle() != .expanded {
       delegate!.expand(toPresentationStyle: .expanded)
     }
+    
+    if game == nil {
+      game = SCCGame()
+      setupForNewGame()
+    }
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +41,18 @@ class DiceGameVC: UIViewController {
       hideAllViews()
     } else {
       showAllViews()
+    }
+  }
+  
+  func setupForNewGame() {
+    for view in targetRollIndicator {
+      view.alpha = 0.2
+    }
+    for view in rollIndicator {
+      view.image = UIImage(named: "EmptyRollInd")
+    }
+    for view in dieIndicator {
+      view.alpha = 1.0
     }
   }
   
@@ -47,15 +72,40 @@ class DiceGameVC: UIViewController {
     titleLbl.isHidden = true
   }
   
+  // MARK: - Game Buttons
+  
   @IBAction func playBtnTapped(sender: UIButton) {
     delegate?.expand(toPresentationStyle: .expanded)
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  @IBAction func dieButtonTapped(sender: UIButton) {
+    if (game?.hold(die: (game?.currentDice[sender.tag])!, atIndex: sender.tag))! {
+      dieIndicator[sender.tag].alpha = 0.2
+    }
   }
   
+  @IBAction func rollTapped(sender: UIButton) {
+    if let result = game?.roll() {
+      setDieFaces(forRollResult: result)
+      setRollIndicator(forRoll: (game?.totalRolls)!)
+    }
+  }
+  
+  // MARK: Game Actions
+  
+  func setDieFaces(forRollResult result: [Int]) {
+    for (index, roll) in result.enumerated() {
+      dieIndicator[index].setImage(UIImage(named: "\(roll)"), for: .normal)
+    }
+  }
+  
+  func setRollIndicator(forRoll roll: Int) {
+    rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
+    if game?.roundIsOver() == true {
+      game?.endRound()
+      turnScoreLbl.text = "\(game!.score)"
+    }
+  }
   
   /*
    // MARK: - Navigation

@@ -39,25 +39,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHm-OE-9Uw" userLabel="Rock">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="8vZ-Qq-N3Y"/>
-                                    <constraint firstAttribute="height" constant="75" id="sSg-70-eCa"/>
-                                </constraints>
-                                <state key="normal" image="rock.png">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Xb-2jj" userLabel="Coin">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="G7H-bE-hFd"/>
-                                    <constraint firstAttribute="width" constant="75" id="ZOc-t9-HeJ"/>
-                                </constraints>
-                                <state key="normal" image="coin.png"/>
-                                <connections>
-                                    <action selector="coinPressedWithSender:" destination="3Eb-Oi-V92" eventType="touchUpInside" id="MVK-XA-TKY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-ew-AhR" userLabel="Dice">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="3It-PG-t8f"/>
@@ -76,18 +57,12 @@
                         <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bBS-uo-odw" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="5ze-Xf-45g"/>
-                            <constraint firstItem="0ab-Xb-2jj" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="8Pp-Pj-UJn"/>
-                            <constraint firstItem="SHm-OE-9Uw" firstAttribute="leading" secondItem="Zhe-gv-bBb" secondAttribute="leading" constant="16" id="FX7-bb-M2U"/>
+                            <constraint firstItem="ife-ew-AhR" firstAttribute="top" secondItem="bBS-uo-odw" secondAttribute="bottom" constant="16" id="A11-bU-NLz"/>
+                            <constraint firstItem="ife-ew-AhR" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="BjM-8y-7Dr"/>
                             <constraint firstItem="ife-ew-AhR" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="Qsc-gK-Uhd"/>
-                            <constraint firstItem="0ab-Xb-2jj" firstAttribute="top" secondItem="bBS-uo-odw" secondAttribute="bottom" constant="16" id="RwQ-M3-a7L"/>
-                            <constraint firstItem="SHm-OE-9Uw" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="eae-HM-Qod"/>
-                            <constraint firstAttribute="trailing" secondItem="ife-ew-AhR" secondAttribute="trailing" constant="16" id="y2c-Bu-DJH"/>
-                            <constraint firstItem="0ab-Xb-2jj" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="ydW-rN-Zmp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="coinBtn" destination="0ab-Xb-2jj" id="Oda-Cv-Kj4"/>
-                        <segue destination="As0-Bv-t71" kind="show" identifier="showCoinGame" id="WFa-ev-fxu"/>
                         <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="TWQ-rV-785"/>
                     </connections>
                 </viewController>
@@ -118,6 +93,9 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rollTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="eS8-Zq-Dpb"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-GK-4h0" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,6 +103,7 @@
                                     <constraint firstAttribute="height" constant="50" id="RDq-HG-l9w"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="WCT-gx-Vu4"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <state key="normal" title="PLAY!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -154,7 +133,7 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-L8-5sV" userLabel="Captain">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain.png" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain.png" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="1Qf-ST-Gh3"/>
                                                     <constraint firstAttribute="height" constant="75" id="SGO-AM-dQq"/>
@@ -169,7 +148,7 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VCb-pv-pDX" userLabel="Crew">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew.png" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
+                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew.png" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="kJL-VY-OkP"/>
                                                     <constraint firstAttribute="height" constant="75" id="kin-8h-tOQ"/>
@@ -192,13 +171,13 @@
                                             <constraint firstAttribute="height" constant="25" id="l4Z-zT-oZX"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80">
+                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="R90-Zb-U0w"/>
                                             <constraint firstAttribute="width" constant="25" id="eai-xn-1VR"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU">
+                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="JUA-2Z-wdi"/>
                                             <constraint firstAttribute="height" constant="25" id="eXg-ui-BaA"/>
@@ -225,8 +204,11 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="qh5-Ki-pQU"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="Ey7-om-mSY"/>
                                                     <constraint firstAttribute="height" constant="60" id="pjI-ia-11f"/>
@@ -237,8 +219,11 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="21R-Te-EDA"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="5CZ-oJ-ooe"/>
                                                     <constraint firstAttribute="height" constant="60" id="hUt-7T-kw0"/>
@@ -249,12 +234,15 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="WBK-kB-Z9s"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yM-enw">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="drc-cq-iVt"/>
                                                     <constraint firstAttribute="height" constant="60" id="mcF-qK-C7f"/>
@@ -265,8 +253,11 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="isN-Bv-aFa"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="VY3-UV-lUQ"/>
                                                     <constraint firstAttribute="height" constant="60" id="zgh-Tr-HQ4"/>
@@ -277,6 +268,9 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="jCR-3a-MJv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -389,138 +383,32 @@
                     <connections>
                         <outlet property="playBtn" destination="fax-GK-4h0" id="Cha-zn-p2m"/>
                         <outlet property="titleLbl" destination="RRa-L7-gmn" id="B9q-uB-VoR"/>
+                        <outlet property="totalScoreLbl" destination="V9c-Jo-cHT" id="4tp-JO-CLA"/>
+                        <outlet property="turnScoreLbl" destination="g6n-B9-oGf" id="gfl-ss-Uie"/>
+                        <outletCollection property="rollIndicator" destination="8mG-9A-ujk" collectionClass="NSMutableArray" id="9jZ-rc-BAs"/>
+                        <outletCollection property="rollIndicator" destination="X4h-nc-E80" collectionClass="NSMutableArray" id="3uQ-nE-lM3"/>
+                        <outletCollection property="rollIndicator" destination="HUK-TB-wQU" collectionClass="NSMutableArray" id="geX-3g-k3n"/>
+                        <outletCollection property="targetRollIndicator" destination="Atp-ae-cjS" collectionClass="NSMutableArray" id="viv-Oj-gNJ"/>
+                        <outletCollection property="targetRollIndicator" destination="v4G-ja-b5j" collectionClass="NSMutableArray" id="m3U-HO-EoY"/>
+                        <outletCollection property="targetRollIndicator" destination="nsQ-EH-RPy" collectionClass="NSMutableArray" id="lrL-dy-4il"/>
+                        <outletCollection property="dieIndicator" destination="UQl-El-chT" collectionClass="NSMutableArray" id="VXr-Kz-tJx"/>
+                        <outletCollection property="dieIndicator" destination="eke-dW-EcC" collectionClass="NSMutableArray" id="pHr-Wu-i3d"/>
+                        <outletCollection property="dieIndicator" destination="ihA-0J-wGz" collectionClass="NSMutableArray" id="atB-AA-dU3"/>
+                        <outletCollection property="dieIndicator" destination="2su-Xd-HhX" collectionClass="NSMutableArray" id="PvE-M9-cc9"/>
+                        <outletCollection property="dieIndicator" destination="TGG-9x-UpY" collectionClass="NSMutableArray" id="15q-y2-tld"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqy-cw-fj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1242" y="858"/>
         </scene>
-        <!--Coin FlipVC-->
-        <scene sceneID="0X9-qY-dMR">
-            <objects>
-                <viewController storyboardIdentifier="Coin Game" id="As0-Bv-t71" customClass="CoinFlipVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cft-GP-oly"/>
-                        <viewControllerLayoutGuide type="bottom" id="rIl-l2-fqH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2Bx-6f-WzI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-ZA-9Yb">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelPressedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="RgJ-86-CSw"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQR-pP-HeK" userLabel="CoinAnimContainer">
-                                <subviews>
-                                    <imageView hidden="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="py2-E1-Hn4">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="eVk-iA-b08"/>
-                                            <constraint firstAttribute="width" constant="120" id="zid-Wd-qpi"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView hidden="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-FB-uPp">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="Sde-Ka-pLU"/>
-                                            <constraint firstAttribute="height" constant="120" id="fkI-wq-EVd"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="py2-E1-Hn4" firstAttribute="centerY" secondItem="SQR-pP-HeK" secondAttribute="centerY" id="22y-kU-9jh"/>
-                                    <constraint firstItem="QA3-FB-uPp" firstAttribute="centerY" secondItem="SQR-pP-HeK" secondAttribute="centerY" id="5pj-M5-Sw8"/>
-                                    <constraint firstItem="QA3-FB-uPp" firstAttribute="centerX" secondItem="SQR-pP-HeK" secondAttribute="centerX" id="6Qb-HB-2yh"/>
-                                    <constraint firstItem="py2-E1-Hn4" firstAttribute="centerX" secondItem="SQR-pP-HeK" secondAttribute="centerX" id="JUE-1Q-oXF"/>
-                                    <constraint firstAttribute="height" constant="120" id="SJl-CH-Ttn"/>
-                                    <constraint firstAttribute="width" constant="120" id="fRK-og-KOI"/>
-                                </constraints>
-                            </view>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-5f-qtg" userLabel="Coins">
-                                <subviews>
-                                    <imageView hidden="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" ambiguous="YES" image="heads.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-0U-VFo">
-                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
-                                    </imageView>
-                                    <imageView hidden="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" image="tails.png" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IO-UuE">
-                                        <frame key="frameInset" minX="-20" minY="-274" height="1200"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Z1N-8n-cmH"/>
-                                </constraints>
-                            </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to flip the coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-PM-exF">
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-no-Lgw" customClass="DesignableButton" customModule="MessagesExtension" customModuleProvider="target">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="W9J-Ic-Bwg"/>
-                                    <constraint firstAttribute="width" constant="125" id="nrd-YD-HJI"/>
-                                </constraints>
-                                <state key="normal" title="See results">
-                                    <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="showResultTappedWithSender:" destination="As0-Bv-t71" eventType="touchUpInside" id="ige-ed-Iki"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="YsD-ZA-9Yb" firstAttribute="centerY" secondItem="NfF-PM-exF" secondAttribute="centerY" id="3yu-bP-Bjz"/>
-                            <constraint firstItem="m4P-5f-qtg" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="20" id="4ZG-03-88j"/>
-                            <constraint firstAttribute="trailing" secondItem="m4P-5f-qtg" secondAttribute="trailing" constant="20" id="75b-Gv-rpb"/>
-                            <constraint firstItem="NfF-PM-exF" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="Pp1-aS-6Zy"/>
-                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="R6R-ao-51A"/>
-                            <constraint firstItem="m4P-5f-qtg" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="ciS-6P-ntC"/>
-                            <constraint firstItem="SQR-pP-HeK" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" id="qRc-nq-y1y"/>
-                            <constraint firstItem="m4P-5f-qtg" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="qvP-vi-oDh"/>
-                            <constraint firstItem="SQR-pP-HeK" firstAttribute="centerX" secondItem="2Bx-6f-WzI" secondAttribute="centerX" id="qz6-RV-PM5"/>
-                            <constraint firstItem="b0S-no-Lgw" firstAttribute="centerY" secondItem="2Bx-6f-WzI" secondAttribute="centerY" constant="50" id="wVv-il-Y7H"/>
-                            <constraint firstItem="YsD-ZA-9Yb" firstAttribute="leading" secondItem="2Bx-6f-WzI" secondAttribute="leading" constant="16" id="ycN-GZ-WEY"/>
-                            <constraint firstItem="SQR-pP-HeK" firstAttribute="top" secondItem="NfF-PM-exF" secondAttribute="bottom" constant="16" id="zmG-CN-TFP"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="animationContainer" destination="SQR-pP-HeK" id="oAB-RU-9uv"/>
-                        <outlet property="cancelBtn" destination="YsD-ZA-9Yb" id="9dv-gm-0xF"/>
-                        <outlet property="coinImg" destination="QA3-FB-uPp" id="3q4-Wq-5Qb"/>
-                        <outlet property="coinStack" destination="m4P-5f-qtg" id="Oz3-Tf-nVt"/>
-                        <outlet property="headsImg" destination="2ai-0U-VFo" id="cW6-iN-yxe"/>
-                        <outlet property="resultsBtn" destination="b0S-no-Lgw" id="JS3-yS-4V0"/>
-                        <outlet property="resultsLbl" destination="NfF-PM-exF" id="a1k-r9-xSb"/>
-                        <outlet property="tailsImg" destination="H9E-IO-UuE" id="RU9-LV-HRR"/>
-                        <outlet property="tailsImgForAnim" destination="py2-E1-Hn4" id="JmV-Iy-Mrr"/>
-                        <segue destination="3Eb-Oi-V92" kind="show" identifier="showMenuVC" id="JEy-Rc-nIa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hwr-dS-t01" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2135" y="73"/>
-        </scene>
     </scenes>
     <resources>
         <image name="1.png" width="700" height="700"/>
         <image name="EmptyRollInd" width="13" height="13"/>
         <image name="captain.png" width="700" height="700"/>
-        <image name="coin.png" width="700" height="700"/>
         <image name="crew.png" width="700" height="700"/>
         <image name="dice.png" width="700" height="700"/>
-        <image name="heads.png" width="1200" height="1200"/>
-        <image name="rock.png" width="700" height="700"/>
         <image name="ship.png" width="700" height="700"/>
-        <image name="tails.png" width="1200" height="1200"/>
     </resources>
 </document>
