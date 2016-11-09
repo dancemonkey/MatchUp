@@ -115,7 +115,6 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-    print("called willTransitionTo")
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
@@ -138,6 +137,14 @@ class MessagesViewController: MSMessagesAppViewController {
 }
 
 // MARK: DELEGATE FUNCTIONS
+
+extension MessagesViewController: DiceGameDelegate {
+  func composeMessage(forScore score: Int) {
+    self.requestPresentationStyle(.compact)
+    print("composing message to send to opponent")
+    // compose the message here
+  }
+}
 
 extension MessagesViewController: ExpandViewDelegate {
   func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle) {

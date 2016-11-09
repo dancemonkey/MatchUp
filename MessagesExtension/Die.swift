@@ -49,7 +49,11 @@ class Die {
   }
   
   func freeze() {
-    self._frozen = !_frozen
+    self._frozen = true
+  }
+  
+  func unFreeze() {
+    self._frozen = false
   }
   
 }

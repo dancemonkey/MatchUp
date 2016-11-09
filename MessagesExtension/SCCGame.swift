@@ -72,6 +72,19 @@ class SCCGame {
   }
   
   func endRound() {
+    
+    for (index, die) in currentDice.enumerated() {
+      if shipIndex == nil && die.value == 6 {
+        shipIndex = index
+      }
+      if captainIndex == nil && die.value == 5 {
+        captainIndex = index
+      }
+      if crewIndex == nil && die.value == 4 {
+        crewIndex = index
+      }
+    }
+    
     guard shipIndex != nil, captainIndex != nil, crewIndex != nil else {
       self.score = 0
       return
@@ -92,6 +105,20 @@ class SCCGame {
     return false
   }
   
+  func unHold(die: D6) {
+    die.unFreeze()
+    switch die.value {
+    case 6:
+      shipIndex = nil
+    case 5:
+      captainIndex = nil
+    case 4:
+      crewIndex = nil
+    default:
+      break
+    }
+  }
+  
   private func canHoldResult(forDie die: D6, atIndex index: Int) -> Bool {
     
     if shipCapCrewHeld() == true && roundIsOver() == false {
@@ -106,13 +133,13 @@ class SCCGame {
       }
       return false
     case 5:
-      if shipIndex != nil {
+      if shipIndex != nil, captainIndex == nil {
         captainIndex = index
         return true
       }
       return false
     case 4:
-      if shipIndex != nil && captainIndex != nil {
+      if shipIndex != nil && captainIndex != nil && crewIndex == nil {
         crewIndex = index
         return true
       }

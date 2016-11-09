@@ -18,3 +18,7 @@ protocol ExpandViewDelegate {
   func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle)
   func getPresentationStyle() -> MSMessagesAppPresentationStyle
 }
+
+protocol DiceGameDelegate {
+  func composeMessage(forScore score: Int)
+}

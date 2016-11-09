@@ -382,6 +382,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="playBtn" destination="fax-GK-4h0" id="Cha-zn-p2m"/>
+                        <outlet property="rollDiceBtn" destination="Bnc-kx-ykZ" id="3FL-4o-Hc5"/>
                         <outlet property="titleLbl" destination="RRa-L7-gmn" id="B9q-uB-VoR"/>
                         <outlet property="totalScoreLbl" destination="V9c-Jo-cHT" id="4tp-JO-CLA"/>
                         <outlet property="turnScoreLbl" destination="g6n-B9-oGf" id="gfl-ss-Uie"/>

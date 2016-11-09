@@ -12,6 +12,7 @@ import Messages
 class DiceGameVC: UIViewController {
   
   var delegate: ExpandViewDelegate? = nil
+  var messageDelegate: DiceGameDelegate? = nil
   var game: SCCGame? = nil
   
   @IBOutlet weak var titleLbl: UILabel!
@@ -21,6 +22,7 @@ class DiceGameVC: UIViewController {
   @IBOutlet var dieIndicator: [UIButton]!           // Indicate held or "frozen" dice, and switch based on roll result
   @IBOutlet weak var turnScoreLbl: UILabel!
   @IBOutlet weak var totalScoreLbl: UILabel!
+  @IBOutlet weak var rollDiceBtn: UIButton!
   
   override func viewDidLoad() {
     
@@ -30,7 +32,6 @@ class DiceGameVC: UIViewController {
     }
     
     if game == nil {
-      game = SCCGame()
       setupForNewGame()
     }
     
@@ -45,6 +46,8 @@ class DiceGameVC: UIViewController {
   }
   
   func setupForNewGame() {
+    game = SCCGame()
+    rollDiceBtn.setTitle("PLAY!", for: .normal)
     for view in targetRollIndicator {
       view.alpha = 0.2
     }
@@ -53,6 +56,9 @@ class DiceGameVC: UIViewController {
     }
     for view in dieIndicator {
       view.alpha = 1.0
+    }
+    for die in dieIndicator {
+      die.setImage(UIImage(named: "1"), for: .normal)
     }
   }
   
@@ -79,16 +85,35 @@ class DiceGameVC: UIViewController {
   }
   
   @IBAction func dieButtonTapped(sender: UIButton) {
-    if (game?.hold(die: (game?.currentDice[sender.tag])!, atIndex: sender.tag))! {
+    
+    let die = game?.currentDice[sender.tag]
+    
+    guard die?.frozen == false else {
+      game?.unHold(die: die!)
+      dieIndicator[sender.tag].alpha = 1.0
+      return
+    }
+    
+    if (game?.hold(die: die!, atIndex: sender.tag))! {
       dieIndicator[sender.tag].alpha = 0.2
     }
+    
   }
   
   @IBAction func rollTapped(sender: UIButton) {
-    if let result = game?.roll() {
-      setDieFaces(forRollResult: result)
-      setRollIndicator(forRoll: (game?.totalRolls)!)
+    
+    guard sender.titleLabel?.text == "SEND" else {
+      if let result = game?.roll() {
+        setDieFaces(forRollResult: result)
+        setRollIndicator(forRoll: (game?.totalRolls)!)
+      }
+      return
     }
+    
+    if let score = game?.score {
+      endRound(withScore: score)
+    }
+    
   }
   
   // MARK: Game Actions
@@ -104,7 +129,13 @@ class DiceGameVC: UIViewController {
     if game?.roundIsOver() == true {
       game?.endRound()
       turnScoreLbl.text = "\(game!.score)"
+      rollDiceBtn.setTitle("SEND", for: .normal)
     }
+  }
+  
+  func endRound(withScore score: Int) {
+    messageDelegate?.composeMessage(forScore: score)
+    setupForNewGame()
   }
   
   /*

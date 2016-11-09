@@ -43,6 +43,7 @@ class CompactVC: UIViewController {
     } else if segue.identifier == "showDiceGame" {
       if let destVC = segue.destination as? DiceGameVC {
         destVC.delegate = self.parent! as? ExpandViewDelegate
+        destVC.messageDelegate = self.parent! as? DiceGameDelegate
       }
     }
   }
