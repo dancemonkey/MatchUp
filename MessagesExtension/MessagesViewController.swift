@@ -38,7 +38,7 @@ class MessagesViewController: MSMessagesAppViewController {
           if item.name.contains("coin") {
             controller = instantiateCoinGame(withMessage: message)
           } else if item.name.contains("scc") {
-            // load ship, captain, and crew vc
+            controller = instantiateSCCGame(withMessage: message)
           }
         }
       }
@@ -69,8 +69,17 @@ class MessagesViewController: MSMessagesAppViewController {
       fatalError("Can't load Coin Game")
     }
     vc.message = message
-    print(message)
     vc.delegate = self
+    return vc
+  }
+  
+  private func instantiateSCCGame(withMessage message: MSMessage) -> UIViewController {
+    guard let vc = storyboard?.instantiateViewController(withIdentifier: "SCC Game") as? DiceGameVC else {
+      fatalError("Can't load Ship captain and crew")
+    }
+    vc.message = message
+    vc.delegate = self
+    vc.messageDelegate = self
     return vc
   }
   
@@ -115,6 +124,7 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+    print("transitioning to \(presentationStyle)")
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
@@ -129,6 +139,7 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+    print("transitioned to \(presentationStyle)")
     // Called after the extension transitions to a new presentation style.
     
     // Use this method to finalize any behaviors associated with the change in presentation style.
@@ -140,9 +151,33 @@ class MessagesViewController: MSMessagesAppViewController {
 
 extension MessagesViewController: DiceGameDelegate {
   func composeMessage(forScore score: Int) {
-    self.requestPresentationStyle(.compact)
+    
     print("composing message to send to opponent")
-    // compose the message here
+
+    self.requestPresentationStyle(.compact)
+    
+    let convo = activeConversation ?? MSConversation()
+    let session = convo.selectedMessage?.session ?? MSSession()
+    
+    let layout = MSMessageTemplateLayout()
+    layout.caption = "Ship, Captain, and Crew"
+    layout.subcaption = "You opponent scored \(score) points!"
+    
+    let message = MSMessage(session: session)
+    message.layout = layout
+    
+    var components = URLComponents()
+    let queryItem = URLQueryItem(name: "sccScore", value: "\(score)")
+    components.queryItems = [queryItem]
+    
+    message.url = components.url
+    message.summaryText = "Opponent took their turn and scored \(score)"
+    
+    convo.insert(message) { (error) in
+      guard error == nil else {
+        fatalError("error in inserting message into conversation")
+      }
+    }
   }
 }
 

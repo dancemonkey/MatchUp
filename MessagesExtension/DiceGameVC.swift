@@ -14,14 +14,15 @@ class DiceGameVC: UIViewController {
   var delegate: ExpandViewDelegate? = nil
   var messageDelegate: DiceGameDelegate? = nil
   var game: SCCGame? = nil
+  var message: MSMessage? = nil
   
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var playBtn: UIButton!
   @IBOutlet var rollIndicator: [UIImageView]!       // Switch based on which roll you're currently doing
   @IBOutlet var targetRollIndicator: [UIImageView]! // Ship, Cap, and Crew icons, indicate achievement
   @IBOutlet var dieIndicator: [UIButton]!           // Indicate held or "frozen" dice, and switch based on roll result
-  @IBOutlet weak var turnScoreLbl: UILabel!
-  @IBOutlet weak var totalScoreLbl: UILabel!
+  @IBOutlet weak var yourScoreLbl: UILabel!
+  @IBOutlet weak var theirScoreLbl: UILabel!
   @IBOutlet weak var rollDiceBtn: UIButton!
   
   override func viewDidLoad() {
@@ -32,7 +33,13 @@ class DiceGameVC: UIViewController {
     }
     
     if game == nil {
+      print("\n\n\n\n\nsetting up new game\n\n\n\n\n")
       setupForNewGame()
+    }
+    
+    if message != nil {
+      parse(message: message!)
+      print("\n\n\n\n\n\n oppontent scored \(game!.opponentScore) \n\n\n\n\n\n")
     }
     
   }
@@ -42,6 +49,21 @@ class DiceGameVC: UIViewController {
       hideAllViews()
     } else {
       showAllViews()
+    }
+  }
+  
+  func parse(message: MSMessage) {
+    if let url = message.url {
+      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+        if let queryItems = components.queryItems {
+          for item in queryItems {
+            if item.name == "sccScore" {
+              game?.opponentScore = Int(item.value!)!
+              theirScoreLbl.text = "\(game!.opponentScore)"
+            }
+          }
+        }
+      }
     }
   }
   
@@ -66,6 +88,7 @@ class DiceGameVC: UIViewController {
     for subview in view.subviews {
       subview.isHidden = true
     }
+    
     playBtn.isHidden = false
     titleLbl.isHidden = false
   }
@@ -74,6 +97,7 @@ class DiceGameVC: UIViewController {
     for subview in view.subviews {
       subview.isHidden = false
     }
+    
     playBtn.isHidden = true
     titleLbl.isHidden = true
   }
@@ -128,7 +152,7 @@ class DiceGameVC: UIViewController {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
     if game?.roundIsOver() == true {
       game?.endRound()
-      turnScoreLbl.text = "\(game!.score)"
+      yourScoreLbl.text = "\(game!.score)"
       rollDiceBtn.setTitle("SEND", for: .normal)
     }
   }

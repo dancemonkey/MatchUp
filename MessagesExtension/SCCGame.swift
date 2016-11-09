@@ -14,6 +14,15 @@ class SCCGame {
   let maxHand = 5
   
   var score: Int
+  private var _opponentScore: Int
+  var opponentScore: Int {
+    get {
+      return _opponentScore
+    }
+    set {
+      _opponentScore = newValue
+    }
+  }
   var totalRolls: Int
   var currentHand: Int
   var currentDice: [D6]
@@ -24,6 +33,7 @@ class SCCGame {
   
   init() {
     self.score = 0
+    self._opponentScore = 0
     self.totalRolls = 0
     self.currentHand = maxHand
     self.currentDice = [D6]()
