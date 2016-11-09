@@ -93,6 +93,13 @@ class MessagesViewController: MSMessagesAppViewController {
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
+    if presentedViewController is DiceGameVC {
+      if presentationStyle == .compact {
+        (presentedViewController as? DiceGameVC)?.hideAllViews()
+      } else {
+        (presentedViewController as? DiceGameVC)?.showAllViews()
+      }
+    }
     presentVC(for: conversation, with: presentationStyle)
   }
   
@@ -124,7 +131,6 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-    print("transitioning to \(presentationStyle)")
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
@@ -139,7 +145,6 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-    print("transitioned to \(presentationStyle)")
     // Called after the extension transitions to a new presentation style.
     
     // Use this method to finalize any behaviors associated with the change in presentation style.
