@@ -36,6 +36,11 @@ class Die {
     return _frozen
   }
   
+  private var _locked = false
+  var locked: Bool {
+    return _locked
+  }
+  
   init(sides: Int, faceColor: UIColor = .white, pipColor: UIColor = .black) {
     self._numSides = sides
     self._faceColor = faceColor
@@ -54,6 +59,10 @@ class Die {
   
   func unFreeze() {
     self._frozen = false
+  }
+  
+  func lockDie() {
+    self._locked = true
   }
   
 }

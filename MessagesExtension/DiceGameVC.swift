@@ -9,6 +9,10 @@
 import UIKit
 import Messages
 
+enum TargetIconTag: Int {
+  case ship = 0, captain, crew
+}
+
 class DiceGameVC: UIViewController {
   
   var delegate: ExpandViewDelegate? = nil
@@ -16,8 +20,6 @@ class DiceGameVC: UIViewController {
   var game: SCCGame? = nil
   var message: MSMessage? = nil
   
-  @IBOutlet weak var titleLbl: UILabel!
-  @IBOutlet weak var playBtn: UIButton!
   @IBOutlet var rollIndicator: [UIImageView]!       // Switch based on which roll you're currently doing
   @IBOutlet var targetRollIndicator: [UIImageView]! // Ship, Cap, and Crew icons, indicate achievement
   @IBOutlet var dieIndicator: [UIButton]!           // Indicate held or "frozen" dice, and switch based on roll result
@@ -33,23 +35,21 @@ class DiceGameVC: UIViewController {
     }
     
     if game == nil {
-      print("\n\n\n\n\nsetting up new game\n\n\n\n\n")
       setupForNewGame()
     }
     
     if message != nil {
       parse(message: message!)
-      print("\n\n\n\n\n\n oppontent scored \(game!.opponentScore) \n\n\n\n\n\n")
     }
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    if delegate?.getPresentationStyle() == .compact {
-      hideAllViews()
-    } else {
-      showAllViews()
-    }
+//    if delegate?.getPresentationStyle() == .compact {
+//      hideAllViews()
+//    } else {
+//      showAllViews()
+//    }
   }
   
   func parse(message: MSMessage) {
@@ -69,7 +69,7 @@ class DiceGameVC: UIViewController {
   
   func setupForNewGame() {
     game = SCCGame()
-    rollDiceBtn.setTitle("PLAY!", for: .normal)
+    rollDiceBtn.setTitle("ROLL!", for: .normal)
     for view in targetRollIndicator {
       view.alpha = 0.2
     }
@@ -80,7 +80,7 @@ class DiceGameVC: UIViewController {
       view.alpha = 1.0
     }
     for die in dieIndicator {
-      die.setImage(UIImage(named: "1"), for: .normal)
+      die.setImage(UIImage(named: "3"), for: .normal)
     }
   }
   
@@ -89,8 +89,8 @@ class DiceGameVC: UIViewController {
       subview.isHidden = true
     }
     
-    playBtn.isHidden = false
-    titleLbl.isHidden = false
+//    playBtn.isHidden = false
+//    titleLbl.isHidden = false
   }
   
   func showAllViews() {
@@ -98,23 +98,24 @@ class DiceGameVC: UIViewController {
       subview.isHidden = false
     }
     
-    playBtn.isHidden = true
-    titleLbl.isHidden = true
+//    playBtn.isHidden = true
+//    titleLbl.isHidden = true
   }
   
   // MARK: - Game Buttons
   
-  @IBAction func playBtnTapped(sender: UIButton) {
-    delegate?.expand(toPresentationStyle: .expanded)
-  }
+//  @IBAction func playBtnTapped(sender: UIButton) {
+//    delegate?.expand(toPresentationStyle: .expanded)
+//  }
   
   @IBAction func dieButtonTapped(sender: UIButton) {
     
     let die = game?.currentDice[sender.tag]
     
     guard die?.frozen == false else {
-      game?.unHold(die: die!)
-      dieIndicator[sender.tag].alpha = 1.0
+      if game!.canUnhold(die: die!) {
+        dieIndicator[sender.tag].alpha = 1.0
+      }
       return
     }
     
@@ -122,6 +123,42 @@ class DiceGameVC: UIViewController {
       dieIndicator[sender.tag].alpha = 0.2
     }
     
+    checkTargetIndicators()
+    
+  }
+  
+  func checkTargetIndicators() {
+    var ship: UIImageView!
+    var captain: UIImageView!
+    var crew: UIImageView!
+    
+    for icon in targetRollIndicator {
+      if icon.tag == TargetIconTag.ship.rawValue {
+        ship = icon
+      } else if icon.tag == TargetIconTag.captain.rawValue {
+        captain = icon
+      } else if icon.tag == TargetIconTag.crew.rawValue {
+        crew = icon
+      }
+    }
+    
+    if let g = self.game {
+      if g.hasFoundShip() {
+        ship.alpha = 1.0
+      } else {
+        ship.alpha = 0.2
+      }
+      if g.hasFoundCaptain() {
+        captain.alpha = 1.0
+      } else {
+        captain.alpha = 0.2
+      }
+      if g.hasFoundCrew() {
+        crew.alpha = 1.0
+      } else {
+        crew.alpha = 0.2
+      }
+    }
   }
   
   @IBAction func rollTapped(sender: UIButton) {

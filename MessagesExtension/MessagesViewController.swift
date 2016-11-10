@@ -28,21 +28,37 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
-    var controller: UIViewController
-    controller = instantiateCompactVC()
     
-    if let message = conversation.selectedMessage, let url = message.url {
-      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
-        if let queryItems = components.queryItems {
-          let item = queryItems[0] // take the first item just to figure out which game this is going to
-          if item.name.contains("coin") {
-            controller = instantiateCoinGame(withMessage: message)
-          } else if item.name.contains("scc") {
-            controller = instantiateSCCGame(withMessage: message)
+    var controller: UIViewController
+    
+    if presentationStyle == .compact {
+      controller = instantiateCompactVC()
+    } else {
+      controller = instantiateSCCGame(withMessage: nil)
+      if let message = conversation.selectedMessage, let url = message.url {
+        if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+          if let queryItems = components.queryItems {
+            let item = queryItems[0] // take the first item just to figure out which game this is going to
+            if item.name.contains("scc") {
+              controller = instantiateSCCGame(withMessage: message)
+            }
           }
         }
       }
     }
+    
+//    if let message = conversation.selectedMessage, let url = message.url {
+//      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+//        if let queryItems = components.queryItems {
+//          let item = queryItems[0] // take the first item just to figure out which game this is going to
+//          if item.name.contains("coin") {
+//            controller = instantiateCoinGame(withMessage: message)
+//          } else if item.name.contains("scc") {
+//            controller = instantiateSCCGame(withMessage: message)
+//          }
+//        }
+//      }
+//    }
     
     for child in childViewControllers {
       child.willMove(toParentViewController: nil)
@@ -73,7 +89,7 @@ class MessagesViewController: MSMessagesAppViewController {
     return vc
   }
   
-  private func instantiateSCCGame(withMessage message: MSMessage) -> UIViewController {
+  private func instantiateSCCGame(withMessage message: MSMessage?) -> UIViewController {
     guard let vc = storyboard?.instantiateViewController(withIdentifier: "SCC Game") as? DiceGameVC else {
       fatalError("Can't load Ship captain and crew")
     }
@@ -93,13 +109,13 @@ class MessagesViewController: MSMessagesAppViewController {
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
-    if presentedViewController is DiceGameVC {
-      if presentationStyle == .compact {
-        (presentedViewController as? DiceGameVC)?.hideAllViews()
-      } else {
-        (presentedViewController as? DiceGameVC)?.showAllViews()
-      }
-    }
+//    if presentedViewController is DiceGameVC {
+//      if presentationStyle == .compact {
+//        (presentedViewController as? DiceGameVC)?.hideAllViews()
+//      } else {
+//        (presentedViewController as? DiceGameVC)?.showAllViews()
+//      }
+//    }
     presentVC(for: conversation, with: presentationStyle)
   }
   
@@ -134,13 +150,15 @@ class MessagesViewController: MSMessagesAppViewController {
     guard let conversation = activeConversation else {
       fatalError("No active conversation or something")
     }
-    if presentedViewController is DiceGameVC {
-      if presentationStyle == .compact {
-        (presentedViewController as? DiceGameVC)?.hideAllViews()
-      } else {
-        (presentedViewController as? DiceGameVC)?.showAllViews()
-      }
-    }
+    
+//    if presentedViewController is DiceGameVC {
+//      if presentationStyle == .compact {
+//        (presentedViewController as? DiceGameVC)?.hideAllViews()
+//      } else {
+//        (presentedViewController as? DiceGameVC)?.showAllViews()
+//      }
+//    }
+    
     presentVC(for: conversation, with: presentationStyle)
   }
   
@@ -157,8 +175,6 @@ class MessagesViewController: MSMessagesAppViewController {
 extension MessagesViewController: DiceGameDelegate {
   func composeMessage(forScore score: Int) {
     
-    print("composing message to send to opponent")
-
     self.requestPresentationStyle(.compact)
     
     let convo = activeConversation ?? MSConversation()

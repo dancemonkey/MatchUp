@@ -97,23 +97,6 @@
                                     <action selector="rollTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="eS8-Zq-Dpb"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-GK-4h0" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="RDq-HG-l9w"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="WCT-gx-Vu4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                <state key="normal" title="PLAY!"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="playBtnTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="amY-wq-epO"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-qI-czM" userLabel="Goal Display">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-CA-yYD" userLabel="Ship">
@@ -336,6 +319,7 @@
                                     <constraint firstAttribute="bottom" secondItem="o7X-Wf-Xma" secondAttribute="bottom" constant="16" id="58a-PF-lS9"/>
                                     <constraint firstItem="o7X-Wf-Xma" firstAttribute="top" secondItem="STz-aq-OEZ" secondAttribute="top" constant="8" id="Aaf-Ag-NLL"/>
                                     <constraint firstAttribute="trailing" secondItem="o7X-Wf-Xma" secondAttribute="trailing" constant="8" id="E2b-Ic-erG"/>
+                                    <constraint firstAttribute="height" constant="93" id="FCD-nj-eKx"/>
                                     <constraint firstItem="o7X-Wf-Xma" firstAttribute="leading" secondItem="STz-aq-OEZ" secondAttribute="leading" constant="8" id="J5K-EL-xGr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -344,11 +328,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRa-L7-gmn">
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -356,35 +335,25 @@
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="4Ix-m2-Pd5"/>
                             <constraint firstItem="STz-aq-OEZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="5WT-7i-ZLl"/>
                             <constraint firstAttribute="trailing" secondItem="STz-aq-OEZ" secondAttribute="trailing" constant="16" id="BrT-u4-7mj"/>
-                            <constraint firstAttribute="trailing" secondItem="RRa-L7-gmn" secondAttribute="trailing" constant="16" id="CDU-mF-9df"/>
                             <constraint firstAttribute="trailing" secondItem="Sa0-R5-FqS" secondAttribute="trailing" constant="16" id="CZz-h1-9hw"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="Htw-qI-czM" secondAttribute="bottom" constant="24" id="DYQ-Gg-CAE"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="top" secondItem="STz-aq-OEZ" secondAttribute="bottom" constant="32" id="Dnt-JD-sMx"/>
-                            <constraint firstItem="fax-GK-4h0" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="EQn-SU-78y"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="PbG-S1-YCe" secondAttribute="bottom" constant="16" id="Ea7-ku-Fxt"/>
-                            <constraint firstAttribute="trailing" secondItem="fax-GK-4h0" secondAttribute="trailing" constant="16" id="GV9-hq-X0e"/>
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="16" id="Ix2-Lr-eRD"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="LvI-Y4-1ak"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="20" id="Obm-GP-bvy"/>
-                            <constraint firstItem="fax-GK-4h0" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="PLh-Ra-qHv"/>
                             <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="58" id="Qev-9D-LrW"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="RRk-cq-UxY"/>
-                            <constraint firstItem="fax-GK-4h0" firstAttribute="centerY" secondItem="ntL-dN-dbV" secondAttribute="centerY" id="f2c-r7-axG"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="h1e-kv-dAS"/>
-                            <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="78" id="hBu-EN-3a3"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="centerY" constant="16" id="juU-Gk-Cu6"/>
-                            <constraint firstItem="fax-GK-4h0" firstAttribute="top" secondItem="RRa-L7-gmn" secondAttribute="bottom" constant="32" id="k3H-Gx-i29"/>
-                            <constraint firstItem="RRa-L7-gmn" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="oob-pr-KJz"/>
                             <constraint firstAttribute="trailing" secondItem="Htw-qI-czM" secondAttribute="trailing" constant="20" id="w67-YE-PgC"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="playBtn" destination="fax-GK-4h0" id="Cha-zn-p2m"/>
                         <outlet property="rollDiceBtn" destination="Bnc-kx-ykZ" id="3FL-4o-Hc5"/>
                         <outlet property="theirScoreLbl" destination="V9c-Jo-cHT" id="YVa-eX-w7Q"/>
-                        <outlet property="titleLbl" destination="RRa-L7-gmn" id="B9q-uB-VoR"/>
                         <outlet property="yourScoreLbl" destination="g6n-B9-oGf" id="D8F-gd-JkW"/>
                         <outletCollection property="rollIndicator" destination="8mG-9A-ujk" collectionClass="NSMutableArray" id="9jZ-rc-BAs"/>
                         <outletCollection property="rollIndicator" destination="X4h-nc-E80" collectionClass="NSMutableArray" id="3uQ-nE-lM3"/>
@@ -402,6 +371,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqy-cw-fj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1242" y="858"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pEO-BK-Fx5">
+            <objects>
+                <viewController id="YVJ-om-jqF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MtD-4h-KoO"/>
+                        <viewControllerLayoutGuide type="bottom" id="3N6-q1-thB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ggu-BG-tCz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-Ox-rGx" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BIS-FJ-fBp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <state key="normal" title="PLAY!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZB-w1-aQi">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4c5-Ox-rGx" secondAttribute="trailing" constant="16" id="Dhv-eG-7k8"/>
+                            <constraint firstItem="mZB-w1-aQi" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="PnR-7Q-MJv"/>
+                            <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerY" secondItem="Ggu-BG-tCz" secondAttribute="centerY" id="Qbf-qn-esn"/>
+                            <constraint firstItem="4c5-Ox-rGx" firstAttribute="top" secondItem="mZB-w1-aQi" secondAttribute="bottom" constant="25" id="UVR-Mt-0Zy"/>
+                            <constraint firstItem="4c5-Ox-rGx" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" constant="16" id="hpZ-PQ-Hkl"/>
+                            <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="ytI-NW-hTM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xV-TC-Iud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882" y="858"/>
         </scene>
     </scenes>
     <resources>

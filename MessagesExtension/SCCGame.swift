@@ -107,6 +107,18 @@ class SCCGame {
     return shipIndex != nil && captainIndex != nil && crewIndex != nil
   }
   
+  func hasFoundShip() -> Bool {
+    return shipIndex != nil
+  }
+  
+  func hasFoundCaptain() -> Bool {
+    return captainIndex != nil
+  }
+  
+  func hasFoundCrew() -> Bool {
+    return crewIndex != nil
+  }
+  
   func hold(die: D6, atIndex index: Int) -> Bool {
     if canHoldResult(forDie: die, atIndex: index) {
       die.freeze()
@@ -115,18 +127,12 @@ class SCCGame {
     return false
   }
   
-  func unHold(die: D6) {
-    die.unFreeze()
-    switch die.value {
-    case 6:
-      shipIndex = nil
-    case 5:
-      captainIndex = nil
-    case 4:
-      crewIndex = nil
-    default:
-      break
+  func canUnhold(die: D6) -> Bool {
+    if die.locked == false {
+      die.unFreeze()
+      return true
     }
+    return false
   }
   
   private func canHoldResult(forDie die: D6, atIndex index: Int) -> Bool {
@@ -139,18 +145,21 @@ class SCCGame {
     case 6:
       if shipCapCrewHeld() == false, shipIndex == nil {
         shipIndex = index
+        die.lockDie()
         return true
       }
       return false
     case 5:
       if shipIndex != nil, captainIndex == nil {
         captainIndex = index
+        die.lockDie()
         return true
       }
       return false
     case 4:
       if shipIndex != nil && captainIndex != nil && crewIndex == nil {
         crewIndex = index
+        die.lockDie()
         return true
       }
       return false
