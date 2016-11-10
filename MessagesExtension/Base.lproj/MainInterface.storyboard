@@ -27,49 +27,6 @@
             </objects>
             <point key="canvasLocation" x="640" y="73"/>
         </scene>
-        <!--CompactVC-->
-        <scene sceneID="4NZ-OC-3A5">
-            <objects>
-                <viewController storyboardIdentifier="Compact VC" id="3Eb-Oi-V92" customClass="CompactVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jy2-Be-GcH"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZHl-fh-I0v"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zhe-gv-bBb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-ew-AhR" userLabel="Dice">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="3It-PG-t8f"/>
-                                    <constraint firstAttribute="height" constant="75" id="LeL-s1-kC1"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="dice.png"/>
-                                <connections>
-                                    <action selector="dicePressedWithSender:" destination="3Eb-Oi-V92" eventType="touchUpInside" id="6wP-L2-wn4"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MATCH UP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-uo-odw">
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="bBS-uo-odw" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="5ze-Xf-45g"/>
-                            <constraint firstItem="ife-ew-AhR" firstAttribute="top" secondItem="bBS-uo-odw" secondAttribute="bottom" constant="16" id="A11-bU-NLz"/>
-                            <constraint firstItem="ife-ew-AhR" firstAttribute="centerX" secondItem="Zhe-gv-bBb" secondAttribute="centerX" id="BjM-8y-7Dr"/>
-                            <constraint firstItem="ife-ew-AhR" firstAttribute="centerY" secondItem="Zhe-gv-bBb" secondAttribute="centerY" id="Qsc-gK-Uhd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="TWQ-rV-785"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tru-aE-Rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1289" y="108"/>
-        </scene>
         <!--Dice GameVC-->
         <scene sceneID="ouL-QM-beA">
             <objects>
@@ -87,6 +44,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iUk-1t-xDL"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Roll"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -372,10 +330,10 @@
             </objects>
             <point key="canvasLocation" x="1242" y="858"/>
         </scene>
-        <!--View Controller-->
+        <!--CompactVC-->
         <scene sceneID="pEO-BK-Fx5">
             <objects>
-                <viewController id="YVJ-om-jqF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Compact VC" id="YVJ-om-jqF" customClass="CompactVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MtD-4h-KoO"/>
                         <viewControllerLayoutGuide type="bottom" id="3N6-q1-thB"/>
@@ -384,7 +342,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-Ox-rGx" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-Ox-rGx" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BIS-FJ-fBp"/>
@@ -396,14 +354,17 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="playPressedWithSender:" destination="YVJ-om-jqF" eventType="touchUpInside" id="Vs1-N7-C7t"/>
+                                </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZB-w1-aQi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZB-w1-aQi">
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4c5-Ox-rGx" secondAttribute="trailing" constant="16" id="Dhv-eG-7k8"/>
                             <constraint firstItem="mZB-w1-aQi" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="PnR-7Q-MJv"/>
@@ -413,10 +374,14 @@
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="ytI-NW-hTM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playBtn" destination="4c5-Ox-rGx" id="N1Y-0S-1wy"/>
+                        <segue destination="tjQ-lc-a3m" kind="show" identifier="showDiceGame" id="3hI-FF-PKP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xV-TC-Iud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882" y="858"/>
+            <point key="canvasLocation" x="1241" y="91"/>
         </scene>
     </scenes>
     <resources>
@@ -424,7 +389,6 @@
         <image name="EmptyRollInd" width="13" height="13"/>
         <image name="captain.png" width="700" height="700"/>
         <image name="crew.png" width="700" height="700"/>
-        <image name="dice.png" width="700" height="700"/>
         <image name="ship.png" width="700" height="700"/>
     </resources>
 </document>

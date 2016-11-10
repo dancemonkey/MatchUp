@@ -15,14 +15,13 @@ enum TargetIconTag: Int {
 
 class DiceGameVC: UIViewController {
   
-  var delegate: ExpandViewDelegate? = nil
   var messageDelegate: DiceGameDelegate? = nil
   var game: SCCGame? = nil
   var message: MSMessage? = nil
   
-  @IBOutlet var rollIndicator: [UIImageView]!       // Switch based on which roll you're currently doing
-  @IBOutlet var targetRollIndicator: [UIImageView]! // Ship, Cap, and Crew icons, indicate achievement
-  @IBOutlet var dieIndicator: [UIButton]!           // Indicate held or "frozen" dice, and switch based on roll result
+  @IBOutlet var rollIndicator: [UIImageView]!
+  @IBOutlet var targetRollIndicator: [UIImageView]!
+  @IBOutlet var dieIndicator: [UIButton]!
   @IBOutlet weak var yourScoreLbl: UILabel!
   @IBOutlet weak var theirScoreLbl: UILabel!
   @IBOutlet weak var rollDiceBtn: UIButton!
@@ -30,9 +29,6 @@ class DiceGameVC: UIViewController {
   override func viewDidLoad() {
     
     super.viewDidLoad()
-    if delegate != nil, delegate?.getPresentationStyle() != .expanded {
-      delegate!.expand(toPresentationStyle: .expanded)
-    }
     
     if game == nil {
       setupForNewGame()
@@ -42,14 +38,6 @@ class DiceGameVC: UIViewController {
       parse(message: message!)
     }
     
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-//    if delegate?.getPresentationStyle() == .compact {
-//      hideAllViews()
-//    } else {
-//      showAllViews()
-//    }
   }
   
   func parse(message: MSMessage) {
@@ -88,25 +76,15 @@ class DiceGameVC: UIViewController {
     for subview in view.subviews {
       subview.isHidden = true
     }
-    
-//    playBtn.isHidden = false
-//    titleLbl.isHidden = false
   }
   
   func showAllViews() {
     for subview in view.subviews {
       subview.isHidden = false
     }
-    
-//    playBtn.isHidden = true
-//    titleLbl.isHidden = true
   }
   
   // MARK: - Game Buttons
-  
-//  @IBAction func playBtnTapped(sender: UIButton) {
-//    delegate?.expand(toPresentationStyle: .expanded)
-//  }
   
   @IBAction func dieButtonTapped(sender: UIButton) {
     
@@ -198,15 +176,5 @@ class DiceGameVC: UIViewController {
     messageDelegate?.composeMessage(forScore: score)
     setupForNewGame()
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }

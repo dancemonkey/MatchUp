@@ -11,7 +11,9 @@ import Messages
 
 class CompactVC: UIViewController {
   
-  @IBOutlet weak var coinBtn: UIButton!
+  @IBOutlet weak var playBtn: UIButton!
+  
+  var delegate: ExpandViewDelegate? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,29 +22,17 @@ class CompactVC: UIViewController {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func coinPressed(sender: UIButton) {
+  @IBAction func playPressed(sender: UIButton) {
     Utils.animateButton(sender, withTiming: 0.05) {
-      self.performSegue(withIdentifier: "showCoinGame", sender: self)
-    }
-  }
-  
-  @IBAction func dicePressed(sender: UIButton) {
-    Utils.animateButton(sender, withTiming: 0.05) { 
-      self.performSegue(withIdentifier: "showDiceGame", sender: self)
+      self.delegate?.expand(toPresentationStyle: .expanded)
     }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showCoinGame" {
-      if let destVC = segue.destination as? CoinFlipVC {
-        destVC.delegate = self.parent! as? CoinFlipDelegate
-      }
-    } else if segue.identifier == "showDiceGame" {
+    if segue.identifier == "showDiceGame" {
       if let destVC = segue.destination as? DiceGameVC {
-        destVC.delegate = self.parent! as? ExpandViewDelegate
         destVC.messageDelegate = self.parent! as? DiceGameDelegate
       }
     }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		100B407A1DC4E0CE00525A52 /* CoinFlipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100B40791DC4E0CE00525A52 /* CoinFlipVC.swift */; };
 		1011E7841DC0E57800AB50FB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7831DC0E57800AB50FB /* Die.swift */; };
 		1011E7861DC0EBDC00AB50FB /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1011E7851DC0EBDC00AB50FB /* Coin.swift */; };
 		104A7E791DC6454B00F97772 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A7E781DC6454B00F97772 /* Delegates.swift */; };
@@ -66,7 +65,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		100B40791DC4E0CE00525A52 /* CoinFlipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinFlipVC.swift; sourceTree = "<group>"; };
 		1011E7831DC0E57800AB50FB /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1011E7851DC0EBDC00AB50FB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		104A7E781DC6454B00F97772 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			children = (
 				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
 				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
-				100B40791DC4E0CE00525A52 /* CoinFlipVC.swift */,
 				106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */,
 			);
 			name = Controller;
@@ -341,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				104A7E791DC6454B00F97772 /* Delegates.swift in Sources */,
-				100B407A1DC4E0CE00525A52 /* CoinFlipVC.swift in Sources */,
 				10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */,
 				10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */,
 				10E9FA851DC24329001583B7 /* utils.swift in Sources */,
