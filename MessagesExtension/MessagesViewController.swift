@@ -142,24 +142,37 @@ class MessagesViewController: MSMessagesAppViewController {
 // MARK: DELEGATE FUNCTIONS
 
 extension MessagesViewController: DiceGameDelegate {
-  func composeMessage(forScore score: Int) {
+  func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool) {
     
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
     
     let layout = MSMessageTemplateLayout()
     layout.caption = "Ship, Captain, and Crew"
-    layout.subcaption = "Your opponent scored \(score) points!"
+    if withWinner == true {
+      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(score)!"
+    } else {
+      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(score) points!"
+    }
     
     let message = MSMessage(session: session)
     message.layout = layout
     
     var components = URLComponents()
-    let queryItem = URLQueryItem(name: "sccScore", value: "\(score)")
-    components.queryItems = [queryItem]
+    let queryItemScore = URLQueryItem(name: "sccScore", value: "\(score)")
+    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(totalScore)")
+    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(oppScore)")
+    components.queryItems = [queryItemScore, queryItemTotalScore, queryItemOppScore]
+    
+    if withWinner == true {
+      let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
+      components.queryItems?.append(queryItem)
+      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(score)!"
+    } else {
+      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(score)"
+    }
     
     message.url = components.url
-    message.summaryText = "Opponent took their turn and scored \(score)"
     
     convo.insert(message) { (error) in
       guard error == nil else {

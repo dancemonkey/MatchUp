@@ -19,6 +19,8 @@ class DiceGameVC: UIViewController {
   var game: SCCGame? = nil
   var message: MSMessage? = nil
   
+  let buttonAnimTiming: Double = 0.02
+  
   @IBOutlet var rollIndicator: [UIImageView]!
   @IBOutlet var targetRollIndicator: [UIImageView]!
   @IBOutlet var dieIndicator: [UIButton]!
@@ -45,9 +47,19 @@ class DiceGameVC: UIViewController {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
           for item in queryItems {
-            if item.name == "sccScore" {
+            if item.name == "sccTotalScore" {
               game?.opponentScore = Int(item.value!)!
               theirScoreLbl.text = "\(game!.opponentScore)"
+            }
+            if item.name == "sccOppScore" {
+              game?.score = Int(item.value!)!
+              game?.totalScore = Int(item.value!)!
+              yourScoreLbl.text = "\(game!.score)"
+            }
+            if item.name == "sccWinner" {
+              // insert "WINNER" popup message or something
+              // insert button to start new game, then
+              setupForNewGame()
             }
           }
         }
@@ -88,20 +100,37 @@ class DiceGameVC: UIViewController {
   
   @IBAction func dieButtonTapped(sender: UIButton) {
     
-    let die = game?.currentDice[sender.tag]
-    
-    guard die?.frozen == false else {
-      if game!.canUnhold(die: die!) {
-        dieIndicator[sender.tag].alpha = 1.0
+    Utils.animateButton(sender, withTiming: buttonAnimTiming) {
+      let die = self.game?.currentDice[sender.tag]
+      
+      guard die?.frozen == false else {
+        if self.game!.canUnhold(die: die!) {
+          self.dieIndicator[sender.tag].alpha = 1.0
+        }
+        return
       }
-      return
+      
+      if (self.game?.hold(die: die!, atIndex: sender.tag))! {
+        self.dieIndicator[sender.tag].alpha = 0.2
+      }
+      
+      self.checkTargetIndicators()
     }
     
-    if (game?.hold(die: die!, atIndex: sender.tag))! {
-      dieIndicator[sender.tag].alpha = 0.2
-    }
-    
-    checkTargetIndicators()
+//    let die = game?.currentDice[sender.tag]
+//    
+//    guard die?.frozen == false else {
+//      if game!.canUnhold(die: die!) {
+//        dieIndicator[sender.tag].alpha = 1.0
+//      }
+//      return
+//    }
+//    
+//    if (game?.hold(die: die!, atIndex: sender.tag))! {
+//      dieIndicator[sender.tag].alpha = 0.2
+//    }
+//    
+//    checkTargetIndicators()
     
   }
   
@@ -141,17 +170,31 @@ class DiceGameVC: UIViewController {
   
   @IBAction func rollTapped(sender: UIButton) {
     
-    guard sender.titleLabel?.text == "SEND" else {
-      if let result = game?.roll() {
-        setDieFaces(forRollResult: result)
-        setRollIndicator(forRoll: (game?.totalRolls)!)
+    Utils.animateButton(sender, withTiming: buttonAnimTiming) { 
+      guard sender.titleLabel?.text == "SEND" else {
+        if let result = self.game?.roll() {
+          self.setDieFaces(forRollResult: result)
+          self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
+        }
+        return
       }
-      return
+      
+      if let score = self.game?.score {
+        self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
+      }
     }
     
-    if let score = game?.score {
-      endRound(withScore: score)
-    }
+//    guard sender.titleLabel?.text == "SEND" else {
+//      if let result = game?.roll() {
+//        setDieFaces(forRollResult: result)
+//        setRollIndicator(forRoll: (game?.totalRolls)!)
+//      }
+//      return
+//    }
+//    
+//    if let score = game?.score {
+//      endRound(withScore: score, totalScore: game!.totalScore, oppScore: game!.opponentScore)
+//    }
     
   }
   
@@ -167,14 +210,18 @@ class DiceGameVC: UIViewController {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
     if game?.roundIsOver() == true {
       game?.endRound()
-      yourScoreLbl.text = "\(game!.score)"
+      yourScoreLbl.text = "\(game!.totalScore)"
       rollDiceBtn.setTitle("SEND", for: .normal)
     }
   }
   
-  func endRound(withScore score: Int) {
-    messageDelegate?.composeMessage(forScore: score)
-    setupForNewGame()
+  func endRound(withScore score: Int, totalScore: Int, oppScore: Int) {
+    if game!.gameIsOver(totalScore: game!.totalScore) {
+      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore, withWinner: true)
+    } else {
+      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore, withWinner: false)
+    }
+    //setupForNewGame()
   }
   
 }

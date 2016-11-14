@@ -12,8 +12,10 @@ class SCCGame {
   
   let maxRolls = 3
   let maxHand = 5
+  let winningScore = 30
   
   var score: Int
+  var totalScore: Int = 0
   private var _opponentScore: Int
   var opponentScore: Int {
     get {
@@ -101,6 +103,11 @@ class SCCGame {
     }
     
     self.score = scoreCargo()
+    self.totalScore = self.totalScore + self.score
+  }
+  
+  func gameIsOver(totalScore score: Int) -> Bool {
+    return score > winningScore
   }
   
   func shipCapCrewHeld() -> Bool {
