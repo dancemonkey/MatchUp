@@ -33,9 +33,11 @@ class SCCGame {
   var captainIndex: Int?
   var crewIndex: Int?
   
-  private var _player: Int = 0
-  var player: Int? {
-    return _player
+  struct query {
+    var sccScore: Int
+    var sccTotalScore: Int
+    var sccOppScore: Int
+    var sccWinner: Bool
   }
   
   init() {
@@ -48,10 +50,6 @@ class SCCGame {
       let die = D6()
       currentDice.append(die)
     }
-  }
-  
-  func setPlayer() {
-    self._player = self._player + 1
   }
   
   func roll() -> [Int]? {

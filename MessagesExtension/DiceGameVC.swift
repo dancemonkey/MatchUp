@@ -205,12 +205,15 @@ class DiceGameVC: UIViewController {
   }
   
   func endRound(withScore score: Int, totalScore: Int, oppScore: Int) {
-    game!.setPlayer()
+    let msgPayload: SCCGame.query
+    
     if game!.gameIsOver(totalScore: game!.totalScore) {
-      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore,withWinner: true)
+      msgPayload = SCCGame.query(sccScore: score, sccTotalScore: totalScore, sccOppScore: oppScore, sccWinner: true)
     } else {
-      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore, withWinner: false)
+      msgPayload = SCCGame.query(sccScore: score, sccTotalScore: totalScore, sccOppScore: oppScore, sccWinner: false)
     }
+    messageDelegate?.composeMessage(withQuery: msgPayload)
+
   }
   
 }

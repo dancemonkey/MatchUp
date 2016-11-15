@@ -20,6 +20,7 @@ protocol ExpandViewDelegate {
 }
 
 protocol DiceGameDelegate {
-  func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool)
+  //func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool)
+  func composeMessage(withQuery query: SCCGame.query)
 }
 

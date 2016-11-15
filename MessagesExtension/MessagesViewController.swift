@@ -142,34 +142,34 @@ class MessagesViewController: MSMessagesAppViewController {
 // MARK: DELEGATE FUNCTIONS
 
 extension MessagesViewController: DiceGameDelegate {
-  func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool) {
-    
+  
+  func composeMessage(withQuery query: SCCGame.query) {
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
     
     let layout = MSMessageTemplateLayout()
     layout.caption = "Ship, Captain, and Crew"
-    if withWinner == true {
-      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
+    if query.sccWinner == true {
+      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(query.sccTotalScore)!"
     } else {
-      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(score) points!"
+      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(query.sccScore) points!"
     }
     
     let message = MSMessage(session: session)
     message.layout = layout
     
     var components = URLComponents()
-    let queryItemScore = URLQueryItem(name: "sccScore", value: "\(score)")
-    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(totalScore)")
-    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(oppScore)")
+    let queryItemScore = URLQueryItem(name: "sccScore", value: "\(query.sccScore)")
+    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(query.sccTotalScore)")
+    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(query.sccOppScore)")
     components.queryItems = [queryItemScore, queryItemTotalScore, queryItemOppScore]
-    
-    if withWinner == true {
+
+    if query.sccWinner == true {
       let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
       components.queryItems?.append(queryItem)
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
+      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(query.sccTotalScore)!"
     } else {
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(score)"
+      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(query.sccScore)"
     }
     
     message.url = components.url
@@ -182,7 +182,50 @@ extension MessagesViewController: DiceGameDelegate {
     
     self.requestPresentationStyle(.compact)
 
+
   }
+  
+//  func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool) {
+//    
+//    let convo = activeConversation ?? MSConversation()
+//    let session = convo.selectedMessage?.session ?? MSSession()
+//    
+//    let layout = MSMessageTemplateLayout()
+//    layout.caption = "Ship, Captain, and Crew"
+//    if withWinner == true {
+//      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
+//    } else {
+//      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(score) points!"
+//    }
+//    
+//    let message = MSMessage(session: session)
+//    message.layout = layout
+//    
+//    var components = URLComponents()
+//    let queryItemScore = URLQueryItem(name: "sccScore", value: "\(score)")
+//    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(totalScore)")
+//    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(oppScore)")
+//    components.queryItems = [queryItemScore, queryItemTotalScore, queryItemOppScore]
+//    
+//    if withWinner == true {
+//      let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
+//      components.queryItems?.append(queryItem)
+//      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
+//    } else {
+//      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(score)"
+//    }
+//    
+//    message.url = components.url
+//    
+//    convo.insert(message) { (error) in
+//      guard error == nil else {
+//        fatalError("error in inserting message into conversation")
+//      }
+//    }
+//    
+//    self.requestPresentationStyle(.compact)
+//
+//  }
 
 }
 
