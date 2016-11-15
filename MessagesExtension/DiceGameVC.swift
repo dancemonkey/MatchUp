@@ -30,6 +30,8 @@ class DiceGameVC: UIViewController {
   @IBOutlet weak var yourScoreLbl: UILabel!
   @IBOutlet weak var theirScoreLbl: UILabel!
   @IBOutlet weak var rollDiceBtn: UIButton!
+  @IBOutlet weak var myWinsLbl: UILabel!
+  @IBOutlet weak var oppWinsLbl: UILabel!
   
   override func viewDidLoad() {
     
@@ -46,6 +48,9 @@ class DiceGameVC: UIViewController {
   }
   
   func parse(message: MSMessage) {
+    defer {
+      setWinLabels()
+    }
     if let url = message.url {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -75,7 +80,6 @@ class DiceGameVC: UIViewController {
               theirWins = Int(item.value!)!
               game?.setOppWins(to: theirWins)
             }
-            print("winning totals - mine: \(game?.myWins), theirs: \(game?.oppWins)")
           }
         }
       }
@@ -104,6 +108,13 @@ class DiceGameVC: UIViewController {
     theirScoreLbl.text = "0"
     yourScoreLbl.backgroundColor = UIColor.clear
     theirScoreLbl.backgroundColor = UIColor.clear
+    
+    setWinLabels()
+  }
+  
+  func setWinLabels() {
+    myWinsLbl.text = "Wins - \(myWins)"
+    oppWinsLbl.text = "Losses - \(theirWins)"
   }
   
   func hideAllViews() {
