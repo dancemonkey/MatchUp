@@ -12,7 +12,7 @@ class SCCGame {
   
   let maxRolls = 3
   let maxHand = 5
-  let winningScore = 15
+  let winningScore = 12
   
   var score: Int
   var totalScore: Int = 0
@@ -33,11 +33,13 @@ class SCCGame {
   var captainIndex: Int?
   var crewIndex: Int?
   
-  struct query {
-    var sccScore: Int
-    var sccTotalScore: Int
-    var sccOppScore: Int
-    var sccWinner: Bool
+  private var _myWins: Int = 0
+  var myWins: Int {
+    return _myWins
+  }
+  private var _oppWins: Int = 0
+  var oppWins: Int {
+    return _oppWins
   }
   
   init() {
@@ -69,6 +71,18 @@ class SCCGame {
     }
     return results
     
+  }
+  
+  func setMyWins(to total: Int) {
+    _myWins = total
+  }
+  
+  func setOppWins(to total: Int) {
+    _oppWins = total
+  }
+  
+  func incrementWins() {
+    _myWins = _myWins + 1
   }
   
   private func scoreCargo() -> Int {

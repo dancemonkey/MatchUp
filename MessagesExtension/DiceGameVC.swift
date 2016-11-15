@@ -21,6 +21,9 @@ class DiceGameVC: UIViewController {
   
   let buttonAnimTiming: Double = 0.02
   
+  var myWins: Int = 0
+  var theirWins: Int = 0
+  
   @IBOutlet var rollIndicator: [UIImageView]!
   @IBOutlet var targetRollIndicator: [UIImageView]!
   @IBOutlet var dieIndicator: [UIButton]!
@@ -57,8 +60,6 @@ class DiceGameVC: UIViewController {
               yourScoreLbl.text = "\(game!.score)"
             }
             if item.name == "sccWinner" {
-              // insert "WINNER" popup message or something
-              // insert button to start new game, then
               rollDiceBtn.setTitle("START NEW GAME", for: .normal)
               if currentPlayerIsWinner() {
                 yourScoreLbl.backgroundColor = UIColor.green
@@ -66,6 +67,15 @@ class DiceGameVC: UIViewController {
                 theirScoreLbl.backgroundColor = UIColor.green
               }
             }
+            if item.name == "sccMyWins" {
+              myWins = Int(item.value!)!
+              game?.setMyWins(to: myWins)
+            }
+            if item.name == "sccOppWins" {
+              theirWins = Int(item.value!)!
+              game?.setOppWins(to: theirWins)
+            }
+            print("winning totals - mine: \(game?.myWins), theirs: \(game?.oppWins)")
           }
         }
       }
@@ -74,6 +84,8 @@ class DiceGameVC: UIViewController {
   
   func setupForNewGame() {
     game = SCCGame()
+    game?.setMyWins(to: myWins)
+    game?.setOppWins(to: theirWins)
     
     rollDiceBtn.setTitle("ROLL!", for: .normal)
     for view in targetRollIndicator {
@@ -167,7 +179,7 @@ class DiceGameVC: UIViewController {
   
   @IBAction func rollTapped(sender: UIButton) {
     
-    Utils.animateButton(sender, withTiming: buttonAnimTiming) { 
+    Utils.animateButton(sender, withTiming: buttonAnimTiming) {
       guard sender.titleLabel?.text == "SEND" else {
         guard sender.titleLabel?.text == "ROLL!" else {
           self.setupForNewGame()
@@ -205,15 +217,14 @@ class DiceGameVC: UIViewController {
   }
   
   func endRound(withScore score: Int, totalScore: Int, oppScore: Int) {
-    let msgPayload: SCCGame.query
-    
+    let winner: Bool
     if game!.gameIsOver(totalScore: game!.totalScore) {
-      msgPayload = SCCGame.query(sccScore: score, sccTotalScore: totalScore, sccOppScore: oppScore, sccWinner: true)
+      winner = true
+      game!.incrementWins()
     } else {
-      msgPayload = SCCGame.query(sccScore: score, sccTotalScore: totalScore, sccOppScore: oppScore, sccWinner: false)
+      winner = false
     }
-    messageDelegate?.composeMessage(withQuery: msgPayload)
-
+    messageDelegate?.composeMessage(fromGame: game!, hasWinner: winner)
   }
   
 }
