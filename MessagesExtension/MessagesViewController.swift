@@ -150,7 +150,7 @@ extension MessagesViewController: DiceGameDelegate {
     let layout = MSMessageTemplateLayout()
     layout.caption = "Ship, Captain, and Crew"
     if withWinner == true {
-      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(score)!"
+      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
     } else {
       layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(score) points!"
     }
@@ -167,7 +167,7 @@ extension MessagesViewController: DiceGameDelegate {
     if withWinner == true {
       let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
       components.queryItems?.append(queryItem)
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(score)!"
+      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(totalScore)!"
     } else {
       message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(score)"
     }
@@ -183,6 +183,7 @@ extension MessagesViewController: DiceGameDelegate {
     self.requestPresentationStyle(.compact)
 
   }
+
 }
 
 extension MessagesViewController: ExpandViewDelegate {

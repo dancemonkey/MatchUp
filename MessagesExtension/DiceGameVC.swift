@@ -59,7 +59,12 @@ class DiceGameVC: UIViewController {
             if item.name == "sccWinner" {
               // insert "WINNER" popup message or something
               // insert button to start new game, then
-              setupForNewGame()
+              rollDiceBtn.setTitle("START NEW GAME", for: .normal)
+              if currentPlayerIsWinner() {
+                yourScoreLbl.backgroundColor = UIColor.green
+              } else {
+                theirScoreLbl.backgroundColor = UIColor.green
+              }
             }
           }
         }
@@ -69,6 +74,7 @@ class DiceGameVC: UIViewController {
   
   func setupForNewGame() {
     game = SCCGame()
+    
     rollDiceBtn.setTitle("ROLL!", for: .normal)
     for view in targetRollIndicator {
       view.alpha = 0.2
@@ -82,6 +88,10 @@ class DiceGameVC: UIViewController {
     for die in dieIndicator {
       die.setImage(UIImage(named: "3"), for: .normal)
     }
+    yourScoreLbl.text = "0"
+    theirScoreLbl.text = "0"
+    yourScoreLbl.backgroundColor = UIColor.clear
+    theirScoreLbl.backgroundColor = UIColor.clear
   }
   
   func hideAllViews() {
@@ -96,41 +106,28 @@ class DiceGameVC: UIViewController {
     }
   }
   
+  func currentPlayerIsWinner() -> Bool {
+    return game!.score > game!.opponentScore
+  }
+  
   // MARK: - Game Buttons
   
   @IBAction func dieButtonTapped(sender: UIButton) {
     
-    Utils.animateButton(sender, withTiming: buttonAnimTiming) {
-      let die = self.game?.currentDice[sender.tag]
-      
-      guard die?.frozen == false else {
-        if self.game!.canUnhold(die: die!) {
-          self.dieIndicator[sender.tag].alpha = 1.0
-        }
-        return
+    let die = game?.currentDice[sender.tag]
+    
+    guard die?.frozen == false else {
+      if game!.canUnhold(die: die!) {
+        dieIndicator[sender.tag].alpha = 1.0
       }
-      
-      if (self.game?.hold(die: die!, atIndex: sender.tag))! {
-        self.dieIndicator[sender.tag].alpha = 0.2
-      }
-      
-      self.checkTargetIndicators()
+      return
     }
     
-//    let die = game?.currentDice[sender.tag]
-//    
-//    guard die?.frozen == false else {
-//      if game!.canUnhold(die: die!) {
-//        dieIndicator[sender.tag].alpha = 1.0
-//      }
-//      return
-//    }
-//    
-//    if (game?.hold(die: die!, atIndex: sender.tag))! {
-//      dieIndicator[sender.tag].alpha = 0.2
-//    }
-//    
-//    checkTargetIndicators()
+    if (game?.hold(die: die!, atIndex: sender.tag))! {
+      dieIndicator[sender.tag].alpha = 0.2
+    }
+    
+    checkTargetIndicators()
     
   }
   
@@ -172,6 +169,10 @@ class DiceGameVC: UIViewController {
     
     Utils.animateButton(sender, withTiming: buttonAnimTiming) { 
       guard sender.titleLabel?.text == "SEND" else {
+        guard sender.titleLabel?.text == "ROLL!" else {
+          self.setupForNewGame()
+          return
+        }
         if let result = self.game?.roll() {
           self.setDieFaces(forRollResult: result)
           self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
@@ -183,18 +184,6 @@ class DiceGameVC: UIViewController {
         self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
       }
     }
-    
-//    guard sender.titleLabel?.text == "SEND" else {
-//      if let result = game?.roll() {
-//        setDieFaces(forRollResult: result)
-//        setRollIndicator(forRoll: (game?.totalRolls)!)
-//      }
-//      return
-//    }
-//    
-//    if let score = game?.score {
-//      endRound(withScore: score, totalScore: game!.totalScore, oppScore: game!.opponentScore)
-//    }
     
   }
   
@@ -216,12 +205,12 @@ class DiceGameVC: UIViewController {
   }
   
   func endRound(withScore score: Int, totalScore: Int, oppScore: Int) {
+    game!.setPlayer()
     if game!.gameIsOver(totalScore: game!.totalScore) {
-      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore, withWinner: true)
+      messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore,withWinner: true)
     } else {
       messageDelegate?.composeMessage(forScore: score, totalScore: totalScore, oppScore: oppScore, withWinner: false)
     }
-    //setupForNewGame()
   }
   
 }

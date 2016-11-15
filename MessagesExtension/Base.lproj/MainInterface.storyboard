@@ -277,7 +277,6 @@
                                     <constraint firstAttribute="bottom" secondItem="o7X-Wf-Xma" secondAttribute="bottom" constant="16" id="58a-PF-lS9"/>
                                     <constraint firstItem="o7X-Wf-Xma" firstAttribute="top" secondItem="STz-aq-OEZ" secondAttribute="top" constant="8" id="Aaf-Ag-NLL"/>
                                     <constraint firstAttribute="trailing" secondItem="o7X-Wf-Xma" secondAttribute="trailing" constant="8" id="E2b-Ic-erG"/>
-                                    <constraint firstAttribute="height" constant="93" id="FCD-nj-eKx"/>
                                     <constraint firstItem="o7X-Wf-Xma" firstAttribute="leading" secondItem="STz-aq-OEZ" secondAttribute="leading" constant="8" id="J5K-EL-xGr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -300,8 +299,9 @@
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="16" id="Ix2-Lr-eRD"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="LvI-Y4-1ak"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="20" id="Obm-GP-bvy"/>
-                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="58" id="Qev-9D-LrW"/>
+                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="20" id="Qev-9D-LrW"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="RRk-cq-UxY"/>
+                            <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="20" id="b8e-6D-1St"/>
                             <constraint firstItem="Htw-qI-czM" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="h1e-kv-dAS"/>
                             <constraint firstItem="Sa0-R5-FqS" firstAttribute="top" secondItem="ntL-dN-dbV" secondAttribute="centerY" constant="16" id="juU-Gk-Cu6"/>
                             <constraint firstAttribute="trailing" secondItem="Htw-qI-czM" secondAttribute="trailing" constant="20" id="w67-YE-PgC"/>
@@ -342,6 +342,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jolly_roger.png" translatesAutoresizingMaskIntoConstraints="NO" id="V7v-Ac-Oi0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="SxG-FN-cCl"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-Ox-rGx" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -366,10 +371,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="V7v-Ac-Oi0" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" id="11K-Dr-6pZ"/>
                             <constraint firstAttribute="trailing" secondItem="4c5-Ox-rGx" secondAttribute="trailing" constant="16" id="Dhv-eG-7k8"/>
                             <constraint firstItem="mZB-w1-aQi" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="PnR-7Q-MJv"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerY" secondItem="Ggu-BG-tCz" secondAttribute="centerY" id="Qbf-qn-esn"/>
+                            <constraint firstItem="V7v-Ac-Oi0" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="TWa-gL-Zaj"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="top" secondItem="mZB-w1-aQi" secondAttribute="bottom" constant="25" id="UVR-Mt-0Zy"/>
+                            <constraint firstItem="V7v-Ac-Oi0" firstAttribute="centerY" secondItem="Ggu-BG-tCz" secondAttribute="centerY" id="fRf-EP-vpa"/>
+                            <constraint firstAttribute="trailing" secondItem="V7v-Ac-Oi0" secondAttribute="trailing" id="hdH-yG-QBH"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" constant="16" id="hpZ-PQ-Hkl"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="ytI-NW-hTM"/>
                         </constraints>
@@ -389,6 +398,7 @@
         <image name="EmptyRollInd" width="13" height="13"/>
         <image name="captain.png" width="700" height="700"/>
         <image name="crew.png" width="700" height="700"/>
+        <image name="jolly_roger.png" width="700" height="700"/>
         <image name="ship.png" width="700" height="700"/>
     </resources>
 </document>

@@ -22,3 +22,4 @@ protocol ExpandViewDelegate {
 protocol DiceGameDelegate {
   func composeMessage(forScore score: Int, totalScore: Int, oppScore: Int, withWinner: Bool)
 }
+
