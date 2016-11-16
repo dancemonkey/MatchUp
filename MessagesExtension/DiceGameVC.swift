@@ -32,6 +32,7 @@ class DiceGameVC: UIViewController {
   @IBOutlet weak var rollDiceBtn: UIButton!
   @IBOutlet weak var myWinsLbl: UILabel!
   @IBOutlet weak var oppWinsLbl: UILabel!
+  @IBOutlet weak var scoreViewBackground: UIView!
   
   override func viewDidLoad() {
     
@@ -84,6 +85,16 @@ class DiceGameVC: UIViewController {
         }
       }
     }
+  }
+  
+  func flashScore() {
+    
+    scoreViewBackground.backgroundColor = game!.score > 0 ? UIColor.green : UIColor.red
+    
+    UIView.animate(withDuration: 1.0, delay: 0.25, options: [.allowUserInteraction], animations: {
+      self.scoreViewBackground.backgroundColor = UIColor.white
+      }, completion: nil)
+    
   }
   
   func setupForNewGame() {
@@ -222,6 +233,7 @@ class DiceGameVC: UIViewController {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
     if game?.roundIsOver() == true {
       game?.endRound()
+      flashScore()
       yourScoreLbl.text = "\(game!.totalScore)"
       rollDiceBtn.setTitle("SEND", for: .normal)
     }

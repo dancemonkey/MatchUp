@@ -154,6 +154,7 @@ extension MessagesViewController: DiceGameDelegate {
     } else {
       layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(game.score) points!"
     }
+    layout.image = UIImage(named: "captain")
     
     let message = MSMessage(session: session)
     message.layout = layout

@@ -329,6 +329,7 @@
                         <outlet property="myWinsLbl" destination="C1Y-co-wIp" id="fQP-wb-2dx"/>
                         <outlet property="oppWinsLbl" destination="ukH-cB-HoQ" id="93r-cM-Nrk"/>
                         <outlet property="rollDiceBtn" destination="Bnc-kx-ykZ" id="3FL-4o-Hc5"/>
+                        <outlet property="scoreViewBackground" destination="STz-aq-OEZ" id="QrM-ot-t9K"/>
                         <outlet property="theirScoreLbl" destination="V9c-Jo-cHT" id="YVa-eX-w7Q"/>
                         <outlet property="yourScoreLbl" destination="g6n-B9-oGf" id="D8F-gd-JkW"/>
                         <outletCollection property="rollIndicator" destination="8mG-9A-ujk" collectionClass="NSMutableArray" id="9jZ-rc-BAs"/>
@@ -389,14 +390,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="V7v-Ac-Oi0" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" id="11K-Dr-6pZ"/>
+                            <constraint firstItem="V7v-Ac-Oi0" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" constant="-50" id="11K-Dr-6pZ"/>
                             <constraint firstAttribute="trailing" secondItem="4c5-Ox-rGx" secondAttribute="trailing" constant="16" id="Dhv-eG-7k8"/>
                             <constraint firstItem="mZB-w1-aQi" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="PnR-7Q-MJv"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerY" secondItem="Ggu-BG-tCz" secondAttribute="centerY" id="Qbf-qn-esn"/>
                             <constraint firstItem="V7v-Ac-Oi0" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="TWa-gL-Zaj"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="top" secondItem="mZB-w1-aQi" secondAttribute="bottom" constant="25" id="UVR-Mt-0Zy"/>
                             <constraint firstItem="V7v-Ac-Oi0" firstAttribute="centerY" secondItem="Ggu-BG-tCz" secondAttribute="centerY" id="fRf-EP-vpa"/>
-                            <constraint firstAttribute="trailing" secondItem="V7v-Ac-Oi0" secondAttribute="trailing" id="hdH-yG-QBH"/>
+                            <constraint firstAttribute="trailing" secondItem="V7v-Ac-Oi0" secondAttribute="trailing" constant="-50" id="hdH-yG-QBH"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="leading" secondItem="Ggu-BG-tCz" secondAttribute="leading" constant="16" id="hpZ-PQ-Hkl"/>
                             <constraint firstItem="4c5-Ox-rGx" firstAttribute="centerX" secondItem="Ggu-BG-tCz" secondAttribute="centerX" id="ytI-NW-hTM"/>
                         </constraints>
