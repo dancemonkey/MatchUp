@@ -134,7 +134,7 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-iR-bHN">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQl-El-chT">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQl-El-chT" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="OHy-0t-HYT"/>
                                                     <constraint firstAttribute="width" constant="60" id="USe-wr-Gxi"/>
@@ -149,7 +149,7 @@
                                                     <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="qh5-Ki-pQU"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="Ey7-om-mSY"/>
                                                     <constraint firstAttribute="height" constant="60" id="pjI-ia-11f"/>
@@ -164,7 +164,7 @@
                                                     <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="21R-Te-EDA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="5CZ-oJ-ooe"/>
                                                     <constraint firstAttribute="height" constant="60" id="hUt-7T-kw0"/>
@@ -183,7 +183,7 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yM-enw">
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="drc-cq-iVt"/>
                                                     <constraint firstAttribute="height" constant="60" id="mcF-qK-C7f"/>
@@ -198,7 +198,7 @@
                                                     <action selector="dieButtonTappedWithSender:" destination="tjQ-lc-a3m" eventType="touchUpInside" id="isN-Bv-aFa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="VY3-UV-lUQ"/>
                                                     <constraint firstAttribute="height" constant="60" id="zgh-Tr-HQ4"/>

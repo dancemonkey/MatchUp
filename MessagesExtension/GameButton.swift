@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 @IBDesignable class GameButton: DesignableButton {
+  
+  var clickSound: AVAudioPlayer? = nil
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -20,4 +23,21 @@ import UIKit
     
   }
 
+}
+
+extension GameButton {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    
+    let path = Bundle.main.path(forResource: SoundFileName.button_click.rawValue, ofType: nil)!
+    let url = URL(fileURLWithPath: path)
+    do {
+      let sound = try AVAudioPlayer(contentsOf: url)
+      clickSound = sound
+      clickSound?.prepareToPlay()
+      clickSound?.play()
+    } catch {
+      print("error playing sound")
+    }
+  }
 }

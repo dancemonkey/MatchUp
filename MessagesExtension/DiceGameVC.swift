@@ -8,12 +8,13 @@
 
 import UIKit
 import Messages
+import AVFoundation
 
 enum TargetIconTag: Int {
   case ship = 0, captain, crew
 }
 
-class DiceGameVC: UIViewController {
+class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   var messageDelegate: DiceGameDelegate? = nil
   var game: SCCGame? = nil
@@ -23,6 +24,8 @@ class DiceGameVC: UIViewController {
   
   var myWins: Int = 0
   var theirWins: Int = 0
+  
+  var player: AVAudioPlayer? = nil
   
   @IBOutlet var rollIndicator: [UIImageView]!
   @IBOutlet var targetRollIndicator: [UIImageView]!
@@ -87,10 +90,25 @@ class DiceGameVC: UIViewController {
     }
   }
   
+  func play(sound: String) {
+    do {
+      let path = Bundle.main.path(forResource: sound, ofType: nil)!
+      let url = URL(fileURLWithPath: path)
+      player = try AVAudioPlayer(contentsOf: url)
+      player?.prepareToPlay()
+      player?.play()
+    } catch {
+      print(error)
+    }
+  }
+  
   func flashScore() {
     
     scoreViewBackground.backgroundColor = game!.score > 0 ? UIColor.green : UIColor.red
     
+    let soundToPlay = game!.score > 0 ? SoundFileName.won_round.rawValue : SoundFileName.lost_round.rawValue
+    play(sound: soundToPlay)
+
     UIView.animate(withDuration: 1.0, delay: 0.25, options: [.allowUserInteraction], animations: {
       self.scoreViewBackground.backgroundColor = UIColor.white
       }, completion: nil)

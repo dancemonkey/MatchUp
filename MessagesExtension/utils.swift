@@ -10,6 +10,14 @@ import UIKit
 import AVFoundation
 
 let btnAnimTiming: Double = 0.05
+
+enum SoundFileName: String {
+  case button_click = "button_click.mp3"
+  case die_click = "die_click.mp3"
+  case lost_round = "lost_game_moan.wav"
+  case won_round = "won_game_cheer.wav"
+}
+
 class Utils {
   
   static func delay(_ delay: Double, closure: @escaping ()->()) {
@@ -33,6 +41,7 @@ class Utils {
                     }
     })
   }
+  
 }
 
 @IBDesignable class DesignableView: UIView {}
@@ -49,4 +58,5 @@ extension UIView {
 }
 
 @IBDesignable class DesignableButton: UIButton {}
+
 
