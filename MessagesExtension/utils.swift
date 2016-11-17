@@ -16,6 +16,7 @@ enum SoundFileName: String {
   case die_click = "die_click.mp3"
   case lost_round = "lost_game_moan.wav"
   case won_round = "won_game_cheer.wav"
+  case dice = "dice1.mp3"
 }
 
 class Utils {

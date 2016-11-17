@@ -27,6 +27,34 @@
 		106AD9171DCEAF8F0016FE27 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9131DCEAF8F0016FE27 /* ship.png */; };
 		106AD9191DCEB36B0016FE27 /* DiceGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */; };
 		106AD91B1DCEB68C0016FE27 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD91A1DCEB68C0016FE27 /* GameButton.swift */; };
+		107DB4531DDE44A600911B6C /* pirate1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4481DDE44A600911B6C /* pirate1.mp3 */; };
+		107DB4541DDE44A600911B6C /* pirate2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4491DDE44A600911B6C /* pirate2.mp3 */; };
+		107DB4551DDE44A600911B6C /* pirate3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44A1DDE44A600911B6C /* pirate3.mp3 */; };
+		107DB4561DDE44A600911B6C /* pirate4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44B1DDE44A600911B6C /* pirate4.mp3 */; };
+		107DB4571DDE44A600911B6C /* pirate5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44C1DDE44A600911B6C /* pirate5.mp3 */; };
+		107DB4581DDE44A600911B6C /* pirate6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44D1DDE44A600911B6C /* pirate6.mp3 */; };
+		107DB4591DDE44A600911B6C /* pirate7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44E1DDE44A600911B6C /* pirate7.mp3 */; };
+		107DB45A1DDE44A600911B6C /* pirate8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB44F1DDE44A600911B6C /* pirate8.mp3 */; };
+		107DB45B1DDE44A600911B6C /* pirate9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4501DDE44A600911B6C /* pirate9.mp3 */; };
+		107DB45C1DDE44A600911B6C /* pirate10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4511DDE44A600911B6C /* pirate10.mp3 */; };
+		107DB45D1DDE44A600911B6C /* pirate11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4521DDE44A600911B6C /* pirate11.mp3 */; };
+		107DB4641DDE44AE00911B6C /* ship1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB45E1DDE44AE00911B6C /* ship1.mp3 */; };
+		107DB4651DDE44AE00911B6C /* ship2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB45F1DDE44AE00911B6C /* ship2.mp3 */; };
+		107DB4661DDE44AE00911B6C /* ship3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4601DDE44AE00911B6C /* ship3.mp3 */; };
+		107DB4671DDE44AE00911B6C /* ship4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4611DDE44AE00911B6C /* ship4.mp3 */; };
+		107DB4681DDE44AF00911B6C /* ship5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4621DDE44AE00911B6C /* ship5.mp3 */; };
+		107DB4691DDE44AF00911B6C /* ship6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4631DDE44AE00911B6C /* ship6.mp3 */; };
+		107DB4711DDE44B700911B6C /* crew1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46A1DDE44B700911B6C /* crew1.mp3 */; };
+		107DB4721DDE44B700911B6C /* crew2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46B1DDE44B700911B6C /* crew2.mp3 */; };
+		107DB4731DDE44B700911B6C /* crew3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46C1DDE44B700911B6C /* crew3.mp3 */; };
+		107DB4741DDE44B700911B6C /* crew4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46D1DDE44B700911B6C /* crew4.mp3 */; };
+		107DB4751DDE44B700911B6C /* crew5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46E1DDE44B700911B6C /* crew5.mp3 */; };
+		107DB4761DDE44B700911B6C /* crew6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB46F1DDE44B700911B6C /* crew6.mp3 */; };
+		107DB4771DDE44B700911B6C /* crew7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4701DDE44B700911B6C /* crew7.mp3 */; };
+		107DB47B1DDE44BF00911B6C /* bell1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4781DDE44BF00911B6C /* bell1.mp3 */; };
+		107DB47C1DDE44BF00911B6C /* bell2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB4791DDE44BF00911B6C /* bell2.mp3 */; };
+		107DB47D1DDE44BF00911B6C /* bell3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47A1DDE44BF00911B6C /* bell3.mp3 */; };
+		107DB47F1DDE44CA00911B6C /* dice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47E1DDE44CA00911B6C /* dice1.mp3 */; };
 		10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ABE7B11DCD2A53009BA511 /* SCCGame.swift */; };
 		10E9FA851DC24329001583B7 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9FA841DC24329001583B7 /* utils.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
@@ -84,6 +112,34 @@
 		106AD9131DCEAF8F0016FE27 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceGameVC.swift; sourceTree = "<group>"; };
 		106AD91A1DCEB68C0016FE27 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		107DB4481DDE44A600911B6C /* pirate1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate1.mp3; sourceTree = "<group>"; };
+		107DB4491DDE44A600911B6C /* pirate2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate2.mp3; sourceTree = "<group>"; };
+		107DB44A1DDE44A600911B6C /* pirate3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate3.mp3; sourceTree = "<group>"; };
+		107DB44B1DDE44A600911B6C /* pirate4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate4.mp3; sourceTree = "<group>"; };
+		107DB44C1DDE44A600911B6C /* pirate5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate5.mp3; sourceTree = "<group>"; };
+		107DB44D1DDE44A600911B6C /* pirate6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate6.mp3; sourceTree = "<group>"; };
+		107DB44E1DDE44A600911B6C /* pirate7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate7.mp3; sourceTree = "<group>"; };
+		107DB44F1DDE44A600911B6C /* pirate8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate8.mp3; sourceTree = "<group>"; };
+		107DB4501DDE44A600911B6C /* pirate9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate9.mp3; sourceTree = "<group>"; };
+		107DB4511DDE44A600911B6C /* pirate10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate10.mp3; sourceTree = "<group>"; };
+		107DB4521DDE44A600911B6C /* pirate11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pirate11.mp3; sourceTree = "<group>"; };
+		107DB45E1DDE44AE00911B6C /* ship1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship1.mp3; sourceTree = "<group>"; };
+		107DB45F1DDE44AE00911B6C /* ship2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship2.mp3; sourceTree = "<group>"; };
+		107DB4601DDE44AE00911B6C /* ship3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship3.mp3; sourceTree = "<group>"; };
+		107DB4611DDE44AE00911B6C /* ship4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship4.mp3; sourceTree = "<group>"; };
+		107DB4621DDE44AE00911B6C /* ship5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship5.mp3; sourceTree = "<group>"; };
+		107DB4631DDE44AE00911B6C /* ship6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ship6.mp3; sourceTree = "<group>"; };
+		107DB46A1DDE44B700911B6C /* crew1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew1.mp3; sourceTree = "<group>"; };
+		107DB46B1DDE44B700911B6C /* crew2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew2.mp3; sourceTree = "<group>"; };
+		107DB46C1DDE44B700911B6C /* crew3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew3.mp3; sourceTree = "<group>"; };
+		107DB46D1DDE44B700911B6C /* crew4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew4.mp3; sourceTree = "<group>"; };
+		107DB46E1DDE44B700911B6C /* crew5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew5.mp3; sourceTree = "<group>"; };
+		107DB46F1DDE44B700911B6C /* crew6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew6.mp3; sourceTree = "<group>"; };
+		107DB4701DDE44B700911B6C /* crew7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crew7.mp3; sourceTree = "<group>"; };
+		107DB4781DDE44BF00911B6C /* bell1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell1.mp3; sourceTree = "<group>"; };
+		107DB4791DDE44BF00911B6C /* bell2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell2.mp3; sourceTree = "<group>"; };
+		107DB47A1DDE44BF00911B6C /* bell3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell3.mp3; sourceTree = "<group>"; };
+		107DB47E1DDE44CA00911B6C /* dice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dice1.mp3; sourceTree = "<group>"; };
 		10ABE7B11DCD2A53009BA511 /* SCCGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCGame.swift; sourceTree = "<group>"; };
 		10E9FA841DC24329001583B7 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +244,34 @@
 		10F20C8C1DBFF13400E05345 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				107DB47E1DDE44CA00911B6C /* dice1.mp3 */,
+				107DB4781DDE44BF00911B6C /* bell1.mp3 */,
+				107DB4791DDE44BF00911B6C /* bell2.mp3 */,
+				107DB47A1DDE44BF00911B6C /* bell3.mp3 */,
+				107DB46A1DDE44B700911B6C /* crew1.mp3 */,
+				107DB46B1DDE44B700911B6C /* crew2.mp3 */,
+				107DB46C1DDE44B700911B6C /* crew3.mp3 */,
+				107DB46D1DDE44B700911B6C /* crew4.mp3 */,
+				107DB46E1DDE44B700911B6C /* crew5.mp3 */,
+				107DB46F1DDE44B700911B6C /* crew6.mp3 */,
+				107DB4701DDE44B700911B6C /* crew7.mp3 */,
+				107DB45E1DDE44AE00911B6C /* ship1.mp3 */,
+				107DB45F1DDE44AE00911B6C /* ship2.mp3 */,
+				107DB4601DDE44AE00911B6C /* ship3.mp3 */,
+				107DB4611DDE44AE00911B6C /* ship4.mp3 */,
+				107DB4621DDE44AE00911B6C /* ship5.mp3 */,
+				107DB4631DDE44AE00911B6C /* ship6.mp3 */,
+				107DB4481DDE44A600911B6C /* pirate1.mp3 */,
+				107DB4491DDE44A600911B6C /* pirate2.mp3 */,
+				107DB44A1DDE44A600911B6C /* pirate3.mp3 */,
+				107DB44B1DDE44A600911B6C /* pirate4.mp3 */,
+				107DB44C1DDE44A600911B6C /* pirate5.mp3 */,
+				107DB44D1DDE44A600911B6C /* pirate6.mp3 */,
+				107DB44E1DDE44A600911B6C /* pirate7.mp3 */,
+				107DB44F1DDE44A600911B6C /* pirate8.mp3 */,
+				107DB4501DDE44A600911B6C /* pirate9.mp3 */,
+				107DB4511DDE44A600911B6C /* pirate10.mp3 */,
+				107DB4521DDE44A600911B6C /* pirate11.mp3 */,
 				102965C21DDE0C9E003FB279 /* button_click.mp3 */,
 				102965C31DDE0C9E003FB279 /* die_click.mp3 */,
 				102965C41DDE0C9E003FB279 /* lost_game_moan.wav */,
@@ -306,21 +390,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				106AD90B1DCEAF5F0016FE27 /* 2.png in Resources */,
+				107DB45D1DDE44A600911B6C /* pirate11.mp3 in Resources */,
+				107DB4771DDE44B700911B6C /* crew7.mp3 in Resources */,
+				107DB4711DDE44B700911B6C /* crew1.mp3 in Resources */,
 				10F20C931DBFF13400E05345 /* Assets.xcassets in Resources */,
 				10F20C911DBFF13400E05345 /* MainInterface.storyboard in Resources */,
 				106AD90D1DCEAF5F0016FE27 /* 4.png in Resources */,
 				106AD90C1DCEAF5F0016FE27 /* 3.png in Resources */,
+				107DB4641DDE44AE00911B6C /* ship1.mp3 in Resources */,
+				107DB4691DDE44AF00911B6C /* ship6.mp3 in Resources */,
 				10FD8FCF1DC12CA5007EFE0C /* dice.png in Resources */,
+				107DB4741DDE44B700911B6C /* crew4.mp3 in Resources */,
 				106AD9151DCEAF8F0016FE27 /* crew.png in Resources */,
+				107DB4751DDE44B700911B6C /* crew5.mp3 in Resources */,
 				102965C81DDE0C9E003FB279 /* lost_game_moan.wav in Resources */,
 				106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */,
+				107DB4581DDE44A600911B6C /* pirate6.mp3 in Resources */,
+				107DB45C1DDE44A600911B6C /* pirate10.mp3 in Resources */,
 				102965C91DDE0C9E003FB279 /* won_game_cheer.wav in Resources */,
 				102965C61DDE0C9E003FB279 /* button_click.mp3 in Resources */,
+				107DB4671DDE44AE00911B6C /* ship4.mp3 in Resources */,
+				107DB47D1DDE44BF00911B6C /* bell3.mp3 in Resources */,
+				107DB47B1DDE44BF00911B6C /* bell1.mp3 in Resources */,
+				107DB4721DDE44B700911B6C /* crew2.mp3 in Resources */,
 				106AD9171DCEAF8F0016FE27 /* ship.png in Resources */,
+				107DB4761DDE44B700911B6C /* crew6.mp3 in Resources */,
+				107DB47C1DDE44BF00911B6C /* bell2.mp3 in Resources */,
 				106AD90E1DCEAF5F0016FE27 /* 5.png in Resources */,
+				107DB4571DDE44A600911B6C /* pirate5.mp3 in Resources */,
+				107DB45B1DDE44A600911B6C /* pirate9.mp3 in Resources */,
+				107DB4661DDE44AE00911B6C /* ship3.mp3 in Resources */,
+				107DB4651DDE44AE00911B6C /* ship2.mp3 in Resources */,
+				107DB4551DDE44A600911B6C /* pirate3.mp3 in Resources */,
 				106AD9161DCEAF8F0016FE27 /* jolly_roger.png in Resources */,
+				107DB47F1DDE44CA00911B6C /* dice1.mp3 in Resources */,
+				107DB4731DDE44B700911B6C /* crew3.mp3 in Resources */,
 				106AD9141DCEAF8F0016FE27 /* captain.png in Resources */,
+				107DB45A1DDE44A600911B6C /* pirate8.mp3 in Resources */,
+				107DB4531DDE44A600911B6C /* pirate1.mp3 in Resources */,
+				107DB4541DDE44A600911B6C /* pirate2.mp3 in Resources */,
+				107DB4561DDE44A600911B6C /* pirate4.mp3 in Resources */,
+				107DB4591DDE44A600911B6C /* pirate7.mp3 in Resources */,
 				102965C71DDE0C9E003FB279 /* die_click.mp3 in Resources */,
+				107DB4681DDE44AF00911B6C /* ship5.mp3 in Resources */,
 				106AD90A1DCEAF5F0016FE27 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

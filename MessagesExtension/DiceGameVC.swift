@@ -21,6 +21,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   var message: MSMessage? = nil
   
   let buttonAnimTiming: Double = 0.02
+  let targetSoundNames = ["ship","pirate","crew"]
   
   var myWins: Int = 0
   var theirWins: Int = 0
@@ -88,31 +89,6 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
         }
       }
     }
-  }
-  
-  func play(sound: String) {
-    do {
-      let path = Bundle.main.path(forResource: sound, ofType: nil)!
-      let url = URL(fileURLWithPath: path)
-      player = try AVAudioPlayer(contentsOf: url)
-      player?.prepareToPlay()
-      player?.play()
-    } catch {
-      print(error)
-    }
-  }
-  
-  func flashScore() {
-    
-    scoreViewBackground.backgroundColor = game!.score > 0 ? UIColor.green : UIColor.red
-    
-    let soundToPlay = game!.score > 0 ? SoundFileName.won_round.rawValue : SoundFileName.lost_round.rawValue
-    play(sound: soundToPlay)
-
-    UIView.animate(withDuration: 1.0, delay: 0.25, options: [.allowUserInteraction], animations: {
-      self.scoreViewBackground.backgroundColor = UIColor.white
-      }, completion: nil)
-    
   }
   
   func setupForNewGame() {
@@ -198,19 +174,22 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       }
     }
     
-    if let g = self.game {
+    if let g = self.game, g.roundIsOver() == false {
       if g.hasFoundShip() {
         ship.alpha = 1.0
+        play(sound: targetSoundNames[0] + "1.mp3")
       } else {
         ship.alpha = 0.2
       }
       if g.hasFoundCaptain() {
         captain.alpha = 1.0
+        play(sound: targetSoundNames[1] + "1.mp3")
       } else {
         captain.alpha = 0.2
       }
       if g.hasFoundCrew() {
         crew.alpha = 1.0
+        play(sound: targetSoundNames[2] + "1.mp3")
       } else {
         crew.alpha = 0.2
       }
@@ -226,8 +205,11 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
           return
         }
         if let result = self.game?.roll() {
-          self.setDieFaces(forRollResult: result)
-          self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
+          Utils.delay(0.05, closure: {
+            self.play(sound: SoundFileName.dice.rawValue)
+            self.setDieFaces(forRollResult: result)
+            self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
+          })
         }
         return
       }
@@ -267,5 +249,30 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     }
     messageDelegate?.composeMessage(fromGame: game!, hasWinner: winner)
   }
+  
+  func play(sound: String) {
+    do {
+      let path = Bundle.main.path(forResource: sound, ofType: nil)!
+      let url = URL(fileURLWithPath: path)
+      player = try AVAudioPlayer(contentsOf: url)
+      player?.prepareToPlay()
+      player?.play()
+    } catch {
+      print(error)
+    }
+  }
+  
+  func flashScore() {
+    
+    scoreViewBackground.backgroundColor = game!.score > 0 ? UIColor.green : UIColor.red
+    
+    let soundToPlay = game!.score > 0 ? SoundFileName.won_round.rawValue : SoundFileName.lost_round.rawValue
+    play(sound: soundToPlay)
+    
+    UIView.animate(withDuration: 1.0, delay: 0.25, options: [.allowUserInteraction], animations: {
+      self.scoreViewBackground.backgroundColor = UIColor.white
+      }, completion: nil)
+  }
+
   
 }
