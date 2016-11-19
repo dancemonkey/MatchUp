@@ -122,17 +122,17 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     oppWinsLbl.text = "Losses - \(theirWins)"
   }
   
-  func hideAllViews() {
-    for subview in view.subviews {
-      subview.isHidden = true
-    }
-  }
-  
-  func showAllViews() {
-    for subview in view.subviews {
-      subview.isHidden = false
-    }
-  }
+//  func hideAllViews() {
+//    for subview in view.subviews {
+//      subview.isHidden = true
+//    }
+//  }
+//  
+//  func showAllViews() {
+//    for subview in view.subviews {
+//      subview.isHidden = false
+//    }
+//  }
   
   func currentPlayerIsWinner() -> Bool {
     return game!.score > game!.opponentScore
@@ -151,7 +151,15 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       return
     }
     
-    if (game?.hold(die: die!, atIndex: sender.tag))! {
+    if die?.value == 6 && game!.hasFoundShip() == false {
+      play(sound: getRandomSound(forIndex: .ship))
+    } else if die?.value == 5 && game!.hasFoundCaptain() == false {
+      play(sound: getRandomSound(forIndex: .captain))
+    } else if die?.value == 4 && game!.hasFoundCrew() == false {
+      play(sound: getRandomSound(forIndex: .crew))
+    }
+    
+    if (game!.hold(die: die!, atIndex: sender.tag)) {
       dieIndicator[sender.tag].alpha = 0.2
     }
     
@@ -177,19 +185,19 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     if let g = self.game, g.roundIsOver() == false {
       if g.hasFoundShip() {
         ship.alpha = 1.0
-        play(sound: targetSoundNames[0] + "1.mp3")
+        //play(sound: getRandomSound(forIndex: .ship))
       } else {
         ship.alpha = 0.2
       }
       if g.hasFoundCaptain() {
         captain.alpha = 1.0
-        play(sound: targetSoundNames[1] + "1.mp3")
+        //play(sound: getRandomSound(forIndex: .captain))
       } else {
         captain.alpha = 0.2
       }
       if g.hasFoundCrew() {
         crew.alpha = 1.0
-        play(sound: targetSoundNames[2] + "1.mp3")
+        //play(sound: getRandomSound(forIndex: .crew))
       } else {
         crew.alpha = 0.2
       }
@@ -260,6 +268,11 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     } catch {
       print(error)
     }
+  }
+  
+  func getRandomSound(forIndex index: TargetIconTag) -> String {
+    let die = Die(sides: 6)
+    return targetSoundNames[index.rawValue] + "\(die.roll()).mp3"
   }
   
   func flashScore() {
