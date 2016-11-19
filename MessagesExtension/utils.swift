@@ -14,8 +14,10 @@ let btnAnimTiming: Double = 0.05
 enum SoundFileName: String {
   case button_click = "button_click.mp3"
   case die_click = "die_click.mp3"
-  case lost_round = "lost_game_moan.wav"
-  case won_round = "won_game_cheer.wav"
+  case lost_round = "lost_round_moan.wav"
+  case won_round = "won_round_cheer.wav"
+  case lost_game = "lost_game_moan.mp3"
+  case won_game = "won_game_cheer.mp3"
   case dice = "dice1.mp3"
 }
 

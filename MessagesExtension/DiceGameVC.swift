@@ -75,6 +75,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
                 yourScoreLbl.backgroundColor = UIColor.green
               } else {
                 theirScoreLbl.backgroundColor = UIColor.green
+                play(sound: SoundFileName.lost_game.rawValue)
               }
             }
             if item.name == "sccMyWins" {
@@ -121,18 +122,6 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     myWinsLbl.text = "Wins - \(myWins)"
     oppWinsLbl.text = "Losses - \(theirWins)"
   }
-  
-//  func hideAllViews() {
-//    for subview in view.subviews {
-//      subview.isHidden = true
-//    }
-//  }
-//  
-//  func showAllViews() {
-//    for subview in view.subviews {
-//      subview.isHidden = false
-//    }
-//  }
   
   func currentPlayerIsWinner() -> Bool {
     return game!.score > game!.opponentScore
@@ -241,7 +230,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
     if game?.roundIsOver() == true {
       game?.endRound()
-      flashScore()
+      roundEndFanfare()
       yourScoreLbl.text = "\(game!.totalScore)"
       rollDiceBtn.setTitle("SEND", for: .normal)
     }
@@ -249,12 +238,14 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   func endRound(withScore score: Int, totalScore: Int, oppScore: Int) {
     let winner: Bool
+    
     if game!.gameIsOver(totalScore: game!.totalScore) {
       winner = true
       game!.incrementWins()
     } else {
       winner = false
     }
+    
     messageDelegate?.composeMessage(fromGame: game!, hasWinner: winner)
   }
   
@@ -275,11 +266,14 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     return targetSoundNames[index.rawValue] + "\(die.roll()).mp3"
   }
   
-  func flashScore() {
+  func roundEndFanfare() {
     
     scoreViewBackground.backgroundColor = game!.score > 0 ? UIColor.green : UIColor.red
     
-    let soundToPlay = game!.score > 0 ? SoundFileName.won_round.rawValue : SoundFileName.lost_round.rawValue
+    var soundToPlay = game!.score > 0 ? SoundFileName.won_round.rawValue : SoundFileName.lost_round.rawValue
+    if game!.gameIsOver(totalScore: game!.totalScore) {
+      soundToPlay = SoundFileName.won_game.rawValue
+    }
     play(sound: soundToPlay)
     
     UIView.animate(withDuration: 1.0, delay: 0.25, options: [.allowUserInteraction], animations: {
