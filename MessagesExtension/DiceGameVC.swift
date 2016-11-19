@@ -174,19 +174,16 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     if let g = self.game, g.roundIsOver() == false {
       if g.hasFoundShip() {
         ship.alpha = 1.0
-        //play(sound: getRandomSound(forIndex: .ship))
       } else {
         ship.alpha = 0.2
       }
       if g.hasFoundCaptain() {
         captain.alpha = 1.0
-        //play(sound: getRandomSound(forIndex: .captain))
       } else {
         captain.alpha = 0.2
       }
       if g.hasFoundCrew() {
         crew.alpha = 1.0
-        //play(sound: getRandomSound(forIndex: .crew))
       } else {
         crew.alpha = 0.2
       }
