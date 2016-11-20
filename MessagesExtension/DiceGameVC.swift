@@ -32,7 +32,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   @IBOutlet var rollIndicator: [UIImageView]!
   @IBOutlet var targetRollIndicator: [UIImageView]!
-  @IBOutlet var dieIndicator: [UIButton]!
+  @IBOutlet var dieIndicator: [DieButton]!
   @IBOutlet weak var yourScoreLbl: UILabel!
   @IBOutlet weak var theirScoreLbl: UILabel!
   @IBOutlet weak var rollDiceBtn: UIButton!
@@ -199,16 +199,18 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   @IBAction func rollTapped(sender: UIButton) {
     
-    Utils.animateButton(sender, withTiming: buttonAnimTiming) {
+    Utils.animateButton(sender, withTiming: buttonAnimTiming, completionClosure: {
       guard sender.titleLabel?.text == "SEND" else {
         guard sender.titleLabel?.text == "ROLL!" else {
           self.setupForNewGame()
           return
         }
         if let result = self.game?.roll() {
+          self.animateRolls(withResult: result, withClosure: {
+            //self.setDieFaces(forRollResult: result)
+          })
           Utils.delay(0.05, closure: {
             self.play(sound: SoundFileName.dice.rawValue)
-            self.setDieFaces(forRollResult: result)
             self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
           })
         }
@@ -218,16 +220,26 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       if let score = self.game?.score {
         self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
       }
-    }
+    })
     
   }
   
   // MARK: Game Actions
   
-  func setDieFaces(forRollResult result: [Int]) {
-    for (index, roll) in result.enumerated() {
-      dieIndicator[index].setImage(UIImage(named: "\(roll)"), for: .normal)
+  func setDieFace(forDie index: Int, result: Int) {
+    dieIndicator[index].changeFace(toImage: UIImage(named: "\(result)")!)
+  }
+  
+  func animateRolls(withResult result: [Int], withClosure closure: () -> ()) {
+    for (index,_) in game!.currentDice.enumerated() {
+      if game!.currentDice[index].frozen == false {
+        let timing = Double(Die(sides: 10).roll())
+        dieIndicator[index].animateRoll(forTime: timing/10, leftoverTime: 0.0, closure: {
+          self.setDieFace(forDie: index, result: result[index])
+        })
+      }
     }
+    closure()
   }
   
   func setRollIndicator(forRoll roll: Int) {
