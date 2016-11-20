@@ -12,6 +12,7 @@ import Messages
 class CompactVC: UIViewController {
   
   @IBOutlet weak var playBtn: UIButton!
+  @IBOutlet weak var tutorialSwitch: UISwitch!
   
   var delegate: ExpandViewDelegate? = nil
   
@@ -26,16 +27,18 @@ class CompactVC: UIViewController {
   
   @IBAction func playPressed(sender: UIButton) {
     Utils.animateButton(sender, withTiming: 0.05) {
-      self.delegate?.expand(toPresentationStyle: .expanded)
+      self.delegate?.expand(toPresentationStyle: .expanded, tutorial: self.tutorialSwitch.isOn)
     }
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDiceGame" {
-      if let destVC = segue.destination as? DiceGameVC {
-        destVC.messageDelegate = self.parent! as? DiceGameDelegate
-      }
-    }
-  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "showDiceGame" {
+//      if let destVC = segue.destination as? DiceGameVC {
+//        destVC.messageDelegate = self.parent! as? DiceGameDelegate
+//        destVC.tutorialOn = tutorialSwitch.isOn
+//        print("Switch is on = \(tutorialSwitch.isOn)")
+//      }
+//    }
+//  }
 
 }

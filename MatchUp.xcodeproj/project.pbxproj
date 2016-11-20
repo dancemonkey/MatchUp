@@ -52,6 +52,7 @@
 		107DB47D1DDE44BF00911B6C /* bell3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47A1DDE44BF00911B6C /* bell3.mp3 */; };
 		107DB47F1DDE44CA00911B6C /* dice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47E1DDE44CA00911B6C /* dice1.mp3 */; };
 		10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ABE7B11DCD2A53009BA511 /* SCCGame.swift */; };
+		10CBCC321DE2034B00DDC379 /* msgBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CBCC311DE2034B00DDC379 /* msgBackground.png */; };
 		10E9FA851DC24329001583B7 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9FA841DC24329001583B7 /* utils.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
 		10F20C861DBFF13400E05345 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 10F20C851DBFF13400E05345 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -133,6 +134,7 @@
 		107DB47A1DDE44BF00911B6C /* bell3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell3.mp3; sourceTree = "<group>"; };
 		107DB47E1DDE44CA00911B6C /* dice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dice1.mp3; sourceTree = "<group>"; };
 		10ABE7B11DCD2A53009BA511 /* SCCGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCGame.swift; sourceTree = "<group>"; };
+		10CBCC311DE2034B00DDC379 /* msgBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msgBackground.png; sourceTree = "<group>"; };
 		10E9FA841DC24329001583B7 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F20C7E1DBFF13400E05345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				106AD9111DCEAF8F0016FE27 /* crew.png */,
 				106AD9121DCEAF8F0016FE27 /* jolly_roger.png */,
 				106AD9131DCEAF8F0016FE27 /* ship.png */,
+				10CBCC311DE2034B00DDC379 /* msgBackground.png */,
 				106AD9041DCEAF5F0016FE27 /* 1.png */,
 				106AD9051DCEAF5F0016FE27 /* 2.png */,
 				106AD9061DCEAF5F0016FE27 /* 3.png */,
@@ -330,7 +333,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Drew Lanning";
 				TargetAttributes = {
 					10F20C7A1DBFF13300E05345 = {
@@ -390,6 +393,7 @@
 				107DB4741DDE44B700911B6C /* crew4.mp3 in Resources */,
 				106AD9151DCEAF8F0016FE27 /* crew.png in Resources */,
 				107DB4751DDE44B700911B6C /* crew5.mp3 in Resources */,
+				10CBCC321DE2034B00DDC379 /* msgBackground.png in Resources */,
 				102965C81DDE0C9E003FB279 /* lost_round_moan.wav in Resources */,
 				106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */,
 				107DB4581DDE44A600911B6C /* pirate6.mp3 in Resources */,
@@ -481,6 +485,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -530,6 +535,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

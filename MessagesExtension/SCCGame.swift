@@ -12,7 +12,7 @@ class SCCGame {
   
   let maxRolls = 3
   let maxHand = 5
-  let winningScore = 12
+  let winningScore = 15
   
   var score: Int
   var totalScore: Int = 0

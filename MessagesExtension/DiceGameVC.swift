@@ -28,6 +28,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   var player: AVAudioPlayer? = nil
   
+  var tutorialOn: Bool? = nil
+  
   @IBOutlet var rollIndicator: [UIImageView]!
   @IBOutlet var targetRollIndicator: [UIImageView]!
   @IBOutlet var dieIndicator: [UIButton]!
@@ -37,6 +39,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var myWinsLbl: UILabel!
   @IBOutlet weak var oppWinsLbl: UILabel!
   @IBOutlet weak var scoreViewBackground: UIView!
+  @IBOutlet weak var tutorialView: UIView!
   
   override func viewDidLoad() {
     
@@ -48,6 +51,10 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     
     if message != nil {
       parse(message: message!)
+    }
+    
+    if let tutorial = tutorialOn, tutorial == true {
+      tutorialView.alpha = 1.0
     }
     
   }
@@ -74,7 +81,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
               if currentPlayerIsWinner() {
                 yourScoreLbl.backgroundColor = UIColor.green
               } else {
-                theirScoreLbl.backgroundColor = UIColor.green
+                theirScoreLbl.backgroundColor = UIColor.red
                 play(sound: SoundFileName.lost_game.rawValue)
               }
             }

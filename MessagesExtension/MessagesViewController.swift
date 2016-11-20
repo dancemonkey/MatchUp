@@ -15,6 +15,8 @@ enum CoinQueryItemName: String {
 
 class MessagesViewController: MSMessagesAppViewController {
   
+  var tutorial: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -71,6 +73,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     vc.messageDelegate = self
+    vc.tutorialOn = self.tutorial
     
     return vc
   }
@@ -150,11 +153,11 @@ extension MessagesViewController: DiceGameDelegate {
     let layout = MSMessageTemplateLayout()
     layout.caption = "Ship, Captain, and Crew"
     if hasWinner == true {
-      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(game.totalScore)!"
+      layout.subcaption = "$\(convo.localParticipantIdentifier) won, with a score of \(game.totalScore)!"
     } else {
-      layout.subcaption = "$\(convo.remoteParticipantIdentifiers[0]) scored \(game.score) points!"
+      layout.subcaption = "$\(convo.localParticipantIdentifier) scored \(game.score) points!"
     }
-    layout.image = UIImage(named: "captain")
+    layout.image = UIImage(named: "msgBackground")
     
     let message = MSMessage(session: session)
     message.layout = layout
@@ -170,9 +173,9 @@ extension MessagesViewController: DiceGameDelegate {
     if hasWinner == true {
       let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
       components.queryItems?.append(queryItem)
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) won, with a score of \(game.totalScore)!"
+      message.summaryText = "$\(convo.localParticipantIdentifier) won, with a score of \(game.totalScore)!"
     } else {
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) took their turn and scored \(game.score)"
+      message.summaryText = "$\(convo.localParticipantIdentifier) took their turn and scored \(game.score)"
     }
     
     message.url = components.url
@@ -185,13 +188,13 @@ extension MessagesViewController: DiceGameDelegate {
     
     self.requestPresentationStyle(.compact)
 
-
   }
   
 }
 
 extension MessagesViewController: ExpandViewDelegate {
-  func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle) {
+  func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle, tutorial: Bool) {
+    self.tutorial = tutorial
     requestPresentationStyle(presentationStyle)
   }
   func getPresentationStyle() -> MSMessagesAppPresentationStyle {
