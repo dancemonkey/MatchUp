@@ -31,14 +31,4 @@ class CompactVC: UIViewController {
     }
   }
   
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "showDiceGame" {
-//      if let destVC = segue.destination as? DiceGameVC {
-//        destVC.messageDelegate = self.parent! as? DiceGameDelegate
-//        destVC.tutorialOn = tutorialSwitch.isOn
-//        print("Switch is on = \(tutorialSwitch.isOn)")
-//      }
-//    }
-//  }
-
 }

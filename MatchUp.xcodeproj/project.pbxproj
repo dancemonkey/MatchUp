@@ -52,6 +52,7 @@
 		107DB47D1DDE44BF00911B6C /* bell3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47A1DDE44BF00911B6C /* bell3.mp3 */; };
 		107DB47F1DDE44CA00911B6C /* dice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107DB47E1DDE44CA00911B6C /* dice1.mp3 */; };
 		10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ABE7B11DCD2A53009BA511 /* SCCGame.swift */; };
+		10BE90E91DE34DC6006AA0FA /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BE90E81DE34DC6006AA0FA /* TutorialVC.swift */; };
 		10CBCC321DE2034B00DDC379 /* msgBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CBCC311DE2034B00DDC379 /* msgBackground.png */; };
 		10E9FA851DC24329001583B7 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9FA841DC24329001583B7 /* utils.swift */; };
 		10F20C7F1DBFF13400E05345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F20C7E1DBFF13400E05345 /* Assets.xcassets */; };
@@ -134,6 +135,7 @@
 		107DB47A1DDE44BF00911B6C /* bell3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell3.mp3; sourceTree = "<group>"; };
 		107DB47E1DDE44CA00911B6C /* dice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dice1.mp3; sourceTree = "<group>"; };
 		10ABE7B11DCD2A53009BA511 /* SCCGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCGame.swift; sourceTree = "<group>"; };
+		10BE90E81DE34DC6006AA0FA /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		10CBCC311DE2034B00DDC379 /* msgBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msgBackground.png; sourceTree = "<group>"; };
 		10E9FA841DC24329001583B7 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		10F20C7B1DBFF13400E05345 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				10F20C8D1DBFF13400E05345 /* MessagesViewController.swift */,
 				10F20C9E1DBFF2C000E05345 /* CompactVC.swift */,
 				106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */,
+				10BE90E81DE34DC6006AA0FA /* TutorialVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BE90E91DE34DC6006AA0FA /* TutorialVC.swift in Sources */,
 				104A7E791DC6454B00F97772 /* Delegates.swift in Sources */,
 				10ABE7B21DCD2A53009BA511 /* SCCGame.swift in Sources */,
 				10F20C9F1DBFF2C000E05345 /* CompactVC.swift in Sources */,

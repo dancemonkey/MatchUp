@@ -39,7 +39,6 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var myWinsLbl: UILabel!
   @IBOutlet weak var oppWinsLbl: UILabel!
   @IBOutlet weak var scoreViewBackground: UIView!
-  @IBOutlet weak var tutorialView: UIView!
   
   override func viewDidLoad() {
     
@@ -54,7 +53,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     if let tutorial = tutorialOn, tutorial == true {
-      tutorialView.alpha = 1.0
+      addTutorialView()
     }
     
   }
@@ -126,8 +125,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   }
   
   func setWinLabels() {
-    myWinsLbl.text = "Wins - \(myWins)"
-    oppWinsLbl.text = "Losses - \(theirWins)"
+    myWinsLbl.text = "Won - \(myWins)"
+    oppWinsLbl.text = "Lost - \(theirWins)"
   }
   
   func currentPlayerIsWinner() -> Bool {
@@ -296,6 +295,23 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       self.scoreViewBackground.backgroundColor = UIColor.white
       }, completion: nil)
   }
+  
+  func addTutorialView() {
+    guard let controller = storyboard?.instantiateViewController(withIdentifier: "TutorialVC") as? TutorialVC else {
+      fatalError("No tutorial found")
+    }
+    addChildViewController(controller)
+    controller.view.frame = view.bounds
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(controller.view)
+    
+    controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
+    controller.didMove(toParentViewController: self)
 
+  }
   
 }
