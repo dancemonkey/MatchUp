@@ -562,7 +562,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jolly_roger.png" translatesAutoresizingMaskIntoConstraints="NO" id="V7v-Ac-Oi0">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jolly_roger" translatesAutoresizingMaskIntoConstraints="NO" id="V7v-Ac-Oi0">
                                 <rect key="frame" x="-50" y="269.5" width="475" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="SxG-FN-cCl"/>
@@ -645,7 +645,7 @@
         <image name="EmptyRollInd" width="13" height="13"/>
         <image name="captain" width="200" height="200"/>
         <image name="crew" width="200" height="191"/>
-        <image name="jolly_roger.png" width="700" height="700"/>
+        <image name="jolly_roger" width="170" height="129"/>
         <image name="ship" width="200" height="200"/>
     </resources>
 </document>
