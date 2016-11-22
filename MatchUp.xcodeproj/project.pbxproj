@@ -15,16 +15,7 @@
 		102965C91DDE0C9E003FB279 /* won_round_cheer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 102965C51DDE0C9E003FB279 /* won_round_cheer.wav */; };
 		102965CB1DDE15F5003FB279 /* DieButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102965CA1DDE15F5003FB279 /* DieButton.swift */; };
 		104A7E791DC6454B00F97772 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A7E781DC6454B00F97772 /* Delegates.swift */; };
-		106AD90A1DCEAF5F0016FE27 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9041DCEAF5F0016FE27 /* 1.png */; };
-		106AD90B1DCEAF5F0016FE27 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9051DCEAF5F0016FE27 /* 2.png */; };
-		106AD90C1DCEAF5F0016FE27 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9061DCEAF5F0016FE27 /* 3.png */; };
-		106AD90D1DCEAF5F0016FE27 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9071DCEAF5F0016FE27 /* 4.png */; };
-		106AD90E1DCEAF5F0016FE27 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9081DCEAF5F0016FE27 /* 5.png */; };
-		106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9091DCEAF5F0016FE27 /* 6.png */; };
-		106AD9141DCEAF8F0016FE27 /* captain.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9101DCEAF8F0016FE27 /* captain.png */; };
-		106AD9151DCEAF8F0016FE27 /* crew.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9111DCEAF8F0016FE27 /* crew.png */; };
 		106AD9161DCEAF8F0016FE27 /* jolly_roger.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9121DCEAF8F0016FE27 /* jolly_roger.png */; };
-		106AD9171DCEAF8F0016FE27 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 106AD9131DCEAF8F0016FE27 /* ship.png */; };
 		106AD9191DCEB36B0016FE27 /* DiceGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */; };
 		106AD91B1DCEB68C0016FE27 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AD91A1DCEB68C0016FE27 /* GameButton.swift */; };
 		107C2DBD1DE0963600935DF6 /* won_game_cheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107C2DBC1DE0963600935DF6 /* won_game_cheer.mp3 */; };
@@ -98,16 +89,7 @@
 		102965C51DDE0C9E003FB279 /* won_round_cheer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = won_round_cheer.wav; sourceTree = "<group>"; };
 		102965CA1DDE15F5003FB279 /* DieButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieButton.swift; sourceTree = "<group>"; };
 		104A7E781DC6454B00F97772 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
-		106AD9041DCEAF5F0016FE27 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		106AD9051DCEAF5F0016FE27 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		106AD9061DCEAF5F0016FE27 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		106AD9071DCEAF5F0016FE27 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
-		106AD9081DCEAF5F0016FE27 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		106AD9091DCEAF5F0016FE27 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
-		106AD9101DCEAF8F0016FE27 /* captain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = captain.png; sourceTree = "<group>"; };
-		106AD9111DCEAF8F0016FE27 /* crew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crew.png; sourceTree = "<group>"; };
 		106AD9121DCEAF8F0016FE27 /* jolly_roger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jolly_roger.png; sourceTree = "<group>"; };
-		106AD9131DCEAF8F0016FE27 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		106AD9181DCEB36B0016FE27 /* DiceGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceGameVC.swift; sourceTree = "<group>"; };
 		106AD91A1DCEB68C0016FE27 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		107C2DBC1DE0963600935DF6 /* won_game_cheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = won_game_cheer.mp3; sourceTree = "<group>"; };
@@ -269,17 +251,8 @@
 				107C2DBE1DE096C900935DF6 /* lost_game_moan.mp3 */,
 				102965C51DDE0C9E003FB279 /* won_round_cheer.wav */,
 				107C2DBC1DE0963600935DF6 /* won_game_cheer.mp3 */,
-				106AD9101DCEAF8F0016FE27 /* captain.png */,
-				106AD9111DCEAF8F0016FE27 /* crew.png */,
 				106AD9121DCEAF8F0016FE27 /* jolly_roger.png */,
-				106AD9131DCEAF8F0016FE27 /* ship.png */,
 				10CBCC311DE2034B00DDC379 /* msgBackground.png */,
-				106AD9041DCEAF5F0016FE27 /* 1.png */,
-				106AD9051DCEAF5F0016FE27 /* 2.png */,
-				106AD9061DCEAF5F0016FE27 /* 3.png */,
-				106AD9071DCEAF5F0016FE27 /* 4.png */,
-				106AD9081DCEAF5F0016FE27 /* 5.png */,
-				106AD9091DCEAF5F0016FE27 /* 6.png */,
 				10FD8FCD1DC12CA5007EFE0C /* dice.png */,
 				10E9FA831DC242F9001583B7 /* Utils */,
 				1011E7821DC0E56100AB50FB /* Model */,
@@ -383,22 +356,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				106AD90B1DCEAF5F0016FE27 /* 2.png in Resources */,
 				107DB4711DDE44B700911B6C /* crew1.mp3 in Resources */,
 				10F20C931DBFF13400E05345 /* Assets.xcassets in Resources */,
 				10F20C911DBFF13400E05345 /* MainInterface.storyboard in Resources */,
-				106AD90D1DCEAF5F0016FE27 /* 4.png in Resources */,
-				106AD90C1DCEAF5F0016FE27 /* 3.png in Resources */,
 				107DB4641DDE44AE00911B6C /* ship1.mp3 in Resources */,
 				107C2DBF1DE096C900935DF6 /* lost_game_moan.mp3 in Resources */,
 				107DB4691DDE44AF00911B6C /* ship6.mp3 in Resources */,
 				10FD8FCF1DC12CA5007EFE0C /* dice.png in Resources */,
 				107DB4741DDE44B700911B6C /* crew4.mp3 in Resources */,
-				106AD9151DCEAF8F0016FE27 /* crew.png in Resources */,
 				107DB4751DDE44B700911B6C /* crew5.mp3 in Resources */,
 				10CBCC321DE2034B00DDC379 /* msgBackground.png in Resources */,
 				102965C81DDE0C9E003FB279 /* lost_round_moan.wav in Resources */,
-				106AD90F1DCEAF5F0016FE27 /* 6.png in Resources */,
 				107DB4581DDE44A600911B6C /* pirate6.mp3 in Resources */,
 				102965C91DDE0C9E003FB279 /* won_round_cheer.wav in Resources */,
 				102965C61DDE0C9E003FB279 /* button_click.mp3 in Resources */,
@@ -406,10 +374,8 @@
 				107DB47D1DDE44BF00911B6C /* bell3.mp3 in Resources */,
 				107DB47B1DDE44BF00911B6C /* bell1.mp3 in Resources */,
 				107DB4721DDE44B700911B6C /* crew2.mp3 in Resources */,
-				106AD9171DCEAF8F0016FE27 /* ship.png in Resources */,
 				107DB4761DDE44B700911B6C /* crew6.mp3 in Resources */,
 				107DB47C1DDE44BF00911B6C /* bell2.mp3 in Resources */,
-				106AD90E1DCEAF5F0016FE27 /* 5.png in Resources */,
 				107DB4571DDE44A600911B6C /* pirate5.mp3 in Resources */,
 				107DB4661DDE44AE00911B6C /* ship3.mp3 in Resources */,
 				107DB4651DDE44AE00911B6C /* ship2.mp3 in Resources */,
@@ -417,14 +383,12 @@
 				106AD9161DCEAF8F0016FE27 /* jolly_roger.png in Resources */,
 				107DB47F1DDE44CA00911B6C /* dice1.mp3 in Resources */,
 				107DB4731DDE44B700911B6C /* crew3.mp3 in Resources */,
-				106AD9141DCEAF8F0016FE27 /* captain.png in Resources */,
 				107DB4531DDE44A600911B6C /* pirate1.mp3 in Resources */,
 				107DB4541DDE44A600911B6C /* pirate2.mp3 in Resources */,
 				107DB4561DDE44A600911B6C /* pirate4.mp3 in Resources */,
 				102965C71DDE0C9E003FB279 /* die_click.mp3 in Resources */,
 				107C2DBD1DE0963600935DF6 /* won_game_cheer.mp3 in Resources */,
 				107DB4681DDE44AF00911B6C /* ship5.mp3 in Resources */,
-				106AD90A1DCEAF5F0016FE27 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

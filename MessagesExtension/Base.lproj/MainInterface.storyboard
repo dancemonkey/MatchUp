@@ -65,7 +65,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-CA-yYD" userLabel="Ship">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="95.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship.png" translatesAutoresizingMaskIntoConstraints="NO" id="Atp-ae-cjS">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="Atp-ae-cjS">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="fOF-et-iNu"/>
@@ -83,7 +83,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-L8-5sV" userLabel="Captain">
                                         <rect key="frame" x="130" y="0.0" width="75" height="95.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain.png" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="1Qf-ST-Gh3"/>
@@ -101,7 +101,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VCb-pv-pDX" userLabel="Crew">
                                         <rect key="frame" x="260" y="0.0" width="75" height="95.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew.png" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
+                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="kJL-VY-OkP"/>
@@ -148,19 +148,19 @@
                                     <constraint firstAttribute="width" constant="107" id="ucL-kj-faE"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-R5-FqS" userLabel="Dice">
-                                <rect key="frame" x="16" y="349.5" width="343" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-R5-FqS" userLabel="Dice">
+                                <rect key="frame" x="16" y="349.5" width="343" height="106"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-iR-bHN">
-                                        <rect key="frame" x="32" y="0.0" width="279" height="60"/>
+                                        <rect key="frame" x="32" y="0.0" width="279" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQl-El-chT" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="OHy-0t-HYT"/>
-                                                    <constraint firstAttribute="width" constant="60" id="USe-wr-Gxi"/>
+                                                    <constraint firstAttribute="height" constant="45" id="OHy-0t-HYT"/>
+                                                    <constraint firstAttribute="width" constant="45" id="USe-wr-Gxi"/>
                                                 </constraints>
-                                                <state key="normal" image="1.png"/>
+                                                <state key="normal" image="1"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -171,12 +171,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="109.5" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="117" y="0.0" width="45" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="Ey7-om-mSY"/>
-                                                    <constraint firstAttribute="height" constant="60" id="pjI-ia-11f"/>
+                                                    <constraint firstAttribute="width" constant="45" id="Ey7-om-mSY"/>
+                                                    <constraint firstAttribute="height" constant="45" id="pjI-ia-11f"/>
                                                 </constraints>
-                                                <state key="normal" image="1.png"/>
+                                                <state key="normal" image="2"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -187,12 +187,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="219" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="234" y="0.0" width="45" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="5CZ-oJ-ooe"/>
-                                                    <constraint firstAttribute="height" constant="60" id="hUt-7T-kw0"/>
+                                                    <constraint firstAttribute="width" constant="45" id="5CZ-oJ-ooe"/>
+                                                    <constraint firstAttribute="height" constant="45" id="hUt-7T-kw0"/>
                                                 </constraints>
-                                                <state key="normal" image="1.png"/>
+                                                <state key="normal" image="3"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -205,15 +205,15 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yM-enw">
-                                        <rect key="frame" x="62" y="60" width="219" height="60"/>
+                                        <rect key="frame" x="62" y="61" width="219" height="45"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="drc-cq-iVt"/>
-                                                    <constraint firstAttribute="height" constant="60" id="mcF-qK-C7f"/>
+                                                    <constraint firstAttribute="width" constant="45" id="drc-cq-iVt"/>
+                                                    <constraint firstAttribute="height" constant="45" id="mcF-qK-C7f"/>
                                                 </constraints>
-                                                <state key="normal" image="1.png"/>
+                                                <state key="normal" image="4"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -224,12 +224,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="159" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="174" y="0.0" width="45" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="VY3-UV-lUQ"/>
-                                                    <constraint firstAttribute="height" constant="60" id="zgh-Tr-HQ4"/>
+                                                    <constraint firstAttribute="width" constant="45" id="VY3-UV-lUQ"/>
+                                                    <constraint firstAttribute="height" constant="45" id="zgh-Tr-HQ4"/>
                                                 </constraints>
-                                                <state key="normal" image="1.png"/>
+                                                <state key="normal" image="5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -421,19 +421,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JAj-eF-HhY" userLabel="Dice">
                                         <rect key="frame" x="0.0" y="15" width="335" height="80"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-h1-sNj">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-h1-sNj">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="80"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-EA-yxB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-EA-yxB">
                                                 <rect key="frame" x="67" y="0.0" width="67" height="80"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="7xc-bU-rig">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="7xc-bU-rig">
                                                 <rect key="frame" x="134" y="0.0" width="67" height="80"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4.png" translatesAutoresizingMaskIntoConstraints="NO" id="axc-JL-peF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="axc-JL-peF">
                                                 <rect key="frame" x="201" y="0.0" width="67" height="80"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5.png" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-6Q-wxl">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-6Q-wxl">
                                                 <rect key="frame" x="268" y="0.0" width="67" height="80"/>
                                             </imageView>
                                         </subviews>
@@ -455,13 +455,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sqE-r4-5mA" userLabel="ShipCapCrew">
                                         <rect key="frame" x="0.0" y="25" width="335" height="75"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship.png" translatesAutoresizingMaskIntoConstraints="NO" id="uho-8a-vvK">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="uho-8a-vvK">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.5" height="75"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain.png" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-qD-fGI">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-qD-fGI">
                                                 <rect key="frame" x="111.5" y="0.0" width="112" height="75"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew.png" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-XF-SCP">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-XF-SCP">
                                                 <rect key="frame" x="223.5" y="0.0" width="111.5" height="75"/>
                                             </imageView>
                                         </subviews>
@@ -637,15 +637,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.png" width="700" height="700"/>
-        <image name="2.png" width="700" height="700"/>
-        <image name="3.png" width="700" height="700"/>
-        <image name="4.png" width="700" height="700"/>
-        <image name="5.png" width="700" height="700"/>
+        <image name="1" width="180" height="180"/>
+        <image name="2" width="180" height="180"/>
+        <image name="3" width="180" height="180"/>
+        <image name="4" width="180" height="180"/>
+        <image name="5" width="180" height="180"/>
         <image name="EmptyRollInd" width="13" height="13"/>
-        <image name="captain.png" width="700" height="700"/>
-        <image name="crew.png" width="700" height="700"/>
+        <image name="captain" width="200" height="200"/>
+        <image name="crew" width="200" height="191"/>
         <image name="jolly_roger.png" width="700" height="700"/>
-        <image name="ship.png" width="700" height="700"/>
+        <image name="ship" width="200" height="200"/>
     </resources>
 </document>
