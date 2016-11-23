@@ -400,121 +400,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-y3-yOR">
-                                <rect key="frame" x="20" y="28" width="228.5" height="26.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7Gd-Mt-xZP" userLabel="Dice and Label">
-                                <rect key="frame" x="20" y="66.5" width="335" height="95"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="276-If-BAj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get 3 throws, with 5 dice..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ip-MZ-zTS">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="rrV-zb-4tl"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JAj-eF-HhY" userLabel="Dice">
-                                        <rect key="frame" x="0.0" y="15" width="335" height="80"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ccp-pk-dLm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-h1-sNj">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="80"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-EA-yxB">
-                                                <rect key="frame" x="67" y="0.0" width="67" height="80"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="7xc-bU-rig">
-                                                <rect key="frame" x="134" y="0.0" width="67" height="80"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="axc-JL-peF">
-                                                <rect key="frame" x="201" y="0.0" width="67" height="80"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-6Q-wxl">
-                                                <rect key="frame" x="268" y="0.0" width="67" height="80"/>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ship, captain, and crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buy-pG-CXZ">
+                                                <rect key="frame" x="8" y="30" width="228.5" height="26.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="302-Kf-Wuu" userLabel="Dice and Label">
+                                                <rect key="frame" x="8" y="51" width="900" height="105"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You get 3 throws, with 5 dice..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-Xq-TLm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="14.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-5H-3cP" userLabel="Dice">
+                                                        <rect key="frame" x="0.0" y="14.5" width="900" height="90"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-et-Nlh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="90"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-KA-0sT">
+                                                                <rect key="frame" x="180" y="0.0" width="180" height="90"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="I3I-yJ-3rx">
+                                                                <rect key="frame" x="360" y="0.0" width="180" height="90"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="vRQ-5c-UCX">
+                                                                <rect key="frame" x="540" y="0.0" width="180" height="90"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-6q-dSe">
+                                                                <rect key="frame" x="720" y="0.0" width="180" height="90"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="kBs-gh-Swd"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tKI-wk-t6b" userLabel="ShipCapCrewandLabel">
+                                                <rect key="frame" x="8" y="206" width="600" height="115"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="To roll a ship (6), captain (5), and crew (4)." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSY-Pm-lTQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="241" height="14.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rsj-2X-ZT2" userLabel="ShipCapCrew">
+                                                        <rect key="frame" x="0.0" y="14.5" width="600" height="100"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="SaQ-fI-bER">
+                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="QYg-bu-qFf">
+                                                                <rect key="frame" x="200" y="0.0" width="200" height="100"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="oSV-J8-duW">
+                                                                <rect key="frame" x="400" y="0.0" width="200" height="100"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="ZuJ-Y7-rcT"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LoA-3B-wWI" userLabel="Verbiage">
+                                                <rect key="frame" x="8" y="366" width="404" height="117"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tap a die to &quot;freeze&quot; it when you roll the number you need." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-ez-zDh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="404" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You must collect the 6, 5, and 4 in that order." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMx-MT-LM7">
+                                                        <rect key="frame" x="0.0" y="25" width="404" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="However you CAN collect them all in one roll." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpq-10-vdb">
+                                                        <rect key="frame" x="0.0" y="50" width="404" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The remaining 2 dice make up your score." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prh-io-0Py">
+                                                        <rect key="frame" x="0.0" y="75" width="404" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Winner is first over 15 points, loser always starts the next game." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-gV-GzU">
+                                                        <rect key="frame" x="0.0" y="100" width="404" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="52x-DK-Bit"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ccp-pk-dLm" secondAttribute="trailing" id="E8G-ra-6p1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ccp-pk-dLm" secondAttribute="bottom" id="VdV-t9-zEX"/>
+                                    <constraint firstItem="Ccp-pk-dLm" firstAttribute="leading" secondItem="276-If-BAj" secondAttribute="leading" id="eoK-eo-DPC"/>
+                                    <constraint firstItem="Ccp-pk-dLm" firstAttribute="top" secondItem="276-If-BAj" secondAttribute="top" id="pDY-V2-NS5"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5w8-cD-bpD" userLabel="ShipCapCrewandLabel">
-                                <rect key="frame" x="20" y="173.5" width="335" height="100"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To roll a ship (6), captain (5), and crew (4)." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hp8-bm-cym">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="25"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sqE-r4-5mA" userLabel="ShipCapCrew">
-                                        <rect key="frame" x="0.0" y="25" width="335" height="75"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="uho-8a-vvK">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="75"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-qD-fGI">
-                                                <rect key="frame" x="111.5" y="0.0" width="112" height="75"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-XF-SCP">
-                                                <rect key="frame" x="223.5" y="0.0" width="111.5" height="75"/>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="fJd-ip-EZy"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="k9Y-yc-6CZ"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-ma-LSD" userLabel="Verbiage">
-                                <rect key="frame" x="20" y="293.5" width="335" height="150"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a die to &quot;freeze&quot; it when you roll the number you need." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ys-wS-cDX">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must collect the 6, 5, and 4 in that order." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDd-sH-lyh">
-                                        <rect key="frame" x="0.0" y="41.5" width="335" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="However you CAN collect them all in one roll." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp7-UO-tFq">
-                                        <rect key="frame" x="0.0" y="66.5" width="335" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The remaining 2 dice make up your score." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54T-xN-pnF">
-                                        <rect key="frame" x="0.0" y="91.5" width="335" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is first over 15 points, loser always starts the next game." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fQ-9c-KJo">
-                                        <rect key="frame" x="0.0" y="116.5" width="335" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-u1-bza" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-u1-bza" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
                                 <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2XH-7N-ApB"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Whatever, let's play!"/>
                                 <userDefinedRuntimeAttributes>
@@ -529,26 +542,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5w8-cD-bpD" secondAttribute="trailing" constant="20" id="0zp-g9-HzN"/>
-                            <constraint firstItem="5w8-cD-bpD" firstAttribute="top" secondItem="7Gd-Mt-xZP" secondAttribute="bottom" constant="12" id="7uV-Se-x4r"/>
-                            <constraint firstItem="TeL-y3-yOR" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" constant="20" id="Hyb-Qf-k3E"/>
-                            <constraint firstItem="5w8-cD-bpD" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" constant="20" id="M6f-HG-iYh"/>
-                            <constraint firstItem="TeL-y3-yOR" firstAttribute="top" secondItem="nZj-x4-wqK" secondAttribute="bottom" constant="8" id="Mx7-2E-bE3"/>
-                            <constraint firstAttribute="trailing" secondItem="XKc-u1-bza" secondAttribute="trailing" constant="16" id="Wdm-0e-oTd"/>
-                            <constraint firstItem="bWt-kw-CXX" firstAttribute="top" secondItem="XKc-u1-bza" secondAttribute="bottom" constant="20" id="YsN-3S-Yyj"/>
-                            <constraint firstItem="IK8-ma-LSD" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" constant="20" id="eNS-J9-XVX"/>
-                            <constraint firstItem="XKc-u1-bza" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" constant="16" id="eYR-0c-wcf"/>
-                            <constraint firstItem="7Gd-Mt-xZP" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" constant="20" id="hUz-r8-hsk"/>
-                            <constraint firstItem="7Gd-Mt-xZP" firstAttribute="top" secondItem="TeL-y3-yOR" secondAttribute="bottom" constant="12" id="kDd-MQ-VQP"/>
-                            <constraint firstAttribute="trailing" secondItem="IK8-ma-LSD" secondAttribute="trailing" constant="20" id="ncA-LG-p0F"/>
-                            <constraint firstAttribute="trailing" secondItem="7Gd-Mt-xZP" secondAttribute="trailing" constant="20" id="vOM-HP-7cS"/>
-                            <constraint firstItem="IK8-ma-LSD" firstAttribute="top" secondItem="5w8-cD-bpD" secondAttribute="bottom" constant="20" id="xat-gI-RKj"/>
+                            <constraint firstItem="276-If-BAj" firstAttribute="leading" secondItem="t6j-jf-9mn" secondAttribute="leading" id="53L-5v-9oH"/>
+                            <constraint firstItem="276-If-BAj" firstAttribute="top" secondItem="t6j-jf-9mn" secondAttribute="top" id="Vmc-ag-479"/>
+                            <constraint firstItem="276-If-BAj" firstAttribute="centerY" secondItem="t6j-jf-9mn" secondAttribute="centerY" id="dbe-sp-eVD"/>
+                            <constraint firstItem="bWt-kw-CXX" firstAttribute="top" secondItem="276-If-BAj" secondAttribute="bottom" id="qKc-ek-B12"/>
+                            <constraint firstItem="276-If-BAj" firstAttribute="centerX" secondItem="t6j-jf-9mn" secondAttribute="centerX" id="vfw-ta-hvb"/>
+                            <constraint firstAttribute="trailing" secondItem="276-If-BAj" secondAttribute="trailing" id="xNt-u8-jpj"/>
+                            <constraint firstItem="Ccp-pk-dLm" firstAttribute="width" secondItem="t6j-jf-9mn" secondAttribute="width" id="xzZ-o6-Iqz"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Q6-Bm-5Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="858"/>
+            <point key="canvasLocation" x="1936.8" y="857.72113943028489"/>
         </scene>
         <!--CompactVC-->
         <scene sceneID="pEO-BK-Fx5">
