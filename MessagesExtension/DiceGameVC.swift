@@ -206,7 +206,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
         }
         if let result = self.game?.roll() {
           self.animateRolls(withResult: result, withClosure: {
-            //self.setDieFaces(forRollResult: result)
+            // keeping this here in case I need a closure
           })
           Utils.delay(0.05, closure: {
             self.play(sound: SoundFileName.dice.rawValue)
@@ -232,7 +232,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   func animateRolls(withResult result: [Int], withClosure closure: () -> ()) {
     for (index,_) in game!.currentDice.enumerated() {
       if game!.currentDice[index].frozen == false {
-        let timing = Double(Die(sides: 10).roll())
+        let timing = Double(Die(sides: 5).roll())
         dieIndicator[index].animateRoll(forTime: timing/10, leftoverTime: 0.0, closure: {
           self.setDieFace(forDie: index, result: result[index])
         })
