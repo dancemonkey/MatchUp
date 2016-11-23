@@ -176,6 +176,7 @@ extension MessagesViewController: DiceGameDelegate {
       message.summaryText = "$\(convo.localParticipantIdentifier) won, with a score of \(game.totalScore)!"
     } else {
       message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) scored \(game.score) points."
+      // using remotePI because localPI showing blank when used in summaryText, even though it works perfectly on device in subcaption text
     }
     
     message.url = components.url
