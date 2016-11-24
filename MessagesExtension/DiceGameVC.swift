@@ -236,6 +236,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
         dieIndicator[index].animateRoll(forTime: timing/10, leftoverTime: 0.0, closure: {
           self.setDieFace(forDie: index, result: result[index])
         })
+        // fix this, use tags instead of placement in array
       }
     }
     closure()
@@ -243,6 +244,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   func setRollIndicator(forRoll roll: Int) {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
+    // fix this, use tags instead of array placement
+    
     if game?.roundIsOver() == true {
       game?.endRound()
       roundEndFanfare()
