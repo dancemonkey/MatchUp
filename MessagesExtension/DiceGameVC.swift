@@ -56,6 +56,22 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       addTutorialView()
     }
     
+    setIndicatorArrays()
+    
+  }
+  
+  func setIndicatorArrays() {
+    var tempDieIndicators: [DieButton] = self.dieIndicator
+    for button in dieIndicator {
+      tempDieIndicators[button.tag] = button
+    }
+    self.dieIndicator = tempDieIndicators
+    
+    var tempRollIndicators: [UIImageView] = self.rollIndicator
+    for image in rollIndicator {
+      tempRollIndicators[image.tag] = image
+    }
+    self.rollIndicator = tempRollIndicators
   }
   
   func parse(message: MSMessage) {
