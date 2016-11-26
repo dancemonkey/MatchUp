@@ -342,12 +342,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="cNU-70-yUy" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="16" id="9Rv-fB-rn5"/>
                             <constraint firstAttribute="trailing" secondItem="cNU-70-yUy" secondAttribute="trailing" constant="16" id="C7c-wJ-bfl"/>
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="16" id="Ix2-Lr-eRD"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="bottom" constant="20" id="Jve-3X-y3o"/>
                             <constraint firstItem="cNU-70-yUy" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="KfV-O8-W1O"/>
                             <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="20" id="Qev-9D-LrW"/>
-                            <constraint firstItem="cNU-70-yUy" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="16" id="RDG-2P-Xb2"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="RRk-cq-UxY"/>
                             <constraint firstItem="cNU-70-yUy" firstAttribute="centerX" secondItem="ntL-dN-dbV" secondAttribute="centerX" id="vP4-iy-YV1"/>
                         </constraints>

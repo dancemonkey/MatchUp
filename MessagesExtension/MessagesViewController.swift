@@ -181,14 +181,13 @@ extension MessagesViewController: DiceGameDelegate {
     message.url = components.url
     
     convo.insert(message) { (error) in
-      self.requestPresentationStyle(.compact)
+      //self.requestPresentationStyle(.compact)
       guard error == nil else {
         fatalError("error in inserting message into conversation")
       }
     }
     
-//    self.requestPresentationStyle(.compact)
-
+    dismiss()
   }
   
 }
