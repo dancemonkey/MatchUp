@@ -215,11 +215,11 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   @IBAction func rollTapped(sender: UIButton) {
     
     Utils.animateButton(sender, withTiming: buttonAnimTiming, completionClosure: {
-      guard sender.titleLabel?.text == "SEND" else {
-        guard sender.titleLabel?.text == "ROLL!" else {
-          self.setupForNewGame()
-          return
+      if sender.titleLabel?.text == "SEND" {
+        if let score = self.game?.score {
+          self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
         }
+      } else if sender.titleLabel?.text == "ROLL!" {
         if let result = self.game?.roll() {
           self.animateRolls(withResult: result, withClosure: {
             // keeping this here in case I need a closure
@@ -229,11 +229,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
             self.setRollIndicator(forRoll: (self.game?.totalRolls)!)
           })
         }
-        return
-      }
-      
-      if let score = self.game?.score {
-        self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
+      } else {
+        self.setupForNewGame()
       }
     })
     

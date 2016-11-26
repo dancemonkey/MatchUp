@@ -315,11 +315,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="STz-aq-OEZ" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="A2e-VL-5EI"/>
-                                    <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="top" id="SZt-hz-ZZ8"/>
+                                    <constraint firstItem="STz-aq-OEZ" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="Ohc-g8-ESs"/>
                                     <constraint firstAttribute="trailing" secondItem="Sa0-R5-FqS" secondAttribute="trailing" id="WRs-hi-B75"/>
                                     <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="ZVf-H3-wBW"/>
-                                    <constraint firstAttribute="trailing" secondItem="STz-aq-OEZ" secondAttribute="trailing" id="dyY-tU-4mm"/>
+                                    <constraint firstAttribute="trailing" secondItem="STz-aq-OEZ" secondAttribute="trailing" id="ek4-io-0hJ"/>
+                                    <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="top" id="jp8-MN-ZSp"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnc-kx-ykZ" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">

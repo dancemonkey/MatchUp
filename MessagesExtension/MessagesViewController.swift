@@ -175,19 +175,19 @@ extension MessagesViewController: DiceGameDelegate {
       components.queryItems?.append(queryItem)
       message.summaryText = "$\(convo.localParticipantIdentifier) won, with a score of \(game.totalScore)!"
     } else {
-      message.summaryText = "$\(convo.remoteParticipantIdentifiers[0]) scored \(game.score) points."
-      // using remotePI because localPI showing blank when used in summaryText, even though it works perfectly on device in subcaption text
+      message.summaryText = "$\(convo.localParticipantIdentifier) scored \(game.score) points."
     }
     
     message.url = components.url
     
     convo.insert(message) { (error) in
+      self.requestPresentationStyle(.compact)
       guard error == nil else {
         fatalError("error in inserting message into conversation")
       }
     }
     
-    self.requestPresentationStyle(.compact)
+//    self.requestPresentationStyle(.compact)
 
   }
   
