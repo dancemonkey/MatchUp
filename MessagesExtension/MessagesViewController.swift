@@ -173,9 +173,9 @@ extension MessagesViewController: DiceGameDelegate {
     if hasWinner == true {
       let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
       components.queryItems?.append(queryItem)
-      message.summaryText = "$\(convo.localParticipantIdentifier) won, with a score of \(game.totalScore)!"
+      message.summaryText = "$\(convo.localParticipantIdentifier) Won, with a score of \(game.totalScore)!"
     } else {
-      message.summaryText = "$\(convo.localParticipantIdentifier) scored \(game.score) points."
+      message.summaryText = "$\(convo.localParticipantIdentifier) Scored \(game.score) points."
     }
     
     message.url = components.url

@@ -410,12 +410,13 @@
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Av-Xm-SJv">
                                 <rect key="frame" x="0.0" y="86" width="375" height="495"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="B1y-yn-kqN" kind="embed" id="gko-DH-X2s"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Av-Xm-SJv" firstAttribute="top" secondItem="t6j-jf-9mn" secondAttribute="top" constant="86" id="9Q8-PP-S1z"/>
                             <constraint firstItem="bWt-kw-CXX" firstAttribute="top" secondItem="XKc-u1-bza" secondAttribute="bottom" constant="20" id="9qh-Bv-GBC"/>
@@ -438,8 +439,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="a9I-L8-ZYL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="QRc-Ic-hhE">
                                 <cells>
@@ -565,46 +566,51 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="WhT-Jj-ezg">
-                                        <rect key="frame" x="0.0" y="199" width="375" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="WhT-Jj-ezg">
+                                        <rect key="frame" x="0.0" y="199" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WhT-Jj-ezg" id="8tQ-9k-A5A">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NWB-k6-hEE" userLabel="Verbiage">
-                                                    <rect key="frame" x="8" y="8" width="359" height="242"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="200"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a die to &quot;freeze&quot; it when you roll the number you need." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kS-bs-LSU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="336" height="60.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjL-bf-fbM">
-                                                            <rect key="frame" x="0.0" y="60.5" width="351" height="60.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kS-bs-LSU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="331" height="66.5"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="You must collect the 6, 5, and 4 in that order, ">
+                                                                <fragment content="Tap a die to &quot;freeze&quot; it when you roll the number you need.">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="SFUIDisplay-Regular"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content=" ">
                                                                     <attributes>
                                                                         <font key="NSFont" metaFont="system" size="14"/>
                                                                     </attributes>
                                                                 </fragment>
-                                                                <fragment content="however you can collect them all in one roll.">
+                                                                <fragment content="You must collect the 6, 5, and 4 in that order,">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="14" name="SFUIText-Semibold"/>
+                                                                        <font key="NSFont" size="14" name="SFUIDisplay-Bold"/>
+                                                                        <font key="NSOriginalFont" size="14" name="SFUIDisplay-Bold"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content=" however you can collect them all in one roll.">
+                                                                    <attributes>
+                                                                        <font key="NSFont" metaFont="system" size="14"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The remaining 2 dice make up your score." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JJ-Od-pzu">
-                                                            <rect key="frame" x="0.0" y="121" width="267" height="60.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After collecting the ship, captain, and crew the remaining 2 dice make up your score." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JJ-Od-pzu">
+                                                            <rect key="frame" x="0.0" y="66.5" width="300.5" height="67"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is first over 15 points, loser always starts the next game." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul9-6d-2ur">
-                                                            <rect key="frame" x="0.0" y="181.5" width="333.5" height="60.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is the first over 15 points, loser always starts the next game." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul9-6d-2ur">
+                                                            <rect key="frame" x="0.0" y="133.5" width="357.5" height="66.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -616,7 +622,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="NWB-k6-hEE" secondAttribute="bottom" id="DGb-aX-fMC"/>
                                                 <constraint firstAttribute="trailing" secondItem="NWB-k6-hEE" secondAttribute="trailing" constant="8" id="TRO-2S-Cm4"/>
-                                                <constraint firstItem="NWB-k6-hEE" firstAttribute="top" secondItem="8tQ-9k-A5A" secondAttribute="top" constant="8" id="dE2-f7-M1F"/>
+                                                <constraint firstItem="NWB-k6-hEE" firstAttribute="top" secondItem="8tQ-9k-A5A" secondAttribute="top" id="dE2-f7-M1F"/>
                                                 <constraint firstItem="NWB-k6-hEE" firstAttribute="leading" secondItem="8tQ-9k-A5A" secondAttribute="leading" constant="8" id="kuA-59-K1E"/>
                                             </constraints>
                                         </tableViewCellContentView>
