@@ -168,7 +168,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-o8-4dv" userLabel="All Dice">
-                                                <rect key="frame" x="16" y="81" width="311" height="215"/>
+                                                <rect key="frame" x="16" y="81" width="311" height="150"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-iR-bHN" userLabel="3 dice">
                                                         <rect key="frame" x="16" y="0.0" width="279" height="50"/>
@@ -224,7 +224,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yM-enw" userLabel="2 dice">
-                                                        <rect key="frame" x="40" y="165" width="231" height="50"/>
+                                                        <rect key="frame" x="40" y="100" width="231" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -265,42 +265,43 @@
                                                     <constraint firstItem="nh9-yM-enw" firstAttribute="leading" secondItem="JBQ-o8-4dv" secondAttribute="leading" constant="40" id="2rl-UP-d1g"/>
                                                     <constraint firstAttribute="trailing" secondItem="BE3-iR-bHN" secondAttribute="trailing" constant="16" id="EkC-JA-9wD"/>
                                                     <constraint firstItem="BE3-iR-bHN" firstAttribute="leading" secondItem="JBQ-o8-4dv" secondAttribute="leading" constant="16" id="K5q-ps-Bi6"/>
+                                                    <constraint firstItem="nh9-yM-enw" firstAttribute="top" relation="lessThanOrEqual" secondItem="BE3-iR-bHN" secondAttribute="bottom" constant="50" id="bUn-US-08o"/>
                                                     <constraint firstAttribute="trailing" secondItem="nh9-yM-enw" secondAttribute="trailing" constant="40" id="eel-wv-XeP"/>
                                                     <constraint firstItem="nh9-yM-enw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BE3-iR-bHN" secondAttribute="bottom" constant="8" id="sn7-AS-Gg0"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="a32-9b-w6B" userLabel="Roll Indicators">
-                                                <rect key="frame" x="18.5" y="312" width="306" height="146"/>
+                                                <rect key="frame" x="18.5" y="247" width="306" height="211"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won - 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-co-wIp">
-                                                        <rect key="frame" x="0.0" y="129" width="116.5" height="17"/>
+                                                        <rect key="frame" x="0.0" y="194" width="116.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-9A-ujk">
-                                                        <rect key="frame" x="116.5" y="121" width="25" height="25"/>
+                                                        <rect key="frame" x="116.5" y="186" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="07c-dj-Qkm"/>
                                                             <constraint firstAttribute="height" constant="25" id="l4Z-zT-oZX"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80">
-                                                        <rect key="frame" x="141.5" y="121" width="25" height="25"/>
+                                                        <rect key="frame" x="141.5" y="186" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="R90-Zb-U0w"/>
                                                             <constraint firstAttribute="width" constant="25" id="eai-xn-1VR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU">
-                                                        <rect key="frame" x="166.5" y="121" width="25" height="25"/>
+                                                        <rect key="frame" x="166.5" y="186" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="1Eu-TN-0g2"/>
                                                             <constraint firstAttribute="height" constant="25" id="eXg-ui-BaA"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lost - 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukH-cB-HoQ">
-                                                        <rect key="frame" x="191.5" y="129" width="114.5" height="17"/>
+                                                        <rect key="frame" x="191.5" y="194" width="114.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -519,15 +520,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="a9e-mG-0e6">
-                                        <rect key="frame" x="0.0" y="114" width="375" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="a9e-mG-0e6">
+                                        <rect key="frame" x="0.0" y="114" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a9e-mG-0e6" id="t3D-BV-9iw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Kw-b5-LFN" userLabel="ShipCapCrewandLabel">
-                                                    <rect key="frame" x="8" y="0.0" width="359" height="85"/>
+                                                    <rect key="frame" x="8" y="7.5" width="359" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need to roll a ship (6), captain (5), and crew (4)." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAv-ce-UPt">
                                                             <rect key="frame" x="0.0" y="0.0" width="294.5" height="31"/>
@@ -567,7 +568,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="WhT-Jj-ezg">
-                                        <rect key="frame" x="0.0" y="199" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="214" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WhT-Jj-ezg" id="8tQ-9k-A5A">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
