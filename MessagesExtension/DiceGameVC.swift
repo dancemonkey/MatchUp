@@ -39,7 +39,6 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var myWinsLbl: UILabel!
   @IBOutlet weak var oppWinsLbl: UILabel!
   @IBOutlet weak var scoreViewBackground: UIView!
-  @IBOutlet weak var lastRollLbl: UILabel!
   
   override func viewDidLoad() {
     
@@ -58,9 +57,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     setIndicatorArrays()
-    
-    lastRollLbl.isHidden = true
-    
+  
   }
   
   func setIndicatorArrays() {
@@ -222,7 +219,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
         if let score = self.game?.score {
           self.endRound(withScore: score, totalScore: self.game!.totalScore, oppScore: self.game!.opponentScore)
         }
-      } else if sender.titleLabel?.text == "ROLL!" {
+      } else if sender.titleLabel?.text == "ROLL!" || sender.titleLabel?.text == "LAST ROLL!" {
         if let result = self.game?.roll() {
           self.animateRolls(withResult: result, withClosure: {
             // keeping this here in case I need a closure
@@ -262,12 +259,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
     
     if roll == 2 {
-      lastRollLbl.isHidden = false
-      Utils.delay(1.0, closure: {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.allowUserInteraction], animations: {
-          self.lastRollLbl.isHidden = true
-        }, completion: nil)
-      })
+      self.rollDiceBtn.setTitle("LAST ROLL!", for: .normal)
+      self.rollDiceBtn.backgroundColor = UIColor.red
     }
     
     if game?.roundIsOver() == true {
@@ -275,6 +268,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
       roundEndFanfare()
       yourScoreLbl.text = "\(game!.totalScore)"
       rollDiceBtn.setTitle("SEND", for: .normal)
+      rollDiceBtn.backgroundColor = UIColor(colorLiteralRed: 254/255, green: 163/255, blue: 4/255, alpha: 1.0)
     }
   }
   
