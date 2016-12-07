@@ -39,6 +39,7 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var myWinsLbl: UILabel!
   @IBOutlet weak var oppWinsLbl: UILabel!
   @IBOutlet weak var scoreViewBackground: UIView!
+  @IBOutlet weak var lastRollLbl: UILabel!
   
   override func viewDidLoad() {
     
@@ -57,6 +58,8 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     setIndicatorArrays()
+    
+    lastRollLbl.isHidden = true
     
   }
   
@@ -257,6 +260,15 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   func setRollIndicator(forRoll roll: Int) {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
+    
+    if roll == 2 {
+      lastRollLbl.isHidden = false
+      Utils.delay(1.0, closure: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.allowUserInteraction], animations: {
+          self.lastRollLbl.isHidden = true
+        }, completion: nil)
+      })
+    }
     
     if game?.roundIsOver() == true {
       game?.endRound()

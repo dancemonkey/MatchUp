@@ -443,11 +443,18 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One more roll!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lN-eS-paX">
+                                                <rect key="frame" x="114" y="247" width="115" height="35"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="a32-9b-w6B" userLabel="Roll Indicators">
-                                                <rect key="frame" x="18.5" y="247" width="306" height="211"/>
+                                                <rect key="frame" x="18.5" y="298" width="306" height="160"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won - 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-co-wIp">
-                                                        <rect key="frame" x="0.0" y="194" width="116.5" height="17"/>
+                                                        <rect key="frame" x="0.0" y="143" width="116.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -456,7 +463,7 @@
                                                         </variation>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-9A-ujk">
-                                                        <rect key="frame" x="116.5" y="186" width="25" height="25"/>
+                                                        <rect key="frame" x="116.5" y="135" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="07c-dj-Qkm"/>
                                                             <constraint firstAttribute="width" constant="100" id="O74-gV-WCT">
@@ -483,7 +490,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80">
-                                                        <rect key="frame" x="141.5" y="186" width="25" height="25"/>
+                                                        <rect key="frame" x="141.5" y="135" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="LKg-BG-xQI"/>
                                                             <constraint firstAttribute="height" constant="25" id="R90-Zb-U0w"/>
@@ -506,7 +513,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU">
-                                                        <rect key="frame" x="166.5" y="186" width="25" height="25"/>
+                                                        <rect key="frame" x="166.5" y="135" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="1Eu-TN-0g2"/>
                                                             <constraint firstAttribute="height" constant="50" id="83H-gi-S5s"/>
@@ -529,7 +536,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lost - 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukH-cB-HoQ">
-                                                        <rect key="frame" x="191.5" y="194" width="114.5" height="17"/>
+                                                        <rect key="frame" x="191.5" y="143" width="114.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -598,6 +605,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lastRollLbl" destination="8lN-eS-paX" id="4D2-h8-xML"/>
                         <outlet property="myWinsLbl" destination="C1Y-co-wIp" id="fQP-wb-2dx"/>
                         <outlet property="oppWinsLbl" destination="ukH-cB-HoQ" id="93r-cM-Nrk"/>
                         <outlet property="rollDiceBtn" destination="Bnc-kx-ykZ" id="3FL-4o-Hc5"/>
@@ -1039,13 +1047,12 @@
                                 <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See the rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-4I-VJ9">
-                                <rect key="frame" x="220" y="355" width="82" height="21"/>
+                                <rect key="frame" x="220" y="355" width="84.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5he-g6-7Zr"/>
                                     <constraint firstAttribute="width" constant="117" id="nml-R3-8xx"/>
-                                    <constraint firstAttribute="width" constant="82" id="rwC-JZ-T90"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1054,10 +1061,9 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <mask key="constraints">
                                         <include reference="nml-R3-8xx"/>
-                                        <exclude reference="rwC-JZ-T90"/>
                                     </mask>
                                 </variation>
                             </label>
