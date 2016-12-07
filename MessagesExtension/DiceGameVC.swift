@@ -257,7 +257,6 @@ class DiceGameVC: UIViewController, AVAudioPlayerDelegate {
   
   func setRollIndicator(forRoll roll: Int) {
     rollIndicator[roll-1].image = UIImage(named: "FullRollInd")
-    // fix this, use tags instead of array placement
     
     if game?.roundIsOver() == true {
       game?.endRound()
