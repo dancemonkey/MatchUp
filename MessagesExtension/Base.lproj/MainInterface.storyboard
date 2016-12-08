@@ -43,7 +43,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cNU-70-yUy">
-                                <rect key="frame" x="16" y="36" width="635" height="203"/>
+                                <rect key="frame" x="16" y="36" width="635" height="181"/>
                                 <subviews>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STz-aq-OEZ" userLabel="Score View" customClass="DesignableView" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="635" height="50"/>
@@ -134,7 +134,7 @@
                                             <constraint firstAttribute="height" constant="50" id="QQ3-k0-QfO"/>
                                             <constraint firstAttribute="height" constant="150" id="a7j-Ek-v4H"/>
                                             <constraint firstItem="b2Q-Xg-Aws" firstAttribute="leading" secondItem="STz-aq-OEZ" secondAttribute="leading" id="dQ7-Mh-3kT"/>
-                                            <constraint firstAttribute="height" constant="75" id="igw-fg-y4s"/>
+                                            <constraint firstAttribute="height" priority="999" constant="75" id="igw-fg-y4s"/>
                                             <constraint firstItem="b2Q-Xg-Aws" firstAttribute="top" secondItem="STz-aq-OEZ" secondAttribute="top" id="nx1-BA-Rej"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -165,17 +165,18 @@
                                         </variation>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-R5-FqS" userLabel="Dice and Roll Ind.">
-                                        <rect key="frame" x="0.0" y="58" width="635" height="145"/>
+                                        <rect key="frame" x="0.0" y="58" width="635" height="123"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-qI-czM" userLabel="Goal Display">
-                                                <rect key="frame" x="256.5" y="0.0" width="122" height="30"/>
+                                                <rect key="frame" x="0.0" y="8" width="211.5" height="107"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-CA-yYD" userLabel="Ship">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="93.5" y="0.0" width="25" height="25"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="Atp-ae-cjS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="width" constant="35" id="3nY-5U-vrC"/>
                                                                     <constraint firstAttribute="height" constant="130" id="BTj-7D-1g6"/>
                                                                     <constraint firstAttribute="height" constant="45" id="Jdm-yp-riA">
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
@@ -184,21 +185,36 @@
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="width" constant="130" id="PZs-3j-ojZ"/>
-                                                                    <constraint firstAttribute="width" constant="65" id="fOF-et-iNu"/>
-                                                                    <constraint firstAttribute="height" constant="65" id="ysd-vP-OBz"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="Pdz-5q-7pi">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="height" constant="35" id="SmF-fJ-RYD"/>
+                                                                    <constraint firstAttribute="width" constant="35" id="bD0-lx-cgb">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="width" constant="50" id="fOF-et-iNu"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="ysd-vP-OBz"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
+                                                                        <exclude reference="3nY-5U-vrC"/>
                                                                         <exclude reference="BTj-7D-1g6"/>
                                                                         <exclude reference="Jdm-yp-riA"/>
                                                                         <exclude reference="Mvh-m7-URf"/>
                                                                         <exclude reference="PZs-3j-ojZ"/>
+                                                                        <exclude reference="Pdz-5q-7pi"/>
+                                                                        <exclude reference="SmF-fJ-RYD"/>
+                                                                        <exclude reference="bD0-lx-cgb"/>
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=compact-widthClass=compact">
                                                                     <mask key="constraints">
-                                                                        <include reference="Jdm-yp-riA"/>
-                                                                        <include reference="Mvh-m7-URf"/>
+                                                                        <exclude reference="3nY-5U-vrC"/>
+                                                                        <exclude reference="Jdm-yp-riA"/>
+                                                                        <exclude reference="Mvh-m7-URf"/>
+                                                                        <include reference="Pdz-5q-7pi"/>
+                                                                        <exclude reference="SmF-fJ-RYD"/>
+                                                                        <include reference="bD0-lx-cgb"/>
                                                                         <exclude reference="fOF-et-iNu"/>
                                                                         <exclude reference="ysd-vP-OBz"/>
                                                                     </mask>
@@ -215,36 +231,52 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-L8-5sV" userLabel="Captain">
-                                                        <rect key="frame" x="46" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="93.5" y="41" width="25" height="25"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="v4G-ja-b5j">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="65" id="1Qf-ST-Gh3"/>
+                                                                    <constraint firstAttribute="width" constant="50" id="1Qf-ST-Gh3"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="3Vo-n7-jJi"/>
                                                                     <constraint firstAttribute="height" constant="45" id="9jF-8R-3oI">
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                                                     </constraint>
-                                                                    <constraint firstAttribute="height" constant="65" id="SGO-AM-dQq"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="DPL-P8-Xa6">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="width" constant="35" id="Phd-Kx-Opk"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="SGO-AM-dQq"/>
                                                                     <constraint firstAttribute="width" constant="45" id="SS5-OJ-whR">
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="height" constant="130" id="UGg-Hq-bLl"/>
+                                                                    <constraint firstAttribute="width" constant="35" id="eWu-D8-1Q9">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
                                                                     <constraint firstAttribute="width" constant="130" id="yoN-E8-M2u"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
+                                                                        <exclude reference="3Vo-n7-jJi"/>
                                                                         <exclude reference="9jF-8R-3oI"/>
+                                                                        <exclude reference="DPL-P8-Xa6"/>
+                                                                        <exclude reference="Phd-Kx-Opk"/>
                                                                         <exclude reference="SS5-OJ-whR"/>
                                                                         <exclude reference="UGg-Hq-bLl"/>
+                                                                        <exclude reference="eWu-D8-1Q9"/>
                                                                         <exclude reference="yoN-E8-M2u"/>
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=compact-widthClass=compact">
                                                                     <mask key="constraints">
                                                                         <exclude reference="1Qf-ST-Gh3"/>
-                                                                        <include reference="9jF-8R-3oI"/>
+                                                                        <exclude reference="3Vo-n7-jJi"/>
+                                                                        <exclude reference="9jF-8R-3oI"/>
+                                                                        <include reference="DPL-P8-Xa6"/>
+                                                                        <exclude reference="Phd-Kx-Opk"/>
                                                                         <exclude reference="SGO-AM-dQq"/>
-                                                                        <include reference="SS5-OJ-whR"/>
+                                                                        <exclude reference="SS5-OJ-whR"/>
+                                                                        <include reference="eWu-D8-1Q9"/>
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -259,34 +291,50 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VCb-pv-pDX" userLabel="Crew">
-                                                        <rect key="frame" x="92" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="93.5" y="82" width="25" height="25"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-EH-RPy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="0yr-vv-LbQ">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="height" constant="35" id="2V5-S2-5bv"/>
                                                                     <constraint firstAttribute="width" constant="130" id="Bc0-Ka-vJF"/>
                                                                     <constraint firstAttribute="width" constant="45" id="DI9-NW-kxJ">
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                                                     </constraint>
+                                                                    <constraint firstAttribute="width" constant="35" id="K9J-Xk-2CO">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="width" constant="35" id="ftl-j0-dnV"/>
                                                                     <constraint firstAttribute="height" constant="45" id="gBX-Tr-hxZ">
                                                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                                                     </constraint>
-                                                                    <constraint firstAttribute="width" constant="65" id="kJL-VY-OkP"/>
-                                                                    <constraint firstAttribute="height" constant="65" id="kin-8h-tOQ"/>
+                                                                    <constraint firstAttribute="width" constant="50" id="kJL-VY-OkP"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="kin-8h-tOQ"/>
                                                                     <constraint firstAttribute="height" constant="130" id="rVV-Rr-V5D"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
+                                                                        <exclude reference="0yr-vv-LbQ"/>
+                                                                        <exclude reference="2V5-S2-5bv"/>
                                                                         <exclude reference="Bc0-Ka-vJF"/>
                                                                         <exclude reference="DI9-NW-kxJ"/>
+                                                                        <exclude reference="K9J-Xk-2CO"/>
+                                                                        <exclude reference="ftl-j0-dnV"/>
                                                                         <exclude reference="gBX-Tr-hxZ"/>
                                                                         <exclude reference="rVV-Rr-V5D"/>
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=compact-widthClass=compact">
                                                                     <mask key="constraints">
-                                                                        <include reference="DI9-NW-kxJ"/>
-                                                                        <include reference="gBX-Tr-hxZ"/>
+                                                                        <include reference="0yr-vv-LbQ"/>
+                                                                        <exclude reference="2V5-S2-5bv"/>
+                                                                        <exclude reference="DI9-NW-kxJ"/>
+                                                                        <include reference="K9J-Xk-2CO"/>
+                                                                        <exclude reference="ftl-j0-dnV"/>
+                                                                        <exclude reference="gBX-Tr-hxZ"/>
                                                                         <exclude reference="kJL-VY-OkP"/>
                                                                         <exclude reference="kin-8h-tOQ"/>
                                                                     </mask>
@@ -306,7 +354,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="8Yn-NJ-WlD"/>
                                                     <constraint firstAttribute="height" constant="45" id="Whc-yW-org"/>
-                                                    <constraint firstAttribute="height" constant="65" id="gSc-XB-JYk"/>
+                                                    <constraint firstAttribute="height" constant="50" id="gSc-XB-JYk"/>
                                                     <constraint firstAttribute="height" constant="150" id="vHH-Z9-Aqn"/>
                                                 </constraints>
                                                 <variation key="default">
@@ -316,9 +364,9 @@
                                                         <exclude reference="vHH-Z9-Aqn"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=compact-widthClass=compact">
+                                                <variation key="heightClass=compact-widthClass=compact" axis="vertical">
                                                     <mask key="constraints">
-                                                        <include reference="8Yn-NJ-WlD"/>
+                                                        <exclude reference="8Yn-NJ-WlD"/>
                                                         <exclude reference="Whc-yW-org"/>
                                                         <exclude reference="gSc-XB-JYk"/>
                                                     </mask>
@@ -331,22 +379,22 @@
                                                 </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-o8-4dv" userLabel="All Dice">
-                                                <rect key="frame" x="32" y="46" width="571" height="66"/>
+                                                <rect key="frame" x="211.5" y="8" width="212" height="107"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-iR-bHN" userLabel="3 dice">
-                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="212" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQl-El-chT" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="Ba2-Ey-zmh">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="width" constant="100" id="JPu-6Z-Yu5"/>
                                                                     <constraint firstAttribute="height" constant="50" id="OHy-0t-HYT"/>
                                                                     <constraint firstAttribute="width" constant="50" id="USe-wr-Gxi"/>
                                                                     <constraint firstAttribute="height" constant="40" id="cql-cf-gU4">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="height" constant="100" id="hMb-Ep-SGZ"/>
                                                                 </constraints>
@@ -385,15 +433,15 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eke-dW-EcC" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                                <rect key="frame" x="269" y="0.0" width="33" height="33"/>
+                                                                <rect key="frame" x="86" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="DVm-uI-jQN">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="width" constant="50" id="Ey7-om-mSY"/>
                                                                     <constraint firstAttribute="width" constant="100" id="FtH-51-2E2"/>
                                                                     <constraint firstAttribute="width" constant="40" id="XnN-l4-Bbd">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="height" constant="100" id="nlL-PG-WXU"/>
                                                                     <constraint firstAttribute="height" constant="50" id="pjI-ia-11f"/>
@@ -433,17 +481,17 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-0J-wGz" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                                <rect key="frame" x="538" y="0.0" width="33" height="33"/>
+                                                                <rect key="frame" x="172" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="3b3-dT-E3P"/>
                                                                     <constraint firstAttribute="width" constant="50" id="5CZ-oJ-ooe"/>
                                                                     <constraint firstAttribute="height" constant="40" id="Wtv-xV-CnD">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="height" constant="50" id="hUt-7T-kw0"/>
                                                                     <constraint firstAttribute="width" constant="100" id="uxf-ib-wsb"/>
                                                                     <constraint firstAttribute="width" constant="40" id="znX-xh-PiA">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                 </constraints>
                                                                 <state key="normal" image="3"/>
@@ -483,20 +531,20 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yM-enw" userLabel="2 dice">
-                                                        <rect key="frame" x="40" y="33" width="491" height="33"/>
+                                                        <rect key="frame" x="40" y="67" width="132" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2su-Xd-HhX" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="dg4-7X-Wah"/>
                                                                     <constraint firstAttribute="width" constant="50" id="drc-cq-iVt"/>
                                                                     <constraint firstAttribute="height" constant="50" id="mcF-qK-C7f"/>
                                                                     <constraint firstAttribute="width" constant="40" id="xBg-cN-5gw">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="height" constant="100" id="ycu-vi-nWx"/>
                                                                     <constraint firstAttribute="height" constant="40" id="z91-Pl-fa2">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                 </constraints>
                                                                 <state key="normal" image="4"/>
@@ -534,15 +582,15 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGG-9x-UpY" customClass="DieButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                                <rect key="frame" x="458" y="0.0" width="33" height="33"/>
+                                                                <rect key="frame" x="92" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="1ge-qs-hG3">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="width" constant="50" id="VY3-UV-lUQ"/>
                                                                     <constraint firstAttribute="height" constant="100" id="miR-yz-TYc"/>
                                                                     <constraint firstAttribute="height" constant="40" id="otE-ie-0S9">
-                                                                        <variation key="heightClass=compact-widthClass=compact" constant="33"/>
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="width" constant="100" id="pEo-xT-yie"/>
                                                                     <constraint firstAttribute="height" constant="50" id="zgh-Tr-HQ4"/>
@@ -589,10 +637,9 @@
                                                     <constraint firstAttribute="trailing" secondItem="BE3-iR-bHN" secondAttribute="trailing" constant="16" id="EkC-JA-9wD"/>
                                                     <constraint firstItem="BE3-iR-bHN" firstAttribute="leading" secondItem="JBQ-o8-4dv" secondAttribute="leading" constant="16" id="K5q-ps-Bi6"/>
                                                     <constraint firstAttribute="trailing" secondItem="BE3-iR-bHN" secondAttribute="trailing" id="VJc-oQ-Ier"/>
-                                                    <constraint firstItem="nh9-yM-enw" firstAttribute="top" relation="lessThanOrEqual" secondItem="BE3-iR-bHN" secondAttribute="bottom" constant="50" id="bUn-US-08o"/>
                                                     <constraint firstAttribute="trailing" secondItem="nh9-yM-enw" secondAttribute="trailing" constant="40" id="eel-wv-XeP"/>
                                                     <constraint firstItem="BE3-iR-bHN" firstAttribute="leading" secondItem="JBQ-o8-4dv" secondAttribute="leading" id="fvY-5W-ig4"/>
-                                                    <constraint firstItem="nh9-yM-enw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BE3-iR-bHN" secondAttribute="bottom" constant="8" id="sn7-AS-Gg0"/>
+                                                    <constraint firstItem="nh9-yM-enw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BE3-iR-bHN" secondAttribute="bottom" constant="4" id="sn7-AS-Gg0"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -611,16 +658,15 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <mask key="constraints">
-                                                        <exclude reference="bUn-US-08o"/>
                                                         <exclude reference="sn7-AS-Gg0"/>
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="a32-9b-w6B" userLabel="Roll Indicators">
-                                                <rect key="frame" x="64" y="128" width="507" height="17"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a32-9b-w6B" userLabel="Roll Indicators">
+                                                <rect key="frame" x="423.5" y="8" width="211.5" height="107"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won - 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-co-wIp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="193" height="17"/>
+                                                        <rect key="frame" x="75.5" y="0.0" width="60.5" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -629,7 +675,7 @@
                                                         </variation>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-9A-ujk">
-                                                        <rect key="frame" x="193" y="4" width="41.5" height="13"/>
+                                                        <rect key="frame" x="99" y="25" width="13" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="07c-dj-Qkm"/>
                                                             <constraint firstAttribute="width" constant="100" id="O74-gV-WCT">
@@ -662,7 +708,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-nc-E80">
-                                                        <rect key="frame" x="234.5" y="4" width="41.5" height="13"/>
+                                                        <rect key="frame" x="99" y="44" width="13" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="LKg-BG-xQI"/>
                                                             <constraint firstAttribute="height" constant="25" id="R90-Zb-U0w"/>
@@ -691,7 +737,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyRollInd" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-TB-wQU">
-                                                        <rect key="frame" x="276" y="4" width="41.5" height="13"/>
+                                                        <rect key="frame" x="99" y="63" width="13" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="1Eu-TN-0g2"/>
                                                             <constraint firstAttribute="height" constant="50" id="83H-gi-S5s"/>
@@ -720,7 +766,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lost - 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukH-cB-HoQ">
-                                                        <rect key="frame" x="317.5" y="0.0" width="189.5" height="17"/>
+                                                        <rect key="frame" x="76" y="82" width="59.5" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -729,9 +775,16 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=compact-widthClass=compact" alignment="center" axis="vertical"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="a32-9b-w6B" secondAttribute="bottom" constant="8" id="5u2-lK-a11"/>
+                                            <constraint firstAttribute="bottom" secondItem="JBQ-o8-4dv" secondAttribute="bottom" constant="8" id="DZh-no-SJY"/>
+                                            <constraint firstAttribute="bottom" secondItem="Htw-qI-czM" secondAttribute="bottom" constant="8" id="Km2-q1-Qv9"/>
+                                            <constraint firstItem="Htw-qI-czM" firstAttribute="top" secondItem="Sa0-R5-FqS" secondAttribute="top" constant="8" id="Llt-Mu-jD1"/>
+                                            <constraint firstItem="JBQ-o8-4dv" firstAttribute="top" secondItem="Sa0-R5-FqS" secondAttribute="top" constant="8" id="NLR-Bs-5pu"/>
+                                            <constraint firstItem="a32-9b-w6B" firstAttribute="top" secondItem="Sa0-R5-FqS" secondAttribute="top" constant="8" id="QF8-47-vJn"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="JBQ-o8-4dv" secondAttribute="trailing" constant="16" id="fdm-Wg-qnx">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                                             </constraint>
@@ -743,28 +796,58 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="Km2-q1-Qv9"/>
+                                                <exclude reference="Llt-Mu-jD1"/>
+                                                <exclude reference="DZh-no-SJY"/>
+                                                <exclude reference="NLR-Bs-5pu"/>
+                                                <exclude reference="5u2-lK-a11"/>
+                                                <exclude reference="QF8-47-vJn"/>
                                                 <exclude reference="ib4-LM-i9P"/>
                                                 <exclude reference="uXp-RF-JFE"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=compact-widthClass=compact">
+                                        <variation key="heightClass=compact-widthClass=compact" axis="horizontal" distribution="fillEqually" spacing="0.0">
                                             <mask key="constraints">
-                                                <include reference="ib4-LM-i9P"/>
-                                                <include reference="uXp-RF-JFE"/>
+                                                <include reference="Km2-q1-Qv9"/>
+                                                <include reference="Llt-Mu-jD1"/>
+                                                <include reference="DZh-no-SJY"/>
+                                                <include reference="NLR-Bs-5pu"/>
+                                                <exclude reference="fdm-Wg-qnx"/>
+                                                <exclude reference="iJT-OT-ZrD"/>
+                                                <include reference="5u2-lK-a11"/>
+                                                <include reference="QF8-47-vJn"/>
+                                                <exclude reference="ib4-LM-i9P"/>
+                                                <exclude reference="uXp-RF-JFE"/>
                                             </mask>
                                         </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="STz-aq-OEZ" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="Ohc-g8-ESs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sa0-R5-FqS" secondAttribute="trailing" id="Okm-mX-Yvf"/>
                                     <constraint firstAttribute="trailing" secondItem="Sa0-R5-FqS" secondAttribute="trailing" id="WRs-hi-B75"/>
                                     <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="ZVf-H3-wBW"/>
                                     <constraint firstAttribute="trailing" secondItem="STz-aq-OEZ" secondAttribute="trailing" id="ek4-io-0hJ"/>
                                     <constraint firstItem="STz-aq-OEZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="top" id="jp8-MN-ZSp"/>
+                                    <constraint firstItem="Sa0-R5-FqS" firstAttribute="leading" secondItem="cNU-70-yUy" secondAttribute="leading" id="lmL-h8-psQ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Okm-mX-Yvf"/>
+                                        <exclude reference="lmL-h8-psQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Okm-mX-Yvf"/>
+                                        <exclude reference="WRs-hi-B75"/>
+                                        <exclude reference="ZVf-H3-wBW"/>
+                                        <include reference="lmL-h8-psQ"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnc-kx-ykZ" customClass="GameButton" customModule="MessagesExtension" customModuleProvider="target">
-                                <rect key="frame" x="16" y="247" width="635" height="40"/>
+                                <rect key="frame" x="16" y="225" width="635" height="142"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="boH-dR-btZ"/>
@@ -787,7 +870,7 @@
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="iUk-1t-xDL"/>
-                                        <include reference="k0S-yr-byG"/>
+                                        <exclude reference="k0S-yr-byG"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -807,10 +890,11 @@
                             <constraint firstItem="cNU-70-yUy" firstAttribute="top" secondItem="6qN-7c-Xgp" secondAttribute="bottom" constant="16" id="9Rv-fB-rn5"/>
                             <constraint firstAttribute="trailing" secondItem="cNU-70-yUy" secondAttribute="trailing" constant="16" id="C7c-wJ-bfl"/>
                             <constraint firstAttribute="trailing" secondItem="Bnc-kx-ykZ" secondAttribute="trailing" constant="16" id="Ix2-Lr-eRD"/>
-                            <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="bottom" constant="20" id="Jve-3X-y3o"/>
+                            <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="bottom" constant="8" id="Jve-3X-y3o"/>
                             <constraint firstItem="cNU-70-yUy" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="KfV-O8-W1O"/>
-                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="20" id="Qev-9D-LrW"/>
+                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="8" id="Qev-9D-LrW"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="leading" secondItem="ntL-dN-dbV" secondAttribute="leading" constant="16" id="RRk-cq-UxY"/>
+                            <constraint firstItem="4oD-qG-Ycg" firstAttribute="top" secondItem="Bnc-kx-ykZ" secondAttribute="bottom" constant="8" id="WN8-ce-xab"/>
                             <constraint firstItem="Bnc-kx-ykZ" firstAttribute="top" secondItem="cNU-70-yUy" secondAttribute="bottom" constant="8" id="ZxA-Nh-yTx">
                                 <variation key="heightClass=compact-widthClass=compact" constant="8"/>
                             </constraint>
@@ -819,6 +903,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ZxA-Nh-yTx"/>
+                                <exclude reference="WN8-ce-xab"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -826,6 +911,7 @@
                                 <exclude reference="Jve-3X-y3o"/>
                                 <include reference="ZxA-Nh-yTx"/>
                                 <exclude reference="Qev-9D-LrW"/>
+                                <include reference="WN8-ce-xab"/>
                             </mask>
                         </variation>
                     </view>
@@ -943,7 +1029,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship, captain, and crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiE-Ce-bbF">
-                                                    <rect key="frame" x="8" y="9" width="552" height="26.5"/>
+                                                    <rect key="frame" x="8" y="9" width="359" height="26.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -965,7 +1051,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mtq-c2-hb1" userLabel="Dice and Label">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="70"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get 3 throws, with 5 dice." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfK-5Y-QTx">
                                                             <rect key="frame" x="0.0" y="0.0" width="168" height="16"/>
@@ -974,22 +1060,22 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zj2-vc-0Mr" userLabel="Dice">
-                                                            <rect key="frame" x="0.0" y="20" width="552" height="50"/>
+                                                            <rect key="frame" x="0.0" y="20" width="359" height="50"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-7t-AW4">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="110.5" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-mV-rUx">
-                                                                    <rect key="frame" x="110.5" y="0.0" width="110.5" height="50"/>
+                                                                    <rect key="frame" x="72" y="0.0" width="71.5" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="JZ1-yO-DfK">
-                                                                    <rect key="frame" x="221" y="0.0" width="110" height="50"/>
+                                                                    <rect key="frame" x="143.5" y="0.0" width="72" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="Fhc-CR-Ic9">
-                                                                    <rect key="frame" x="331" y="0.0" width="110.5" height="50"/>
+                                                                    <rect key="frame" x="215.5" y="0.0" width="71.5" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZAK-sI-QyW">
-                                                                    <rect key="frame" x="441.5" y="0.0" width="110.5" height="50"/>
+                                                                    <rect key="frame" x="287" y="0.0" width="72" height="50"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -1018,7 +1104,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Kw-b5-LFN" userLabel="ShipCapCrewandLabel">
-                                                    <rect key="frame" x="8" y="7.5" width="552" height="85"/>
+                                                    <rect key="frame" x="8" y="7.5" width="359" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need to roll a ship (6), captain (5), and crew (4)." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAv-ce-UPt">
                                                             <rect key="frame" x="0.0" y="0.0" width="294.5" height="31"/>
@@ -1027,16 +1113,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GHS-ES-l4C" userLabel="ShipCapCrew">
-                                                            <rect key="frame" x="0.0" y="35" width="552" height="50"/>
+                                                            <rect key="frame" x="0.0" y="35" width="359" height="50"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="bO9-go-UWz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="captain" translatesAutoresizingMaskIntoConstraints="NO" id="Yii-Dt-3Nc">
-                                                                    <rect key="frame" x="184" y="0.0" width="184" height="50"/>
+                                                                    <rect key="frame" x="119.5" y="0.0" width="120" height="50"/>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crew" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-Zo-C7v">
-                                                                    <rect key="frame" x="368" y="0.0" width="184" height="50"/>
+                                                                    <rect key="frame" x="239.5" y="0.0" width="119.5" height="50"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -1065,7 +1151,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After collecting the ship, captain, and crew the remaining 2 dice make up your score." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws1-Rw-v5V">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="75"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="75"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1089,7 +1175,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51W-9M-OkU">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="75"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="75"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Tap a die to &quot;freeze&quot; it when you roll the number you need.">
                                                             <attributes>
@@ -1133,7 +1219,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlG-sp-ytu">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="75"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="75"/>
                                                     <string key="text">For instance: if you roll 6-4-6-3-2, you would only get to keep the 6. Because you didn't roll a 5, the 4 has to be rolled again.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -1157,7 +1243,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you score on your final throw, the game will tally it automatically. No need to tap anything!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLS-qi-Fme">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="75"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="75"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1180,7 +1266,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is the first over 15 points, loser always starts the next game." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdC-g0-8Vd">
-                                                    <rect key="frame" x="8" y="0.0" width="552" height="75"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="75"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
