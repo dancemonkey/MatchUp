@@ -27,7 +27,9 @@ class CompactVC: UIViewController {
   
   @IBAction func playPressed(sender: UIButton) {
     Utils.animateButton(sender, withTiming: 0.05) {
-      self.delegate?.expand(toPresentationStyle: .expanded, tutorial: self.tutorialSwitch.isOn)
+      DispatchQueue.main.async {
+        self.delegate?.expand(toPresentationStyle: .expanded, tutorial: self.tutorialSwitch.isOn)
+      }
     }
   }
   

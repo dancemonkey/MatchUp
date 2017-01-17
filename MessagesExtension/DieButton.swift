@@ -35,12 +35,16 @@ class DieButton: UIButton {
   func animateRoll(forTime time: Double, leftoverTime: Double, closure: @escaping () -> ()) {
     let randomFace = UIImage(named: "\(Die(sides: 6).roll())")
     if leftoverTime <= time {
-      changeFace(toImage: randomFace!)
-      Utils.delay(0.01, closure: {
-        self.animateRoll(forTime: time, leftoverTime: leftoverTime+0.04, closure: closure)
-      })
+      DispatchQueue.main.async {
+        self.changeFace(toImage: randomFace!)
+        Utils.delay(0.01, closure: {
+          self.animateRoll(forTime: time, leftoverTime: leftoverTime+0.04, closure: closure)
+        })
+      }
     } else {
-      closure()
+      DispatchQueue.main.async {
+        closure()
+      }
     }
   }
 

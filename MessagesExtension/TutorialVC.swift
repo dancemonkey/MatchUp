@@ -28,9 +28,11 @@ class TutorialVC: UIViewController, UITableViewDelegate {
       UIView.animate(withDuration: 0.5, animations: {
         self.view.alpha = 0.0
       }, completion: { complete in
-        self.willMove(toParentViewController: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParentViewController()
+        DispatchQueue.main.async {
+          self.willMove(toParentViewController: nil)
+          self.view.removeFromSuperview()
+          self.removeFromParentViewController()
+        }
       })
     })
   }
